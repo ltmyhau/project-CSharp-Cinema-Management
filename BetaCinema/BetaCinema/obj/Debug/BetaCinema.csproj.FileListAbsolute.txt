@@ -1,0 +1,16 @@
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.exe.config
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.exe
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.pdb
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.AssemblyReference.cache
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMain.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.Properties.Resources.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.GenerateResource.cache
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.CoreCompileInputs.cache
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.exe
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.pdb
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovie.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fLogin.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieDetail.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.InsertImage.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieTrailer.resources
+D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddMovie.resources
