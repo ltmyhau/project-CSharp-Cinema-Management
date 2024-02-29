@@ -14,3 +14,19 @@ D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema
 D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.InsertImage.resources
 D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieTrailer.resources
 D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddMovie.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.exe.config
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.exe
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Debug\BetaCinema.pdb
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.AssemblyReference.cache
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fLogin.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMain.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddMovie.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovie.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieDetail.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieTrailer.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.InsertImage.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.Properties.Resources.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.GenerateResource.cache
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.CoreCompileInputs.cache
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.exe
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.pdb

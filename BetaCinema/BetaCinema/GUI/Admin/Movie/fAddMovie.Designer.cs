@@ -101,7 +101,7 @@
             this.btnAdd.Location = new System.Drawing.Point(572, 386);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(183, 39);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -117,7 +117,7 @@
             this.btnUpLoadImg.Location = new System.Drawing.Point(12, 326);
             this.btnUpLoadImg.Name = "btnUpLoadImg";
             this.btnUpLoadImg.Size = new System.Drawing.Size(158, 37);
-            this.btnUpLoadImg.TabIndex = 4;
+            this.btnUpLoadImg.TabIndex = 10;
             this.btnUpLoadImg.Text = "Chọn ảnh";
             this.btnUpLoadImg.UseVisualStyleBackColor = false;
             // 
@@ -146,10 +146,10 @@
             this.txtMovieID.BackColor = System.Drawing.Color.White;
             this.txtMovieID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMovieID.Enabled = false;
-            this.txtMovieID.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMovieID.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieID.Location = new System.Drawing.Point(7, 29);
             this.txtMovieID.Name = "txtMovieID";
-            this.txtMovieID.Size = new System.Drawing.Size(160, 24);
+            this.txtMovieID.Size = new System.Drawing.Size(160, 30);
             this.txtMovieID.TabIndex = 2;
             this.txtMovieID.Text = "P000";
             // 
@@ -186,7 +186,7 @@
             this.panel4.Location = new System.Drawing.Point(375, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(180, 63);
-            this.panel4.TabIndex = 9;
+            this.panel4.TabIndex = 2;
             // 
             // cboMovieRatingSystem
             // 
@@ -195,7 +195,7 @@
             this.cboMovieRatingSystem.Location = new System.Drawing.Point(7, 29);
             this.cboMovieRatingSystem.Name = "cboMovieRatingSystem";
             this.cboMovieRatingSystem.Size = new System.Drawing.Size(170, 33);
-            this.cboMovieRatingSystem.TabIndex = 3;
+            this.cboMovieRatingSystem.TabIndex = 2;
             // 
             // label2
             // 
@@ -214,7 +214,7 @@
             this.panel11.Location = new System.Drawing.Point(3, 135);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(273, 63);
-            this.panel11.TabIndex = 8;
+            this.panel11.TabIndex = 6;
             // 
             // txtDirector
             // 
@@ -224,7 +224,7 @@
             this.txtDirector.Location = new System.Drawing.Point(7, 29);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(263, 31);
-            this.txtDirector.TabIndex = 5;
+            this.txtDirector.TabIndex = 6;
             // 
             // label9
             // 
@@ -243,7 +243,7 @@
             this.panel13.Location = new System.Drawing.Point(285, 135);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(273, 63);
-            this.panel13.TabIndex = 4;
+            this.panel13.TabIndex = 7;
             // 
             // txtTrailerURL
             // 
@@ -253,7 +253,7 @@
             this.txtTrailerURL.Location = new System.Drawing.Point(7, 29);
             this.txtTrailerURL.Name = "txtTrailerURL";
             this.txtTrailerURL.Size = new System.Drawing.Size(263, 31);
-            this.txtTrailerURL.TabIndex = 2;
+            this.txtTrailerURL.TabIndex = 7;
             // 
             // label11
             // 
@@ -272,7 +272,7 @@
             this.panel7.Location = new System.Drawing.Point(375, 201);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(180, 160);
-            this.panel7.TabIndex = 5;
+            this.panel7.TabIndex = 9;
             // 
             // clbGenre
             // 
@@ -282,7 +282,7 @@
             this.clbGenre.Location = new System.Drawing.Point(7, 29);
             this.clbGenre.Name = "clbGenre";
             this.clbGenre.Size = new System.Drawing.Size(170, 130);
-            this.clbGenre.TabIndex = 3;
+            this.clbGenre.TabIndex = 9;
             // 
             // label5
             // 
@@ -301,7 +301,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(366, 63);
-            this.panel3.TabIndex = 4;
+            this.panel3.TabIndex = 1;
             // 
             // txtMovieName
             // 
@@ -311,7 +311,7 @@
             this.txtMovieName.Location = new System.Drawing.Point(7, 29);
             this.txtMovieName.Name = "txtMovieName";
             this.txtMovieName.Size = new System.Drawing.Size(356, 31);
-            this.txtMovieName.TabIndex = 2;
+            this.txtMovieName.TabIndex = 1;
             // 
             // label1
             // 
@@ -330,7 +330,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 201);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(366, 160);
-            this.panel6.TabIndex = 7;
+            this.panel6.TabIndex = 8;
             // 
             // txtSynopsis
             // 
@@ -341,7 +341,7 @@
             this.txtSynopsis.Multiline = true;
             this.txtSynopsis.Name = "txtSynopsis";
             this.txtSynopsis.Size = new System.Drawing.Size(356, 128);
-            this.txtSynopsis.TabIndex = 7;
+            this.txtSynopsis.TabIndex = 8;
             // 
             // label4
             // 
@@ -360,7 +360,7 @@
             this.panel10.Location = new System.Drawing.Point(375, 69);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(180, 63);
-            this.panel10.TabIndex = 4;
+            this.panel10.TabIndex = 5;
             // 
             // dtpReleaseDate
             // 
@@ -370,7 +370,7 @@
             this.dtpReleaseDate.Location = new System.Drawing.Point(7, 29);
             this.dtpReleaseDate.Name = "dtpReleaseDate";
             this.dtpReleaseDate.Size = new System.Drawing.Size(170, 31);
-            this.dtpReleaseDate.TabIndex = 3;
+            this.dtpReleaseDate.TabIndex = 5;
             // 
             // label8
             // 
@@ -389,7 +389,7 @@
             this.panel9.Location = new System.Drawing.Point(189, 69);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(180, 63);
-            this.panel9.TabIndex = 3;
+            this.panel9.TabIndex = 4;
             // 
             // txtDuration
             // 
@@ -399,7 +399,7 @@
             this.txtDuration.Location = new System.Drawing.Point(7, 29);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(170, 31);
-            this.txtDuration.TabIndex = 3;
+            this.txtDuration.TabIndex = 4;
             // 
             // label7
             // 
@@ -418,7 +418,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 69);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(180, 63);
-            this.panel8.TabIndex = 2;
+            this.panel8.TabIndex = 3;
             // 
             // txtCountry
             // 
@@ -428,7 +428,7 @@
             this.txtCountry.Location = new System.Drawing.Point(7, 29);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(170, 31);
-            this.txtCountry.TabIndex = 2;
+            this.txtCountry.TabIndex = 3;
             // 
             // label6
             // 
