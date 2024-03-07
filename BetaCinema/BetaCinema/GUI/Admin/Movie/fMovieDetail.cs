@@ -20,25 +20,7 @@ namespace BetaCinema
             InitializeComponent();
         }
 
-        private void fMovieDetail_Load(object sender, EventArgs e)
-        {
-            AddUnderlineToTextBox(txtMovieName);
-            AddUnderlineToTextBox(txtCountry);
-            AddUnderlineToTextBox(txtDuration);
-            AddUnderlineToTextBox(txtReleaseDate);
-            AddUnderlineToTextBox(txtDirector);
-            AddUnderlineToTextBox(txtGenre);
-
-            if (string.IsNullOrWhiteSpace(trailerURL))
-            {
-                btnTrailer.Visible = false;
-            }
-            else
-            {
-                btnTrailer.Enabled = true;
-            }
-        }
-
+        #region Methods
         private void AddUnderlineToTextBox(TextBox textBox)
         {
             Panel underlinePanel = new Panel();
@@ -59,43 +41,52 @@ namespace BetaCinema
             txtSynopsis.Text = selectedRow.Cells["MoTa"].Value?.ToString();
             txtReleaseDate.Text = DateTime.Parse(selectedRow.Cells["NgayKhoiChieu"].Value?.ToString()).ToString("dd/MM/yyyy");
             trailerURL = selectedRow.Cells["Trailer"].Value?.ToString();
+
             if (selectedRow.Cells["BieuTuongPL"].Value != null)
             {
-                try
+                byte[] bieuTuongPL = (byte[])selectedRow.Cells["BieuTuongPL"].Value;
+                using (MemoryStream ms = new MemoryStream(bieuTuongPL))
                 {
-                    byte[] bieuTuongPL = (byte[])selectedRow.Cells["BieuTuongPL"].Value;
-                    using (MemoryStream ms = new MemoryStream(bieuTuongPL))
-                    {
-                        picRated.Image = Image.FromStream(ms);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Không thể hiển thị biểu tượng phân loại phim: " + ex.Message);
+                    picRated.Image = Image.FromStream(ms);
                 }
             }
             else
             {
                 picRated.Image = null;
             }
+
             if (selectedRow.Cells["Poster"].Value != null)
             {
-                try
+                byte[] posterData = (byte[])selectedRow.Cells["Poster"].Value;
+                using (MemoryStream ms = new MemoryStream(posterData))
                 {
-                    byte[] posterData = (byte[])selectedRow.Cells["Poster"].Value;
-                    using (MemoryStream ms = new MemoryStream(posterData))
-                    {
-                        picPoster.Image = Image.FromStream(ms);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Không thể hiển thị hình ảnh poster: " + ex.Message);
+                    picPoster.Image = Image.FromStream(ms);
                 }
             }
             else
             {
                 picPoster.Image = Properties.Resources.poster;
+            }
+        }
+        #endregion
+
+        #region Events
+        private void fMovieDetail_Load(object sender, EventArgs e)
+        {
+            AddUnderlineToTextBox(txtMovieName);
+            AddUnderlineToTextBox(txtCountry);
+            AddUnderlineToTextBox(txtDuration);
+            AddUnderlineToTextBox(txtReleaseDate);
+            AddUnderlineToTextBox(txtDirector);
+            AddUnderlineToTextBox(txtGenre);
+
+            if (string.IsNullOrWhiteSpace(trailerURL))
+            {
+                btnTrailer.Visible = false;
+            }
+            else
+            {
+                btnTrailer.Enabled = true;
             }
         }
 
@@ -114,5 +105,6 @@ namespace BetaCinema
         {
             Cursor = Cursors.Default;
         }
+        #endregion
     }
 }

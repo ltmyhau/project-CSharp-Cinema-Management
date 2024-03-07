@@ -78,6 +78,7 @@
             this.dgvMovie.RowTemplate.ReadOnly = true;
             this.dgvMovie.Size = new System.Drawing.Size(860, 480);
             this.dgvMovie.TabIndex = 0;
+            this.dgvMovie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovie_CellContentClick);
             this.dgvMovie.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovie_CellDoubleClick);
             // 
             // fMovie

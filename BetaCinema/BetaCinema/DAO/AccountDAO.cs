@@ -22,17 +22,9 @@ namespace BetaCinema.DAO
 
         public bool Login(string userName, string passWord)
         {
-            //string query = "SELECT * FROM TaiKhoan WHERE UserName = N'" + userName + "' AND PassWord = N'" + passWord + "'";
-            //DataTable result = DataProvider.Instance.ExecuteQuery(query);
-            //return result.Rows.Count > 0;
-
             string query = "SELECT * FROM TaiKhoan WHERE UserName = @userName AND PassWord = @passWord";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
             return result.Rows.Count > 0;
-
-            //string query = "EXEC sp_Login @UserName , @PassWord";
-            //DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
-            //return result.Rows.Count > 0;
         }
     }
 }

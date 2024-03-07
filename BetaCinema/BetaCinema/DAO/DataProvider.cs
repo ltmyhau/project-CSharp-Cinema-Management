@@ -38,7 +38,6 @@ namespace BetaCinema.DAO
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-
                         }
                     }
                 }
@@ -66,7 +65,6 @@ namespace BetaCinema.DAO
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-
                         }
                     }
                 }
@@ -93,7 +91,6 @@ namespace BetaCinema.DAO
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-
                         }
                     }
                 }

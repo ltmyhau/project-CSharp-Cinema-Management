@@ -20,12 +20,15 @@ namespace BetaCinema
             mdiProp();
         }
 
+        #region Methods
         private void mdiProp()
         {
             this.SetBevel(false);
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);
         }
+        #endregion
 
+        #region Events
         private void button_MouseEnter(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -129,5 +132,6 @@ namespace BetaCinema
         {
             fInsertImage = null;
         }
+        #endregion
     }
 }

@@ -49,10 +49,12 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\GenreDAO.cs" />
+    <Compile Include="DAO\GenreMovieDAO.cs" />
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\MovieDetailDAO.cs" />
     <Compile Include="DAO\MovieRatingSystemDAO.cs" />
     <Compile Include="DTO\Genre.cs" />
+    <Compile Include="DTO\GenreMovie.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="DTO\MovieDetail.cs" />
     <Compile Include="DTO\MovieRatingSystem.cs" />
@@ -68,11 +70,11 @@
     <Compile Include="GUI\Admin\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\Movie\fAddMovie.cs">
+    <Compile Include="GUI\Admin\Movie\fAddEditMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\Movie\fAddMovie.Designer.cs">
-      <DependentUpon>fAddMovie.cs</DependentUpon>
+    <Compile Include="GUI\Admin\Movie\fAddEditMovie.Designer.cs">
+      <DependentUpon>fAddEditMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Movie\fMovie.cs">
       <SubType>Form</SubType>
@@ -107,8 +109,8 @@
     <EmbeddedResource Include="GUI\Admin\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\Movie\fAddMovie.resx">
-      <DependentUpon>fAddMovie.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Admin\Movie\fAddEditMovie.resx">
+      <DependentUpon>fAddEditMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Movie\fMovie.resx">
       <DependentUpon>fMovie.cs</DependentUpon>
@@ -168,6 +170,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

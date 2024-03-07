@@ -32,5 +32,18 @@ namespace BetaCinema.DAO
             }
             return list;
         }
+
+        public List<Genre> GetListGenreByGenreID(string maTL)
+        {
+            List<Genre> list = new List<Genre>();
+            string query = string.Format("SELECT * FROM TheLoai WHERE MaTL = '{0}'", maTL);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Genre genre = new Genre(item);
+                list.Add(genre);
+            }
+            return list;
+        }
     }
 }

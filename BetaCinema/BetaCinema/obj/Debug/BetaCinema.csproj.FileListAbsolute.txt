@@ -20,7 +20,6 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.AssemblyReference.cache
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fLogin.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMain.resources
-C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddMovie.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovie.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieDetail.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fMovieTrailer.resources
@@ -30,3 +29,4 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.CoreCompileInputs.cache
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.exe
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.pdb
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddEditMovie.resources

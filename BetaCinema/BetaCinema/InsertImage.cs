@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -44,9 +46,13 @@ namespace BetaCinema
             {
                 byte[] hinhAnh = null;
                 string ma = txtID.Text;
-                FileStream streem = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(streem);
-                hinhAnh = br.ReadBytes((int)streem.Length);
+                using (FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read))
+                {
+                    using (BinaryReader reader = new BinaryReader(stream))
+                    {
+                        hinhAnh = reader.ReadBytes((int)stream.Length);
+                    }
+                }
                 string query = "UPDATE PhanLoai SET BieuTuongPL = @hinhAnh WHERE MaPL = @ma";
                 //string query = "UPDATE Phim SET Poster = @hinhAnh WHERE MaPhim = @ma";
                 int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hinhAnh, ma });

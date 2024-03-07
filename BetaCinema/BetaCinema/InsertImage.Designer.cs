@@ -85,10 +85,10 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(58, 161);
+            this.webBrowser1.Location = new System.Drawing.Point(58, 493);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(691, 355);
+            this.webBrowser1.Size = new System.Drawing.Size(461, 253);
             this.webBrowser1.TabIndex = 7;
             // 
             // button1
