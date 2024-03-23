@@ -137,7 +137,8 @@ namespace BetaCinema
 
             if (e.ColumnIndex == dgvMovie.Columns["DeleteColumn"].Index)
             {
-                if (MessageBox.Show("Bạn muốn xóa phim này? Tất cả thông tin liên quan cũng sẽ bị xóa.\r\n\r\nBạn có thực sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("Bạn muốn xóa phim này? Tất cả thông tin liên quan cũng sẽ bị xóa.\r\n\r\nBạn có thực sự muốn xóa?", "Thông báo", 
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     string maPhim = dgvMovie.Rows[e.RowIndex].Cells["MaPhim"].Value.ToString();
                     if (MovieDAO.Instance.DeleteMovie(maPhim))

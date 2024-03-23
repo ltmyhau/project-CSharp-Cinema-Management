@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMovieDetail));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTrailer = new System.Windows.Forms.Button();
+            this.picPoster = new System.Windows.Forms.PictureBox();
+            this.picRated = new System.Windows.Forms.PictureBox();
             this.lblMovieID = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -53,10 +56,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtMovieName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTrailer = new System.Windows.Forms.Button();
-            this.picPoster = new System.Windows.Forms.PictureBox();
-            this.picRated = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRated)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -65,8 +67,6 @@
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picRated)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,6 +80,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 429);
             this.panel1.TabIndex = 0;
+            // 
+            // btnTrailer
+            // 
+            this.btnTrailer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTrailer.BackColor = System.Drawing.Color.Red;
+            this.btnTrailer.FlatAppearance.BorderSize = 0;
+            this.btnTrailer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrailer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrailer.ForeColor = System.Drawing.Color.White;
+            this.btnTrailer.Image = ((System.Drawing.Image)(resources.GetObject("btnTrailer.Image")));
+            this.btnTrailer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrailer.Location = new System.Drawing.Point(12, 297);
+            this.btnTrailer.Name = "btnTrailer";
+            this.btnTrailer.Size = new System.Drawing.Size(158, 37);
+            this.btnTrailer.TabIndex = 0;
+            this.btnTrailer.Text = "Trailer";
+            this.btnTrailer.UseVisualStyleBackColor = false;
+            this.btnTrailer.Click += new System.EventHandler(this.btnTrailer_Click);
+            this.btnTrailer.MouseEnter += new System.EventHandler(this.btnTrailer_MouseEnter);
+            this.btnTrailer.MouseLeave += new System.EventHandler(this.btnTrailer_MouseLeave);
+            // 
+            // picPoster
+            // 
+            this.picPoster.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picPoster.BackColor = System.Drawing.SystemColors.Control;
+            this.picPoster.Location = new System.Drawing.Point(12, 43);
+            this.picPoster.Name = "picPoster";
+            this.picPoster.Size = new System.Drawing.Size(158, 248);
+            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPoster.TabIndex = 0;
+            this.picPoster.TabStop = false;
+            // 
+            // picRated
+            // 
+            this.picRated.Location = new System.Drawing.Point(111, 11);
+            this.picRated.Name = "picRated";
+            this.picRated.Size = new System.Drawing.Size(59, 26);
+            this.picRated.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRated.TabIndex = 4;
+            this.picRated.TabStop = false;
             // 
             // lblMovieID
             // 
@@ -316,46 +356,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Tên phim";
             // 
-            // btnTrailer
-            // 
-            this.btnTrailer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTrailer.BackColor = System.Drawing.Color.Red;
-            this.btnTrailer.FlatAppearance.BorderSize = 0;
-            this.btnTrailer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrailer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrailer.ForeColor = System.Drawing.Color.White;
-            this.btnTrailer.Image = ((System.Drawing.Image)(resources.GetObject("btnTrailer.Image")));
-            this.btnTrailer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrailer.Location = new System.Drawing.Point(12, 297);
-            this.btnTrailer.Name = "btnTrailer";
-            this.btnTrailer.Size = new System.Drawing.Size(158, 37);
-            this.btnTrailer.TabIndex = 0;
-            this.btnTrailer.Text = "Trailer";
-            this.btnTrailer.UseVisualStyleBackColor = false;
-            this.btnTrailer.Click += new System.EventHandler(this.btnTrailer_Click);
-            this.btnTrailer.MouseEnter += new System.EventHandler(this.btnTrailer_MouseEnter);
-            this.btnTrailer.MouseLeave += new System.EventHandler(this.btnTrailer_MouseLeave);
-            // 
-            // picPoster
-            // 
-            this.picPoster.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picPoster.BackColor = System.Drawing.SystemColors.Control;
-            this.picPoster.Location = new System.Drawing.Point(12, 43);
-            this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(158, 248);
-            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPoster.TabIndex = 0;
-            this.picPoster.TabStop = false;
-            // 
-            // picRated
-            // 
-            this.picRated.Location = new System.Drawing.Point(111, 11);
-            this.picRated.Name = "picRated";
-            this.picRated.Size = new System.Drawing.Size(59, 26);
-            this.picRated.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRated.TabIndex = 4;
-            this.picRated.TabStop = false;
-            // 
             // fMovieDetail
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -370,6 +370,8 @@
             this.Load += new System.EventHandler(this.fMovieDetail_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRated)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -385,8 +387,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picRated)).EndInit();
             this.ResumeLayout(false);
 
         }

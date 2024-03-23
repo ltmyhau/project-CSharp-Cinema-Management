@@ -23,7 +23,7 @@ namespace BetaCinema.DAO
         public List<MovieDetail> GetListMoiveDetail()
         {
             List<MovieDetail> list = new List<MovieDetail>();
-            string query = "SELECT p.MaPhim, p.TenPhim, p.MaPL, pl.BieuTuongPL, p.DaoDien, p.QuocGia, p.ThoiLuong, p.NgayKhoiChieu, p.MoTa, p.Poster, p.Trailer,\r\n(SELECT STRING_AGG(tl.TenTheLoai, ', ')\r\nFROM TheLoai_Phim AS tlp INNER JOIN TheLoai AS tl ON tlp.MaTL = tl.MaTL\r\nWHERE tlp.MaPhim = p.MaPhim) AS 'TheLoaiPhim'\r\nFROM Phim AS p LEFT JOIN PhanLoai AS pl ON p.MaPL = pl.MaPL";
+            string query = "SELECT * FROM DanhSachPhim";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

@@ -30,3 +30,5 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.exe
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.pdb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Movie.fAddEditMovie.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Showtime.fShowtimes.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Showtimes.fShowtimesDetail.resources

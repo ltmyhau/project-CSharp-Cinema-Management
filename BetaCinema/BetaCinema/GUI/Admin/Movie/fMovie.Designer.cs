@@ -72,6 +72,7 @@
             this.dgvMovie.GridColor = System.Drawing.Color.White;
             this.dgvMovie.Location = new System.Drawing.Point(40, 110);
             this.dgvMovie.Name = "dgvMovie";
+            this.dgvMovie.ReadOnly = true;
             this.dgvMovie.RowHeadersVisible = false;
             this.dgvMovie.RowHeadersWidth = 51;
             this.dgvMovie.RowTemplate.Height = 24;

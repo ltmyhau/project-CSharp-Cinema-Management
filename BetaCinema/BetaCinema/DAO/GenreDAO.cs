@@ -22,7 +22,7 @@ namespace BetaCinema.DAO
 
         public List<Genre> GetListGenre()
         {
-            List<Genre> list = new List<Genre> ();
+            List<Genre> list = new List<Genre>();
             string query = "SELECT * FROM TheLoai";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)

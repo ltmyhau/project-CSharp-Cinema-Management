@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BetaCinema.GUI.Admin.Showtime;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,21 @@ namespace BetaCinema
     public partial class fMain : Form
     {
         fMovie fMovie;
+        fShowtimes fShowtime;
         InsertImage fInsertImage;
         public fMain()
         {
             InitializeComponent();
             mdiProp();
+
+            foreach (Control control in flpSidebarTransition.Controls)
+            {
+                if (control is Button)
+                {
+                    Button btn = (Button)control;
+                    btn.Click += Button_Click;
+                }
+            }
         }
 
         #region Methods
@@ -26,21 +37,29 @@ namespace BetaCinema
             this.SetBevel(false);
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);
         }
+
+        private void ResizeSidebarButtons(int width)
+        {
+            btnMovie.Width = width;
+            btnShowTime.Width = width;
+            btnProduct.Width = width;
+            btnLogout.Width = width;
+        }
         #endregion
 
         #region Events
-        private void button_MouseEnter(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             button.BackColor = Color.FromArgb(86, 144, 214);
-            Cursor = Cursors.Hand;
-        }
-
-        private void button_MouseLeave(object sender, EventArgs e)
-        {
-            Button button = sender as Button;
-            button.BackColor = Color.FromArgb(1, 81, 152);
-            Cursor = Cursors.Default;
+            foreach (Control control in flpSidebarTransition.Controls)
+            {
+                if (control is Button && control != button)
+                {
+                    Button btn = (Button)control;
+                    btn.BackColor = Color.FromArgb(1, 81, 152);
+                }
+            }
         }
 
         private void picMenu_MouseEnter(object sender, EventArgs e)
@@ -63,11 +82,7 @@ namespace BetaCinema
                 {
                     sidebarExpand = false;
                     tmrSidebarTransition.Stop();
-
-                    btnMovie.Width = flpSidebarTransition.Width;
-                    btnShowTime.Width = flpSidebarTransition.Width;
-                    btnProduct.Width = flpSidebarTransition.Width;
-                    btnLogout.Width = flpSidebarTransition.Width;
+                    ResizeSidebarButtons(flpSidebarTransition.Width);
                 }
             }
             else
@@ -77,11 +92,7 @@ namespace BetaCinema
                 {
                     sidebarExpand = true;
                     tmrSidebarTransition.Stop();
-
-                    btnMovie.Width = flpSidebarTransition.Width;
-                    btnShowTime.Width = flpSidebarTransition.Width;
-                    btnProduct.Width = flpSidebarTransition.Width;
-                    btnLogout.Width = flpSidebarTransition.Width;
+                    ResizeSidebarButtons(flpSidebarTransition.Width);
                 }
             }
         }
@@ -113,6 +124,27 @@ namespace BetaCinema
         }
 
         private void btnShowTime_Click(object sender, EventArgs e)
+        {
+            if (fShowtime == null)
+            {
+                fShowtime = new fShowtimes();
+                fShowtime.FormClosed += fShowtime_FormClosed;
+                fShowtime.MdiParent = this;
+                fShowtime.Dock = DockStyle.Fill;
+                fShowtime.Show();
+            }
+            else
+            {
+                fShowtime.Activate();
+            }
+        }
+
+        private void fShowtime_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fShowtime = null;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             if (fInsertImage == null)
             {
