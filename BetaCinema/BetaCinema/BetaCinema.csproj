@@ -53,11 +53,17 @@
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\MovieDetailDAO.cs" />
     <Compile Include="DAO\MovieRatingSystemDAO.cs" />
+    <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\SeatDetailDAO.cs" />
+    <Compile Include="DAO\ShowtimesDAO.cs" />
     <Compile Include="DTO\Genre.cs" />
     <Compile Include="DTO\GenreMovie.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="DTO\MovieDetail.cs" />
     <Compile Include="DTO\MovieRatingSystem.cs" />
+    <Compile Include="DTO\Room.cs" />
+    <Compile Include="DTO\SeatDetail.cs" />
+    <Compile Include="DTO\Showtimes.cs" />
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,18 @@
     <Compile Include="GUI\Admin\Movie\fMovieTrailer.Designer.cs">
       <DependentUpon>fMovieTrailer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fShowtimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fShowtimes.Designer.cs">
+      <DependentUpon>fShowtimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fShowtimesDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fShowtimesDetail.Designer.cs">
+      <DependentUpon>fShowtimesDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Movie\fMovieTrailer.resx">
       <DependentUpon>fMovieTrailer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Showtimes\fShowtimes.resx">
+      <DependentUpon>fShowtimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Showtimes\fShowtimesDetail.resx">
+      <DependentUpon>fShowtimesDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertImage.resx">
       <DependentUpon>InsertImage.cs</DependentUpon>
