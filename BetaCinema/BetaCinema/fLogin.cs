@@ -16,6 +16,8 @@ namespace BetaCinema
         public fLogin()
         {
             InitializeComponent();
+            
+            //hjSDN
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
