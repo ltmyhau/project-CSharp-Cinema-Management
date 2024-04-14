@@ -23,6 +23,19 @@ namespace BetaCinema.DAO
 
         private MovieDAO() { }
 
+        public List<Movie> GetMovieList()
+        {
+            List<Movie> list = new List<Movie>();
+            string query = "SELECT * FROM Phim";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Movie movie = new Movie(item);
+                list.Add(movie);
+            }
+            return list;
+        }
+
         public bool InsertMovie(string tenPhim, string maPL, string daoDien, string quocGia, int thoiLuong, DateTime ngayKhoiChieu, byte[] poster, string trailer, string moTa)
         {
             string query = "INSERT INTO Phim (MaPhim, TenPhim, MaPL, DaoDien, QuocGia, ThoiLuong, NgayKhoiChieu, Poster, Trailer, MoTa) " +

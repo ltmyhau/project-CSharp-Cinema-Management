@@ -131,7 +131,7 @@ INSERT [dbo].[TheLoai_Phim] ([MaPhim], [MaTL]) VALUES (N'P010', N'TL005')
 INSERT [dbo].[TheLoai_Phim] ([MaPhim], [MaTL]) VALUES (N'P010', N'TL006')
 GO
 
-CREATE VIEW DanhSachPhim AS
+CREATE VIEW vwDanhSachPhim AS
 SELECT p.MaPhim, p.TenPhim, p.MaPL,	pl.BieuTuongPL, p.DaoDien, p.QuocGia, p.ThoiLuong, p.NgayKhoiChieu, p.MoTa, p.Poster, p.Trailer,
 (SELECT STRING_AGG(tl.TenTheLoai, ', ')
 FROM TheLoai_Phim AS tlp INNER JOIN TheLoai AS tl ON tlp.MaTL = tl.MaTL
@@ -304,6 +304,56 @@ INSERT INTO SuatChieu(MaSC, MaPhong, MaPhim, ThoiGian) VALUES
 (N'SC024', N'PC005', N'P004', '2024-03-15 23:00:00')
 GO
 
+CREATE VIEW vwDanhSachLichChieu AS
+SELECT sc.MaSC, pc.MaPhong, pc.TenPhong, p.MaPhim, p.TenPhim, sc.ThoiGian, ThoiLuong, COUNT(CASE WHEN ctsc.TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SoGheTrong, COUNT(ctsc.MaGhe) AS TongSoGhe
+FROM PhongChieu pc
+JOIN SuatChieu sc ON pc.MaPhong = sc.MaPhong
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+LEFT JOIN ChiTietSuatChieu ctsc ON sc.MaSC = ctsc.MaSC
+GROUP BY sc.MaSC, pc.MaPhong, pc.TenPhong, p.MaPhim, p.TenPhim, sc.ThoiGian, ThoiLuong
+GO
+
+CREATE VIEW vwSuatChieu AS
+SELECT sc.*, DATEADD(MINUTE, p.ThoiLuong, sc.ThoiGian) AS GioKetThuc
+FROM SuatChieu sc JOIN Phim p ON sc.MaPhim = p.MaPhim
+GO
+
+CREATE TRIGGER tgKiemTraTrungThoiGianChieu
+ON SuatChieu
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        JOIN Phim p ON i.MaPhim = p.MaPhim
+        JOIN vwSuatChieu sc ON i.MaPhong = sc.MaPhong
+			AND (
+				(i.ThoiGian BETWEEN sc.ThoiGian AND sc.GioKetThuc)
+				OR (DATEADD(MINUTE, p.ThoiLuong, i.ThoiGian) BETWEEN sc.ThoiGian AND sc.GioKetThuc)
+			)
+			AND i.MaSC <> sc.MaSC
+    )
+    BEGIN
+        RAISERROR ('Khung giờ chiếu phim mới trùng lặp với suất chiếu đang tồn tại.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
+GO
+
+--------- start -----------
+SELECT * FROM vwDanhSachPhim WHERE TenPhim LIKE N'%Quỷ%'
+
+SELECT * FROM SuatChieu
+
+INSERT INTO SuatChieu(MaSC, MaPhong, MaPhim, ThoiGian) VALUES
+(N'SC000', N'PC001', N'P005', '2024-03-09 16:55:00')
+
+UPDATE SuatChieu SET MaPhong = N'PC001', MaPhim = N'P005', ThoiGian = '09/03/2024 17:11:00' WHERE MaSC = N'SC000'
+
+
+--------- end -----------
+
 CREATE TABLE ChiTietSuatChieu
 (
 	MaSC NVARCHAR(10) CONSTRAINT FK_CTSC_MaSC FOREIGN KEY(MaSC) REFERENCES SuatChieu(MaSC) ON DELETE CASCADE,
@@ -311,27 +361,6 @@ CREATE TABLE ChiTietSuatChieu
 	TinhTrang NVARCHAR(10) CONSTRAINT CK_CTSC_TinhTrang CHECK (TinhTrang IN(N'Trống', N'Đã đặt'))
 )
 GO
-
-CREATE VIEW DanhSachLichChieu AS
-SELECT sc.MaSC, pc.MaPhong, pc.TenPhong, p.MaPhim, p.TenPhim, sc.ThoiGian, ThoiLuong, CONCAT(COUNT(CASE WHEN ctsc.TinhTrang = N'Đã đặt' THEN ctsc.MaGhe END), '/', COUNT(ctsc.MaGhe)) AS SoGheDaDat
-FROM PhongChieu pc
-JOIN SuatChieu sc ON pc.MaPhong = sc.MaPhong
-JOIN Phim p ON sc.MaPhim = p.MaPhim
-LEFT JOIN ChiTietSuatChieu ctsc ON sc.MaSC = ctsc.MaSC
-GROUP BY sc.MaSC, pc.MaPhong, pc.TenPhong, p.MaPhim, p.TenPhim, sc.ThoiGian, ThoiLuong
-
-CREATE PROCEDURE GetSeatDetailsByScreeningCode
-    @ScreeningCode NVARCHAR(50)
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    SELECT ctsc.MaSC, ctsc.MaGhe, ctsc.TinhTrang, lg.MaLoaiGhe, lg.Gia
-    FROM ChiTietSuatChieu ctsc
-    INNER JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
-    INNER JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
-    WHERE ctsc.MaSC = @ScreeningCode;
-END
 
 INSERT INTO ChiTietSuatChieu(MaSC, MaGhe, TinhTrang) VALUES
 (N'SC001', N'A01', N'Trống'),

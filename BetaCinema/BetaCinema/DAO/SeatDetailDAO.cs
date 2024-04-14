@@ -25,7 +25,7 @@ namespace BetaCinema.DAO
         public List<SeatDetail> GetListSeatDetailByShowtimesID(string maSC)
         {
             List<SeatDetail> list = new List<SeatDetail>();
-            string query = string.Format("SELECT * FROM ChiTietSuatChieu WHERE MaSC = '{0}'", maSC);
+            string query = string.Format("SELECT ctsc.*, MaLoaiGhe FROM ChiTietSuatChieu ctsc INNER JOIN Ghe g On ctsc.MaGhe = g.MaGhe WHERE MaSC = N'{0}'", maSC);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

@@ -23,7 +23,33 @@ namespace BetaCinema.DAO
         public List<MovieDetail> GetListMoiveDetail()
         {
             List<MovieDetail> list = new List<MovieDetail>();
-            string query = "SELECT * FROM DanhSachPhim";
+            string query = "SELECT * FROM vwDanhSachPhim";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                MovieDetail movie = new MovieDetail(item);
+                list.Add(movie);
+            }
+            return list;
+        }
+
+        public List<MovieDetail> GetListMoiveDetailByMovieID(string movieID)
+        {
+            List<MovieDetail> list = new List<MovieDetail>();
+            string query = $"SELECT * FROM vwDanhSachPhim WHERE MaPhim = N'{movieID}'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                MovieDetail movie = new MovieDetail(item);
+                list.Add(movie);
+            }
+            return list;
+        }
+
+        public List<MovieDetail> GetListMoiveDetailByMovieName(string movieName)
+        {
+            List<MovieDetail> list = new List<MovieDetail>();
+            string query = $"SELECT * FROM vwDanhSachPhim WHERE TenPhim LIKE N'%{movieName}%'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

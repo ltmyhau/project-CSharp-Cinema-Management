@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BetaCinema.DAO;
+using BetaCinema.DTO;
 using BetaCinema.GUI.Admin.Movie;
 
 namespace BetaCinema
@@ -50,7 +51,7 @@ namespace BetaCinema
 
             dgvMovie.Columns["MaPhim"].HeaderText = "Mã phim";
             dgvMovie.Columns["TenPhim"].HeaderText = "Tên phim";
-            dgvMovie.Columns["BieuTuongPL"].HeaderText = "Phân loại";
+            dgvMovie.Columns["BieuTuongPL"].HeaderText = "Độ tuổi";
             dgvMovie.Columns["DaoDien"].HeaderText = "Đạo diễn";
             dgvMovie.Columns["QuocGia"].HeaderText = "Quốc gia";
             dgvMovie.Columns["ThoiLuong"].HeaderText = "Thời lượng";
@@ -79,8 +80,8 @@ namespace BetaCinema
             dgvMovie.Columns["ThoiLuong"].Width = (int)(0.05 * totalWidth);
             dgvMovie.Columns["NgayKhoiChieu"].Width = (int)(0.13 * totalWidth);
             dgvMovie.Columns["TheLoaiPhim"].Width = (int)(0.15 * totalWidth);
-            dgvMovie.Columns["EditColumn"].Width = (int)(0.06 * totalWidth);
-            dgvMovie.Columns["DeleteColumn"].Width = (int)(0.06 * totalWidth);
+            dgvMovie.Columns["EditColumn"].Width = (int)(0.055 * totalWidth);
+            dgvMovie.Columns["DeleteColumn"].Width = (int)(0.055 * totalWidth);
 
             dgvMovie.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
@@ -151,6 +152,25 @@ namespace BetaCinema
                         MessageBox.Show("Đã xảy ra lỗi khi xóa phim.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                if (rdoMovieID.Checked)
+                {
+                    dgvMovie.DataSource = MovieDetailDAO.Instance.GetListMoiveDetailByMovieID(txtSearch.Text);
+                }
+                else
+                {
+                    dgvMovie.DataSource = MovieDetailDAO.Instance.GetListMoiveDetailByMovieName(txtSearch.Text);
+                }
+            }
+            else
+            {
+                LoadListMovie();
             }
         }
         #endregion

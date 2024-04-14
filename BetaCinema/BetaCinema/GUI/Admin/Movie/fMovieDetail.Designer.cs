@@ -157,12 +157,11 @@
             // txtGenre
             // 
             this.txtGenre.BackColor = System.Drawing.Color.White;
-            this.txtGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtGenre.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGenre.Location = new System.Drawing.Point(7, 29);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.ReadOnly = true;
-            this.txtGenre.Size = new System.Drawing.Size(263, 24);
+            this.txtGenre.Size = new System.Drawing.Size(263, 31);
             this.txtGenre.TabIndex = 6;
             // 
             // label5
@@ -187,7 +186,6 @@
             // txtSynopsis
             // 
             this.txtSynopsis.BackColor = System.Drawing.Color.White;
-            this.txtSynopsis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSynopsis.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSynopsis.Location = new System.Drawing.Point(7, 29);
             this.txtSynopsis.Multiline = true;
@@ -218,12 +216,11 @@
             // txtReleaseDate
             // 
             this.txtReleaseDate.BackColor = System.Drawing.Color.White;
-            this.txtReleaseDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtReleaseDate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReleaseDate.Location = new System.Drawing.Point(7, 29);
             this.txtReleaseDate.Name = "txtReleaseDate";
             this.txtReleaseDate.ReadOnly = true;
-            this.txtReleaseDate.Size = new System.Drawing.Size(170, 24);
+            this.txtReleaseDate.Size = new System.Drawing.Size(170, 31);
             this.txtReleaseDate.TabIndex = 4;
             // 
             // label8
@@ -248,12 +245,11 @@
             // txtDuration
             // 
             this.txtDuration.BackColor = System.Drawing.Color.White;
-            this.txtDuration.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDuration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuration.Location = new System.Drawing.Point(7, 29);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.ReadOnly = true;
-            this.txtDuration.Size = new System.Drawing.Size(170, 24);
+            this.txtDuration.Size = new System.Drawing.Size(170, 31);
             this.txtDuration.TabIndex = 3;
             // 
             // label7
@@ -278,12 +274,11 @@
             // txtCountry
             // 
             this.txtCountry.BackColor = System.Drawing.Color.White;
-            this.txtCountry.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(7, 29);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.ReadOnly = true;
-            this.txtCountry.Size = new System.Drawing.Size(170, 24);
+            this.txtCountry.Size = new System.Drawing.Size(170, 31);
             this.txtCountry.TabIndex = 2;
             // 
             // label6
@@ -308,12 +303,11 @@
             // txtDirector
             // 
             this.txtDirector.BackColor = System.Drawing.Color.White;
-            this.txtDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDirector.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDirector.Location = new System.Drawing.Point(7, 29);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.ReadOnly = true;
-            this.txtDirector.Size = new System.Drawing.Size(263, 24);
+            this.txtDirector.Size = new System.Drawing.Size(263, 31);
             this.txtDirector.TabIndex = 5;
             // 
             // label2
@@ -338,12 +332,11 @@
             // txtMovieName
             // 
             this.txtMovieName.BackColor = System.Drawing.Color.White;
-            this.txtMovieName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMovieName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMovieName.Location = new System.Drawing.Point(7, 29);
+            this.txtMovieName.Location = new System.Drawing.Point(7, 27);
             this.txtMovieName.Name = "txtMovieName";
             this.txtMovieName.ReadOnly = true;
-            this.txtMovieName.Size = new System.Drawing.Size(542, 27);
+            this.txtMovieName.Size = new System.Drawing.Size(542, 34);
             this.txtMovieName.TabIndex = 1;
             // 
             // label1

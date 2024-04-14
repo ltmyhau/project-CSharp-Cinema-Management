@@ -238,7 +238,6 @@
             // txtDirector
             // 
             this.txtDirector.BackColor = System.Drawing.Color.White;
-            this.txtDirector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDirector.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDirector.Location = new System.Drawing.Point(7, 29);
             this.txtDirector.Name = "txtDirector";
@@ -267,7 +266,6 @@
             // txtTrailerURL
             // 
             this.txtTrailerURL.BackColor = System.Drawing.Color.White;
-            this.txtTrailerURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTrailerURL.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrailerURL.Location = new System.Drawing.Point(7, 29);
             this.txtTrailerURL.Name = "txtTrailerURL";
@@ -325,7 +323,6 @@
             // txtMovieName
             // 
             this.txtMovieName.BackColor = System.Drawing.Color.White;
-            this.txtMovieName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMovieName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieName.Location = new System.Drawing.Point(7, 29);
             this.txtMovieName.Name = "txtMovieName";
@@ -354,7 +351,6 @@
             // txtSynopsis
             // 
             this.txtSynopsis.BackColor = System.Drawing.Color.White;
-            this.txtSynopsis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSynopsis.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSynopsis.Location = new System.Drawing.Point(7, 29);
             this.txtSynopsis.Multiline = true;
@@ -413,7 +409,6 @@
             // txtDuration
             // 
             this.txtDuration.BackColor = System.Drawing.Color.White;
-            this.txtDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDuration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuration.Location = new System.Drawing.Point(7, 29);
             this.txtDuration.Name = "txtDuration";
@@ -442,7 +437,6 @@
             // txtCountry
             // 
             this.txtCountry.BackColor = System.Drawing.Color.White;
-            this.txtCountry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(7, 29);
             this.txtCountry.Name = "txtCountry";
@@ -459,7 +453,7 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Quốc gia";
             // 
-            // fAddMovie
+            // fAddEditMovie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -467,7 +461,7 @@
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "fAddMovie";
+            this.Name = "fAddEditMovie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm phim mới";
             this.panel1.ResumeLayout(false);

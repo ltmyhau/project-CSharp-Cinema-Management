@@ -18,7 +18,8 @@ namespace BetaCinema.DTO
         private int thoiLuong;
         private DateTime thoiGianBD;
         private DateTime thoiGianKT;
-        private string soGheDaDat;
+        private int soGheTrong;
+        private int tongSoGhe;
 
         public string MaSC { get => maSC; set => maSC = value; }
         public string MaPhong { get => maPhong; set => maPhong = value; }
@@ -28,9 +29,10 @@ namespace BetaCinema.DTO
         public int ThoiLuong { get => thoiLuong; set => thoiLuong = value; }
         public DateTime ThoiGianBD { get => thoiGianBD; set => thoiGianBD = value; }
         public DateTime ThoiGianKT { get => thoiGianKT; set => thoiGianKT = value; }
-        public string SoGheDaDat { get => soGheDaDat; set => soGheDaDat = value; }
+        public int SoGheTrong { get => soGheTrong; set => soGheTrong = value; }
+        public int TongSoGhe { get => tongSoGhe; set => tongSoGhe = value; }
 
-        public Showtimes(string maSC, string maPhong, string tenPhong, string maPhim, string tenPhim, int thoiLuong, DateTime thoiGianBD, string soGheDaDat)
+        public Showtimes(string maSC, string maPhong, string tenPhong, string maPhim, string tenPhim, int thoiLuong, DateTime thoiGianBD, int soGheTrong, int tongSoGhe)
         {
             this.maSC = maSC;
             this.maPhong = maPhong;
@@ -39,7 +41,8 @@ namespace BetaCinema.DTO
             this.tenPhim = tenPhim;
             this.thoiLuong = thoiLuong;
             this.thoiGianBD = thoiGianBD;
-            this.soGheDaDat = soGheDaDat;
+            this.soGheTrong = soGheTrong;
+            this.tongSoGhe = tongSoGhe;
         }
 
         public Showtimes(DataRow row)
@@ -52,7 +55,8 @@ namespace BetaCinema.DTO
             this.thoiLuong = Convert.ToInt32(row["thoiLuong"]);
             this.thoiGianBD = Convert.ToDateTime(row["thoiGian"]);
             this.thoiGianKT = this.thoiGianBD.AddMinutes(thoiLuong);
-            this.soGheDaDat = row["soGheDaDat"].ToString();
+            this.soGheTrong = Convert.ToInt32(row["soGheTrong"]);
+            this.tongSoGhe = Convert.ToInt32(row["tongSoGhe"]);
         }
     }
 }

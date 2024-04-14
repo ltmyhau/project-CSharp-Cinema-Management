@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,11 @@ namespace BetaCinema.DAO
 
         private ShowtimesDAO() { }
 
-        public List<Showtimes> LoadShowtimesByDate(DateTime date)
+        public List<Showtimes> GetShowtimesByDate(DateTime date)
         {
             List<Showtimes> list = new List<Showtimes>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
-            string query = String.Format("SELECT * FROM DanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' ORDER BY ThoiGian ASC", ngayChieu);
+            string query = String.Format("SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' ORDER BY ThoiGian ASC", ngayChieu);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -35,11 +36,11 @@ namespace BetaCinema.DAO
             return list;
         }
 
-        public List<Showtimes> LoadShowtimesByDateAndRoomID(DateTime date, string maPhong)
+        public List<Showtimes> GetShowtimesByDateAndRoomID(DateTime date, string maPhong)
         {
             List<Showtimes> list = new List<Showtimes>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
-            string query = String.Format("SELECT * FROM DanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' AND MaPhong = N'{1}' ORDER BY ThoiGian ASC", ngayChieu, maPhong);
+            string query = String.Format("SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' AND MaPhong = N'{1}' ORDER BY ThoiGian ASC", ngayChieu, maPhong);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -47,6 +48,33 @@ namespace BetaCinema.DAO
                 list.Add(showtimes);
             }
             return list;
+        }
+
+        public bool UpdateShowtimes(string maSC, string maPhong, string maPhim, DateTime thoiGian)
+        {
+            try
+            {
+                string query = "UPDATE SuatChieu SET MaPhong = @maPhong , MaPhim = @maPhim , ThoiGian = @thoiGian WHERE MaSC = @maSC";
+                object[] parameters = new object[]
+                {
+                    maPhong,
+                    maPhim,
+                    thoiGian,
+                    maSC
+                };
+                int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+                return result > 0;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi SQL: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
         }
 
         public bool DeleteShowtimes(string maSC)

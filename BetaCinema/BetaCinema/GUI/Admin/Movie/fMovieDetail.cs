@@ -21,15 +21,6 @@ namespace BetaCinema
         }
 
         #region Methods
-        private void AddUnderlineToTextBox(TextBox textBox)
-        {
-            Panel underlinePanel = new Panel();
-            underlinePanel.BackColor = Color.Black;
-            underlinePanel.Height = 1;
-            underlinePanel.Dock = DockStyle.Bottom;
-            textBox.Controls.Add(underlinePanel);
-        }
-
         public void LoadData(DataGridViewRow selectedRow)
         {
             lblMovieID.Text = selectedRow.Cells["MaPhim"].Value?.ToString();
@@ -73,13 +64,6 @@ namespace BetaCinema
         #region Events
         private void fMovieDetail_Load(object sender, EventArgs e)
         {
-            AddUnderlineToTextBox(txtMovieName);
-            AddUnderlineToTextBox(txtCountry);
-            AddUnderlineToTextBox(txtDuration);
-            AddUnderlineToTextBox(txtReleaseDate);
-            AddUnderlineToTextBox(txtDirector);
-            AddUnderlineToTextBox(txtGenre);
-
             if (string.IsNullOrWhiteSpace(trailerURL))
             {
                 btnTrailer.Visible = false;

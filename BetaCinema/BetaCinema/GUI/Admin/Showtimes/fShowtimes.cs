@@ -23,10 +23,11 @@ namespace BetaCinema.GUI.Admin.Showtime
         }
 
         #region Methods
+
         RadioButton rdbAllRoom;
         void LoadRoom()
         {
-            List<Room> roomList = RoomDAO.Instance.LoadRoomList();
+            List<Room> roomList = RoomDAO.Instance.GetRoomList();
 
             rdbAllRoom = CreateRadioBtnRoom("Tất cả");
             rdbAllRoom.Padding = new Padding(16, 0, 0, 0);
@@ -61,7 +62,7 @@ namespace BetaCinema.GUI.Admin.Showtime
             return rdb;
         }
 
-        void ShowShowtimes()
+        public void ShowShowtimes()
         {
             DateTime ngayChieu = dtpNgayChieu.Value;
             string maPhong = null;
@@ -80,16 +81,21 @@ namespace BetaCinema.GUI.Admin.Showtime
 
             if (maPhong == null)
             {
-                dgvShowtimes.DataSource = ShowtimesDAO.Instance.LoadShowtimesByDate(ngayChieu);
+                dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDate(ngayChieu);
             }
             else
             {
-                dgvShowtimes.DataSource = ShowtimesDAO.Instance.LoadShowtimesByDateAndRoomID(ngayChieu, maPhong);
+                dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndRoomID(ngayChieu, maPhong);
             }
         }
 
         private void CustomizeDataGridView()
         {
+            DataGridViewTextBoxColumn soGheDaDatColumn = new DataGridViewTextBoxColumn();
+            soGheDaDatColumn.Name = "SoGheDaDat";
+            soGheDaDatColumn.HeaderText = "Số ghế đã đặt";
+            dgvShowtimes.Columns.Add(soGheDaDatColumn);
+
             DataGridViewImageColumn editImageColumn = new DataGridViewImageColumn();
             editImageColumn.Name = "EditColumn";
             editImageColumn.HeaderText = "Chỉnh sửa";
@@ -101,6 +107,7 @@ namespace BetaCinema.GUI.Admin.Showtime
             deleteImageColumn.HeaderText = "Xóa";
             deleteImageColumn.Image = Properties.Resources.delete;
             dgvShowtimes.Columns.Add(deleteImageColumn);
+
             dgvShowtimes.EnableHeadersVisualStyles = false;
             dgvShowtimes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(1, 81, 152);
             dgvShowtimes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -114,27 +121,27 @@ namespace BetaCinema.GUI.Admin.Showtime
             dgvShowtimes.Columns["ThoiGianKT"].HeaderText = "Giờ kết thúc";
             dgvShowtimes.Columns["TenPhong"].HeaderText = "Tên phòng";
             dgvShowtimes.Columns["TenPhim"].HeaderText = "Tên phim";
-            dgvShowtimes.Columns["SoGheDaDat"].HeaderText = "Số ghế đã đặt";
-
-
+            
             dgvShowtimes.Columns["MaSC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvShowtimes.Columns["ThoiGianBD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvShowtimes.Columns["ThoiGianKT"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvShowtimes.Columns["TenPhong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvShowtimes.Columns["SoGheDaDat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+            
             dgvShowtimes.Columns["MaPhong"].Visible = false;
             dgvShowtimes.Columns["MaPhim"].Visible = false;
             dgvShowtimes.Columns["ThoiLuong"].Visible = false;
+            dgvShowtimes.Columns["SoGheTrong"].Visible = false;
+            dgvShowtimes.Columns["TongSoGhe"].Visible = false;
         }
 
         private void SetColumnWidthsInPercentage()
         {
             int totalWidth = dgvShowtimes.Width;
-            if (dgvShowtimes.Columns.Contains("EditColumn") && dgvShowtimes.Columns.Contains("DeleteColumn"))
+            if (dgvShowtimes.Columns.Contains("EditColumn") && dgvShowtimes.Columns.Contains("DeleteColumn") && dgvShowtimes.Columns.Contains("SoGheDaDat"))
             {
                 dgvShowtimes.Columns["EditColumn"].Width = (int)(0.07 * totalWidth);
                 dgvShowtimes.Columns["DeleteColumn"].Width = (int)(0.07 * totalWidth);
+                dgvShowtimes.Columns["SoGheDaDat"].Width = (int)(0.13 * totalWidth);
             }
             if (dgvShowtimes.Columns["TenPhong"].Visible is false)
             {
@@ -142,7 +149,6 @@ namespace BetaCinema.GUI.Admin.Showtime
                 dgvShowtimes.Columns["ThoiGianBD"].Width = (int)(0.15 * totalWidth);
                 dgvShowtimes.Columns["ThoiGianKT"].Width = (int)(0.15 * totalWidth);
                 dgvShowtimes.Columns["TenPhim"].Width = (int)(0.3 * totalWidth);
-                dgvShowtimes.Columns["SoGheDaDat"].Width = (int)(0.13 * totalWidth);
             }
             else
             {
@@ -151,7 +157,6 @@ namespace BetaCinema.GUI.Admin.Showtime
                 dgvShowtimes.Columns["ThoiGianKT"].Width = (int)(0.15 * totalWidth);
                 dgvShowtimes.Columns["TenPhong"].Width = (int)(0.1 * totalWidth);
                 dgvShowtimes.Columns["TenPhim"].Width = (int)(0.2 * totalWidth);
-                dgvShowtimes.Columns["SoGheDaDat"].Width = (int)(0.13 * totalWidth);
             }
 
             dgvShowtimes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -161,6 +166,9 @@ namespace BetaCinema.GUI.Admin.Showtime
         #region Events
         private void fShowtimes_Load(object sender, EventArgs e)
         {
+            // Gán một giá trị ngày cụ thể cho DateTimePicker
+            dtpNgayChieu.Value = new DateTime(2024, 3, 9);
+
             LoadRoom();
             CustomizeDataGridView();
             this.SizeChanged += fShowtimes_SizeChanged;
@@ -210,6 +218,15 @@ namespace BetaCinema.GUI.Admin.Showtime
                     e.Value = time.ToString("HH:mm");
                     e.FormattingApplied = true;
                 }
+            }
+
+            if (dgvShowtimes.Columns[e.ColumnIndex].Name == "SoGheDaDat")
+            {
+                int soGheTrong = Convert.ToInt32(dgvShowtimes.Rows[e.RowIndex].Cells["SoGheTrong"].Value);
+                int tongSoGhe = Convert.ToInt32(dgvShowtimes.Rows[e.RowIndex].Cells["TongSoGhe"].Value);
+                string soGheDaDat = $"{tongSoGhe - soGheTrong} / {tongSoGhe}";
+                e.Value = soGheDaDat;
+                e.FormattingApplied = true;
             }
         }
         #endregion

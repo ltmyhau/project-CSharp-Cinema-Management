@@ -23,7 +23,7 @@ namespace BetaCinema.DAO
 
         private RoomDAO() { }
 
-        public List<Room> LoadRoomList()
+        public List<Room> GetRoomList()
         {
             List<Room> list = new List<Room>();
             string query = "SELECT * FROM PhongChieu";
