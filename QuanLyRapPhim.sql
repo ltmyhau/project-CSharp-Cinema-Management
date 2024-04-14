@@ -344,13 +344,20 @@ GO
 --------- start -----------
 SELECT * FROM vwDanhSachPhim WHERE TenPhim LIKE N'%Quỷ%'
 
-SELECT * FROM SuatChieu
+SELECT * FROM SuatChieu WHERE MaPhim = N'P005'
+SELECT * FROM SuatChieu WHERE ThoiGian BETWEEN CONVERT(TIME, '2024-04-14 15:00:00') AND CONVERT(TIME, '2024-04-14 20:55:00')
 
-INSERT INTO SuatChieu(MaSC, MaPhong, MaPhim, ThoiGian) VALUES
-(N'SC000', N'PC001', N'P005', '2024-03-09 16:55:00')
 
-UPDATE SuatChieu SET MaPhong = N'PC001', MaPhim = N'P005', ThoiGian = '09/03/2024 17:11:00' WHERE MaSC = N'SC000'
+SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '2024-03-09'
+AND CONVERT(TIME, ThoiGian) BETWEEN '15:00' AND '20:00'
+ORDER BY ThoiGian ASC
 
+SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '2024-03-09'
+AND MaPhim = N'P005' AND CONVERT(TIME, ThoiGian) BETWEEN '19:00' AND '20:00'
+ORDER BY ThoiGian ASC
+
+SELECT * FROM vwDanhSachLichChieu
+ORDER BY ThoiGian ASC
 
 --------- end -----------
 

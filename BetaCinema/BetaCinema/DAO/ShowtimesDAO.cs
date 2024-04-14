@@ -50,6 +50,98 @@ namespace BetaCinema.DAO
             return list;
         }
 
+        public List<Showtimes> GetShowtimesByDateAndMovieID(DateTime date, string movieID)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhim = N'{movieID}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
+        public List<Showtimes> GetShowtimesByDateAndMovieTime(DateTime date, DateTime start, DateTime finish)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string tuGio = start.ToString("HH:mm");
+            string denGio = finish.ToString("HH:mm");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND CONVERT(TIME, ThoiGian) BETWEEN '{tuGio}' AND '{denGio}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
+        public List<Showtimes> GetShowtimesByDateAndMovieIDMovieTime(DateTime date, string movieID, DateTime start, DateTime finish)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string tuGio = start.ToString("HH:mm");
+            string denGio = finish.ToString("HH:mm");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhim = N'{movieID}' AND CONVERT(TIME, ThoiGian) BETWEEN '{tuGio}' AND '{denGio}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
+        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieID(DateTime date, string maPhong, string movieID)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhong = N'{maPhong}' AND MaPhim = N'{movieID}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
+        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieTime(DateTime date, string maPhong, DateTime start, DateTime finish)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string tuGio = start.ToString("HH:mm");
+            string denGio = finish.ToString("HH:mm");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhong = N'{maPhong}' AND CONVERT(TIME, ThoiGian) BETWEEN '{tuGio}' AND '{denGio}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
+        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieIDMovieTime(DateTime date, string maPhong, string movieID, DateTime start, DateTime finish)
+        {
+            List<Showtimes> list = new List<Showtimes>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string tuGio = start.ToString("HH:mm");
+            string denGio = finish.ToString("HH:mm");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhong = N'{maPhong}' AND MaPhim = N'{movieID}' AND CONVERT(TIME, ThoiGian) BETWEEN '{tuGio}' AND '{denGio}' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes showtimes = new Showtimes(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
         public bool UpdateShowtimes(string maSC, string maPhong, string maPhim, DateTime thoiGian)
         {
             try

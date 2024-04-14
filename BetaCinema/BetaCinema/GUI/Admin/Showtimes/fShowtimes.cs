@@ -20,9 +20,20 @@ namespace BetaCinema.GUI.Admin.Showtime
         public fShowtimes()
         {
             InitializeComponent();
+
+            LoadMovie();
+            dtpStart.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
+            dtpFinish.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
         }
 
         #region Methods
+        void LoadMovie()
+        {
+            cboMovie.Items.Clear();
+            List<BetaCinema.DTO.Movie> listMovie = MovieDAO.Instance.GetMovieList();
+            cboMovie.DataSource = listMovie;
+            cboMovie.DisplayMember = "TenPhim";
+        }
 
         RadioButton rdbAllRoom;
         void LoadRoom()
@@ -64,7 +75,13 @@ namespace BetaCinema.GUI.Admin.Showtime
 
         public void ShowShowtimes()
         {
-            DateTime ngayChieu = dtpNgayChieu.Value;
+            BetaCinema.DTO.Movie movie = (BetaCinema.DTO.Movie)cboMovie.SelectedItem;
+            string maPhim = movie.MaPhim;
+            DateTime tuGio = dtpStart.Value;
+            DateTime denGio = dtpFinish.Value;
+
+            DateTime ngayChieu = dtpDate.Value;
+
             string maPhong = null;
             foreach (Control control in flpRoom.Controls)
             {
@@ -81,11 +98,41 @@ namespace BetaCinema.GUI.Admin.Showtime
 
             if (maPhong == null)
             {
-                dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDate(ngayChieu);
+                if (!chkMovieName.Checked && !chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDate(ngayChieu);
+                }
+                else if (chkMovieName.Checked && !chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndMovieID(ngayChieu, maPhim);
+                }
+                else if (!chkMovieName.Checked && chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndMovieTime(ngayChieu, tuGio, denGio);
+                }
+                else
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndMovieIDMovieTime(ngayChieu, maPhim, tuGio, denGio);
+                }
             }
             else
             {
-                dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndRoomID(ngayChieu, maPhong);
+                if (!chkMovieName.Checked && !chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateAndRoomID(ngayChieu, maPhong);
+                }
+                else if (chkMovieName.Checked && !chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateRoomIDAndMovieID(ngayChieu, maPhong, maPhim);
+                }
+                else if (!chkMovieName.Checked && chkMovieTime.Checked)
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateRoomIDAndMovieTime(ngayChieu, maPhong, tuGio, denGio);
+                }
+                else
+                {
+                    dgvShowtimes.DataSource = ShowtimesDAO.Instance.GetShowtimesByDateRoomIDAndMovieIDMovieTime(ngayChieu, maPhong, maPhim, tuGio, denGio);
+                }
             }
         }
 
@@ -161,14 +208,98 @@ namespace BetaCinema.GUI.Admin.Showtime
 
             dgvShowtimes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
+
+        public void ExportFile(DataTable dataTable, string sheetName, string title, DateTime date)
+        {
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks oBooks;
+            Microsoft.Office.Interop.Excel.Sheets oSheets;
+            Microsoft.Office.Interop.Excel.Workbook oBook;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = oExcel.Workbooks.Add(Type.Missing);
+            oSheets = oBook.Worksheets;
+            oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = sheetName;
+
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "F1");
+            head.MergeCells = true;
+            head.Value2 = title;
+            head.Font.Bold = true;
+            head.Font.Name = "Times New Roman";
+            head.Font.Size = "20";
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range cDate = oSheet.get_Range("E2", "F2");
+            cDate.MergeCells = true;
+            cDate.Value2 = "Ngày chiếu: " + date.ToString("dd/MM/yyyy");
+            cDate.Font.Name = "Times New Roman";
+            cDate.Font.Size = "11";
+            cDate.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignRight;
+
+            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A4", "A4");
+            cl1.Value2 = "Mã suất chiếu";
+            cl1.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B4", "B4");
+            cl2.Value2 = "Tên phòng";
+            cl2.ColumnWidth = 10;
+            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C4", "C4");
+            cl3.Value2 = "Tên phim";
+            cl3.ColumnWidth = 40;
+            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D4", "D4");
+            cl4.Value2 = "Giờ bắt đầu";
+            cl4.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E4", "E4");
+            cl5.Value2 = "Giờ kết thúc";
+            cl5.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F4", "F4");
+            cl6.Value2 = "Số ghế đã đặt";
+            cl6.ColumnWidth = 13;
+
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A4", "F4");
+            rowHead.Font.Bold = true;
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            rowHead.Interior.ColorIndex = 6;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            rowHead.Font.Name = "Times New Roman";
+            rowHead.Font.Size = "11";
+
+            object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.Rows[row];
+                for (int col = 0; col < dataTable.Columns.Count; col++)
+                {
+                    arr[row, col] = dataRow[col];
+                }
+            }
+
+            int rowStart = 5;
+            int colStart = 1;
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            int colEnd = dataTable.Columns.Count;
+            Microsoft.Office.Interop.Excel.Range c0 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart];
+            Microsoft.Office.Interop.Excel.Range cN = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colEnd];
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c0, cN);
+            range.Value2 = arr;
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            oSheet.get_Range(c0, cN).Font.Name = "Times New Roman";
+            oSheet.get_Range(c0, cN).Font.Size = "11";
+            oSheet.get_Range(c0, cN).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range c03 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart + 2];
+            Microsoft.Office.Interop.Excel.Range cN3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colStart + 2];
+            oSheet.get_Range(c03, cN3).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
+        }
         #endregion
 
         #region Events
         private void fShowtimes_Load(object sender, EventArgs e)
         {
-            // Gán một giá trị ngày cụ thể cho DateTimePicker
-            dtpNgayChieu.Value = new DateTime(2024, 3, 9);
-
             LoadRoom();
             CustomizeDataGridView();
             this.SizeChanged += fShowtimes_SizeChanged;
@@ -227,9 +358,9 @@ namespace BetaCinema.GUI.Admin.Showtime
                 string soGheDaDat = $"{tongSoGhe - soGheTrong} / {tongSoGhe}";
                 e.Value = soGheDaDat;
                 e.FormattingApplied = true;
+                dgvShowtimes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = soGheDaDat;
             }
         }
-        #endregion
 
         private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
         {
@@ -253,7 +384,7 @@ namespace BetaCinema.GUI.Admin.Showtime
 
             if (e.ColumnIndex == dgvShowtimes.Columns["DeleteColumn"].Index)
             {
-                if (MessageBox.Show("Bạn muốn xóa suất chiếu này? Tất cả thông tin liên quan cũng sẽ bị xóa.\r\n\r\nBạn có thực sự muốn xóa?", "Thông báo", 
+                if (MessageBox.Show("Bạn muốn xóa suất chiếu này? Tất cả thông tin liên quan cũng sẽ bị xóa.\r\n\r\nBạn có thực sự muốn xóa?", "Thông báo",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     string maSC = dgvShowtimes.Rows[e.RowIndex].Cells["MaSC"].Value.ToString();
@@ -269,5 +400,63 @@ namespace BetaCinema.GUI.Admin.Showtime
                 }
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ShowShowtimes();
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            chkMovieName.Checked = false;
+            chkMovieTime.Checked = false;
+            ShowShowtimes();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            List<BetaCinema.DTO.Showtimes> list = ShowtimesDAO.Instance.GetShowtimesByDate(dtpDate.Value);
+            rptShowtimes r = new rptShowtimes();
+            r.SetDataSource(list);
+            fReport f = new fReport();
+            f.crvReport.ReportSource = r;
+            f.ShowDialog();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+
+            DataColumn col1 = new DataColumn("MaSC");
+            DataColumn col2 = new DataColumn("TenPhong");
+            DataColumn col3 = new DataColumn("TenPhim");
+            DataColumn col4 = new DataColumn("ThoiGianBD");
+            DataColumn col5 = new DataColumn("ThoiGianKT");
+            DataColumn col6 = new DataColumn("SoGheDaDat");
+
+            dataTable.Columns.Add(col1);
+            dataTable.Columns.Add(col2);
+            dataTable.Columns.Add(col3);
+            dataTable.Columns.Add(col4);
+            dataTable.Columns.Add(col5);
+            dataTable.Columns.Add(col6);
+
+            foreach (DataGridViewRow dgvRow in dgvShowtimes.Rows)
+            {
+                DataRow row = dataTable.NewRow();
+
+                row[0] = dgvRow.Cells["MaSC"].Value;
+                row[1] = dgvRow.Cells["TenPhong"].Value;
+                row[2] = dgvRow.Cells["TenPhim"].Value;
+                row[3] = Convert.ToDateTime(dgvRow.Cells["ThoiGianBD"].Value).ToString("HH:mm");
+                row[4] = Convert.ToDateTime(dgvRow.Cells["ThoiGianKT"].Value).ToString("HH:mm");
+                row[5] = dgvRow.Cells["SoGheDaDat"].Value;
+
+                dataTable.Rows.Add(row);
+            }
+
+            ExportFile(dataTable, "Suất chiếu", "DANH SÁCH SUẤT CHIẾU", dtpDate.Value);
+        }
+        #endregion
     }
 }
