@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMovie));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvMovie = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -67,7 +66,7 @@
             this.dgvMovie.Name = "dgvMovie";
             this.dgvMovie.ReadOnly = true;
             this.dgvMovie.RowHeadersVisible = false;
-            this.dgvMovie.RowHeadersWidth = 51;
+            this.dgvMovie.RowHeadersWidth = 50;
             this.dgvMovie.RowTemplate.Height = 24;
             this.dgvMovie.RowTemplate.ReadOnly = true;
             this.dgvMovie.Size = new System.Drawing.Size(894, 467);
@@ -111,7 +110,7 @@
             // 
             this.btnShowAll.FlatAppearance.BorderSize = 0;
             this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowAll.Image = ((System.Drawing.Image)(resources.GetObject("btnShowAll.Image")));
+            this.btnShowAll.Image = global::BetaCinema.Properties.Resources.funnel;
             this.btnShowAll.Location = new System.Drawing.Point(535, 64);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(35, 35);
@@ -160,7 +159,7 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.Image = global::BetaCinema.Properties.Resources.printer;
             this.btnPrint.Location = new System.Drawing.Point(618, 74);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(45, 45);
@@ -173,7 +172,7 @@
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Image = global::BetaCinema.Properties.Resources.xls;
             this.btnExport.Location = new System.Drawing.Point(670, 74);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(45, 45);

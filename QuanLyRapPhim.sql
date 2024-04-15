@@ -595,6 +595,27 @@ BEGIN
 END
 GO
 
+CREATE FUNCTION f_AutoMaTL()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaTL VARCHAR(10)
+
+    IF NOT EXISTS (SELECT * FROM TheLoai)
+		BEGIN
+			SET @MaTL = 'TL001'
+		END
+    ELSE
+		BEGIN
+			DECLARE @MaxMaTL INT
+			SELECT @MaxMaTL = MAX(RIGHT(MaTL, 3)) FROM TheLoai
+			SET @MaTL = 'TL' + RIGHT('000' + CAST(@MaxMaTL + 1 AS VARCHAR(3)), 3)
+		END
+
+    RETURN @MaTL
+END
+GO
+
 CREATE VIEW vwDanhSachLichChieu AS
 SELECT sc.MaSC, pc.MaPhong, pc.TenPhong, p.MaPhim, p.TenPhim, sc.ThoiGian, ThoiLuong, COUNT(CASE WHEN ctsc.TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SoGheTrong, COUNT(ctsc.MaGhe) AS TongSoGhe
 FROM PhongChieu pc
@@ -613,6 +634,13 @@ GO
 --------- start -----------
 INSERT INTO SuatChieu(MaSC, MaPhong, MaPhim, ThoiGian) VALUES
 (dbo.f_AutoMaSC(), N'PC002', N'P004', '2024-04-10 04:00:00')
+
+SELECT * FROM vwDanhSachPhim 
+
+INSERT INTO TheLoai(MaTL, TenTheLoai) VALUES
+(dbo.f_AutoMaTL(), N'Mới')
+
+SELECT 'TL' + RIGHT('000' + CAST(MAX(RIGHT(MaTL, 3)) + 1 AS VARCHAR(3)), 3) FROM TheLoai
 
 --------- end -----------
 

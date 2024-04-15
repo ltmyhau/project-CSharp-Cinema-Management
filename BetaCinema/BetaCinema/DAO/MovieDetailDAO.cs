@@ -58,5 +58,18 @@ namespace BetaCinema.DAO
             }
             return list;
         }
+
+        public List<MovieDetailDTO> GetListMoiveDetailByGenreName(string genreName)
+        {
+            List<MovieDetailDTO> list = new List<MovieDetailDTO>();
+            string query = $"SELECT * FROM vwDanhSachPhim WHERE TheLoaiPhim LIKE N'%{genreName}%'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                MovieDetailDTO movie = new MovieDetailDTO(item);
+                list.Add(movie);
+            }
+            return list;
+        }
     }
 }

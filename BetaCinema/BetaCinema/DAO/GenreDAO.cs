@@ -20,6 +20,34 @@ namespace BetaCinema.DAO
 
         private GenreDAO() { }
 
+        public string GetNextMaTL()
+        {
+            string query = "SELECT 'TL' + RIGHT('000' + CAST(MAX(RIGHT(MaTL, 3)) + 1 AS VARCHAR(3)), 3) FROM TheLoai";
+            string maTL = DataProvider.Instance.ExecuteScalar(query)?.ToString();
+            return maTL;
+        }
+
+        public bool InsertGenre(string tenTheLoai)
+        {
+            string query = $"INSERT INTO TheLoai(MaTL, TenTheLoai) VALUES (dbo.f_AutoMaTL(), N'{tenTheLoai}')";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateGenre(string maTL, string tenTheLoai)
+        {
+            string query = $"UPDATE TheLoai SET TenTheLoai = N'{tenTheLoai}' WHERE MaTL = N'{maTL}'";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DaleteGenre(string maTL)
+        {
+            string query = $"DELETE TheLoai WHERE MaTL = N'{maTL}'";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
         public List<GenreDTO> GetListGenre()
         {
             List<GenreDTO> list = new List<GenreDTO>();
