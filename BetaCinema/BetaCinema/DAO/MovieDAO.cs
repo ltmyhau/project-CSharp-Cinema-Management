@@ -23,17 +23,24 @@ namespace BetaCinema.DAO
 
         private MovieDAO() { }
 
-        public List<Movie> GetMovieList()
+        public List<MovieDTO> GetMovieList()
         {
-            List<Movie> list = new List<Movie>();
+            List<MovieDTO> list = new List<MovieDTO>();
             string query = "SELECT * FROM Phim";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Movie movie = new Movie(item);
+                MovieDTO movie = new MovieDTO(item);
                 list.Add(movie);
             }
             return list;
+        }
+
+        public string GetNextMaPhim()
+        {
+            string query = "SELECT 'P' + RIGHT('000' + CAST(MAX(RIGHT(MaPhim, 3)) + 1 AS VARCHAR(3)), 3) FROM Phim";
+            string maPhim = DataProvider.Instance.ExecuteScalar(query)?.ToString();
+            return maPhim;
         }
 
         public bool InsertMovie(string tenPhim, string maPL, string daoDien, string quocGia, int thoiLuong, DateTime ngayKhoiChieu, byte[] poster, string trailer, string moTa)
@@ -54,13 +61,6 @@ namespace BetaCinema.DAO
             };
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
-        }
-
-        public string GetNextMaPhim()
-        {
-            string query = "SELECT 'P' + RIGHT('000' + CAST(MAX(RIGHT(MaPhim, 3)) + 1 AS VARCHAR(3)), 3) FROM Phim";
-            string maPhim = DataProvider.Instance.ExecuteScalar(query)?.ToString();
-            return maPhim;
         }
 
         public bool UpdateMovie(string maPhim, string tenPhim, string maPL, string daoDien, string quocGia, int thoiLuong, DateTime ngayKhoiChieu, byte[] poster, string trailer, string moTa)

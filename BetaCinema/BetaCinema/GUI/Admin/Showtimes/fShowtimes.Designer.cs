@@ -241,6 +241,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel2
             // 
@@ -271,6 +272,7 @@
             this.dgvShowtimes.Size = new System.Drawing.Size(701, 487);
             this.dgvShowtimes.TabIndex = 1;
             this.dgvShowtimes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtimes_CellContentClick);
+            this.dgvShowtimes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtimes_CellDoubleClick);
             this.dgvShowtimes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvShowtimes_CellFormatting);
             // 
             // flpRoom

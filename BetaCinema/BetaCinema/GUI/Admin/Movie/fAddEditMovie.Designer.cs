@@ -164,12 +164,11 @@
             // txtMovieID
             // 
             this.txtMovieID.BackColor = System.Drawing.Color.White;
-            this.txtMovieID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMovieID.Enabled = false;
-            this.txtMovieID.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMovieID.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieID.Location = new System.Drawing.Point(7, 29);
             this.txtMovieID.Name = "txtMovieID";
-            this.txtMovieID.Size = new System.Drawing.Size(160, 30);
+            this.txtMovieID.Size = new System.Drawing.Size(160, 31);
             this.txtMovieID.TabIndex = 2;
             // 
             // label3
@@ -460,7 +459,8 @@
             this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "fAddEditMovie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm phim mới";

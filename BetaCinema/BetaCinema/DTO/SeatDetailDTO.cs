@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class SeatDetail
+    public class SeatDetailDTO
     {
         private string maSC;
         private string maGhe;
@@ -19,7 +19,7 @@ namespace BetaCinema.DTO
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
         public string MaLoaiGhe { get => maLoaiGhe; set => maLoaiGhe = value; }
 
-        public SeatDetail(string maSC, string maGhe, string tinhTrang, string maLoaiGhe)
+        public SeatDetailDTO(string maSC, string maGhe, string tinhTrang, string maLoaiGhe)
         {
             this.maSC = maSC;
             this.maGhe = maGhe;
@@ -27,7 +27,7 @@ namespace BetaCinema.DTO
             this.maLoaiGhe = maLoaiGhe;
         }
 
-        public SeatDetail(DataRow row)
+        public SeatDetailDTO(DataRow row)
         {
             this.maSC = row["maSC"].ToString();
             this.maGhe = row["maGhe"].ToString();

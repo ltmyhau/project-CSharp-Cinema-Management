@@ -20,40 +20,40 @@ namespace BetaCinema.DAO
 
         private MovieDetailDAO() { }
 
-        public List<MovieDetail> GetListMoiveDetail()
+        public List<MovieDetailDTO> GetListMoiveDetail()
         {
-            List<MovieDetail> list = new List<MovieDetail>();
+            List<MovieDetailDTO> list = new List<MovieDetailDTO>();
             string query = "SELECT * FROM vwDanhSachPhim";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                MovieDetail movie = new MovieDetail(item);
+                MovieDetailDTO movie = new MovieDetailDTO(item);
                 list.Add(movie);
             }
             return list;
         }
 
-        public List<MovieDetail> GetListMoiveDetailByMovieID(string movieID)
+        public List<MovieDetailDTO> GetListMoiveDetailByMovieID(string movieID)
         {
-            List<MovieDetail> list = new List<MovieDetail>();
+            List<MovieDetailDTO> list = new List<MovieDetailDTO>();
             string query = $"SELECT * FROM vwDanhSachPhim WHERE MaPhim = N'{movieID}'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                MovieDetail movie = new MovieDetail(item);
+                MovieDetailDTO movie = new MovieDetailDTO(item);
                 list.Add(movie);
             }
             return list;
         }
 
-        public List<MovieDetail> GetListMoiveDetailByMovieName(string movieName)
+        public List<MovieDetailDTO> GetListMoiveDetailByMovieName(string movieName)
         {
-            List<MovieDetail> list = new List<MovieDetail>();
+            List<MovieDetailDTO> list = new List<MovieDetailDTO>();
             string query = $"SELECT * FROM vwDanhSachPhim WHERE TenPhim LIKE N'%{movieName}%'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                MovieDetail movie = new MovieDetail(item);
+                MovieDetailDTO movie = new MovieDetailDTO(item);
                 list.Add(movie);
             }
             return list;

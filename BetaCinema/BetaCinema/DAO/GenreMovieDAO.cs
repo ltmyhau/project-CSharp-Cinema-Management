@@ -21,14 +21,14 @@ namespace BetaCinema.DAO
 
         private GenreMovieDAO() { }
 
-        public List<GenreMovie> GetListGenreMovieByMovieID(string maPhim)
+        public List<GenreMovieDTO> GetListGenreMovieByMovieID(string maPhim)
         {
-            List<GenreMovie> list = new List<GenreMovie>();
+            List<GenreMovieDTO> list = new List<GenreMovieDTO>();
             string query = string.Format("SELECT * FROM TheLoai_Phim WHERE MaPhim = '{0}'", maPhim);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                GenreMovie genreMovie = new GenreMovie(item);
+                GenreMovieDTO genreMovie = new GenreMovieDTO(item);
                 list.Add(genreMovie);
             }
             return list;

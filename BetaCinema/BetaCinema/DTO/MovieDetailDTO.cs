@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class MovieDetail
+    public class MovieDetailDTO
     {
         private string maPhim;
         private string tenPhim;
@@ -35,7 +35,7 @@ namespace BetaCinema.DTO
         public string Trailer { get => trailer; set => trailer = value; }
         public string TheLoaiPhim { get => theLoaiPhim; set => theLoaiPhim = value; }
 
-        public MovieDetail(string maPhim, string tenPhim, string maPL, byte[] bieuTuongPL, string daoDien, string quocGia, int thoiLuong, DateTime ngayKhoiChieu, string moTa, byte[] poster, string trailer, string theLoaiPhim)
+        public MovieDetailDTO(string maPhim, string tenPhim, string maPL, byte[] bieuTuongPL, string daoDien, string quocGia, int thoiLuong, DateTime ngayKhoiChieu, string moTa, byte[] poster, string trailer, string theLoaiPhim)
         {
             this.maPhim = maPhim;
             this.tenPhim = tenPhim;
@@ -51,7 +51,7 @@ namespace BetaCinema.DTO
             this.theLoaiPhim = theLoaiPhim;
         }
 
-        public MovieDetail(DataRow row)
+        public MovieDetailDTO(DataRow row)
         {
             this.maPhim = row["maPhim"].ToString();
             this.tenPhim = row["tenPhim"].ToString();

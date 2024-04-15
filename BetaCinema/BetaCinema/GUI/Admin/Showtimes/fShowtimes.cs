@@ -30,7 +30,7 @@ namespace BetaCinema.GUI.Admin.Showtime
         void LoadMovie()
         {
             cboMovie.Items.Clear();
-            List<BetaCinema.DTO.Movie> listMovie = MovieDAO.Instance.GetMovieList();
+            List<BetaCinema.DTO.MovieDTO> listMovie = MovieDAO.Instance.GetMovieList();
             cboMovie.DataSource = listMovie;
             cboMovie.DisplayMember = "TenPhim";
         }
@@ -38,7 +38,7 @@ namespace BetaCinema.GUI.Admin.Showtime
         RadioButton rdbAllRoom;
         void LoadRoom()
         {
-            List<Room> roomList = RoomDAO.Instance.GetRoomList();
+            List<RoomDTO> roomList = RoomDAO.Instance.GetRoomList();
 
             rdbAllRoom = CreateRadioBtnRoom("Tất cả");
             rdbAllRoom.Padding = new Padding(16, 0, 0, 0);
@@ -46,7 +46,7 @@ namespace BetaCinema.GUI.Admin.Showtime
             rdbAllRoom.Checked = true;
             flpRoom.Controls.Add(rdbAllRoom);
 
-            foreach (Room room in roomList)
+            foreach (RoomDTO room in roomList)
             {
                 RadioButton rdb = CreateRadioBtnRoom(room.TenPhong);
                 rdb.Padding = new Padding(16, 0, 0, 0);
@@ -75,7 +75,7 @@ namespace BetaCinema.GUI.Admin.Showtime
 
         public void ShowShowtimes()
         {
-            BetaCinema.DTO.Movie movie = (BetaCinema.DTO.Movie)cboMovie.SelectedItem;
+            BetaCinema.DTO.MovieDTO movie = (BetaCinema.DTO.MovieDTO)cboMovie.SelectedItem;
             string maPhim = movie.MaPhim;
             DateTime tuGio = dtpStart.Value;
             DateTime denGio = dtpFinish.Value;
@@ -87,7 +87,7 @@ namespace BetaCinema.GUI.Admin.Showtime
             {
                 if (control is RadioButton radioButton && radioButton.Checked)
                 {
-                    Room room = radioButton.Tag as Room;
+                    RoomDTO room = radioButton.Tag as RoomDTO;
                     if (room != null)
                     {
                         maPhong = room.MaPhong.ToString();
@@ -379,7 +379,7 @@ namespace BetaCinema.GUI.Admin.Showtime
                 fShowtimesDetail f = new fShowtimesDetail();
                 f.Text = "Thông tin suất chiếu";
                 f.LoadData(dgvShowtimes.Rows[e.RowIndex]);
-                f.Show();
+                f.ShowDialog();
             }
 
             if (e.ColumnIndex == dgvShowtimes.Columns["DeleteColumn"].Index)
@@ -401,6 +401,14 @@ namespace BetaCinema.GUI.Admin.Showtime
             }
         }
 
+        private void dgvShowtimes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fShowtimesDetail f = new fShowtimesDetail();
+            f.Text = "Thông tin suất chiếu";
+            f.LoadData(dgvShowtimes.Rows[e.RowIndex]);
+            f.ShowDialog();
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ShowShowtimes();
@@ -415,11 +423,17 @@ namespace BetaCinema.GUI.Admin.Showtime
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            List<BetaCinema.DTO.Showtimes> list = ShowtimesDAO.Instance.GetShowtimesByDate(dtpDate.Value);
+            List<BetaCinema.DTO.ShowtimesDTO> list = ShowtimesDAO.Instance.GetShowtimesByDate(dtpDate.Value);
             rptShowtimes r = new rptShowtimes();
             r.SetDataSource(list);
             fReport f = new fReport();
             f.crvReport.ReportSource = r;
+            f.ShowDialog();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            fAddShowtimes f = new fAddShowtimes();
             f.ShowDialog();
         }
 

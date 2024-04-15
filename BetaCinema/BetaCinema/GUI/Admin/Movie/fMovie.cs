@@ -192,7 +192,7 @@ namespace BetaCinema
         private void btnAdd_Click(object sender, EventArgs e)
         {
             fAddEditMovie f = new fAddEditMovie();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void dgvMovie_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -204,9 +204,9 @@ namespace BetaCinema
             }
             DataGridViewRow selectedRow = dgvMovie.CurrentRow;
             fMovieDetail f = new fMovieDetail();
-            f.Text = "Thêm phim mới";
+            f.Text = "Chi tiết phim";
             f.LoadData(selectedRow);
-            f.Show();
+            f.ShowDialog();
         }
 
         private void fMovie_SizeChanged(object sender, EventArgs e)
@@ -226,7 +226,7 @@ namespace BetaCinema
                 fAddEditMovie f = new fAddEditMovie();
                 f.Text = "Chỉnh sửa thông tin phim";
                 f.LoadData(dgvMovie.Rows[e.RowIndex]);
-                f.Show();
+                f.ShowDialog();
             }
 
             if (e.ColumnIndex == dgvMovie.Columns["DeleteColumn"].Index)
@@ -275,7 +275,7 @@ namespace BetaCinema
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            List<MovieDetail> list = MovieDetailDAO.Instance.GetListMoiveDetail();
+            List<MovieDetailDTO> list = MovieDetailDAO.Instance.GetListMoiveDetail();
             rptMovie r = new rptMovie();
             r.SetDataSource(list);
             fReport f = new fReport();

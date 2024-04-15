@@ -1,4 +1,6 @@
-﻿using BetaCinema.GUI.Admin.Showtime;
+﻿using BetaCinema.DTO;
+using BetaCinema.GUI.Admin.Genre;
+using BetaCinema.GUI.Admin.Showtime;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,7 @@ namespace BetaCinema
     {
         fMovie fMovie;
         fShowtimes fShowtime;
+        fGenre fGenre;
         InsertImage fInsertImage;
         public fMain()
         {
@@ -42,7 +45,7 @@ namespace BetaCinema
         {
             btnMovie.Width = width;
             btnShowTime.Width = width;
-            btnProduct.Width = width;
+            btnGenre.Width = width;
             btnLogout.Width = width;
         }
         #endregion
@@ -121,6 +124,27 @@ namespace BetaCinema
         private void fMovie_FormClosed(object sender, FormClosedEventArgs e)
         {
             fMovie = null;
+        }
+
+        private void btnGenre_Click(object sender, EventArgs e)
+        {
+            if (fGenre == null)
+            {
+                fGenre = new fGenre();
+                fGenre.FormClosed += fGenre_FormClosed;
+                fGenre.MdiParent = this;
+                fGenre.Dock = DockStyle.Fill;
+                fGenre.Show();
+            }
+            else
+            {
+                fGenre.Activate();
+            }
+        }
+
+        private void fGenre_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fGenre = null;
         }
 
         private void btnShowTime_Click(object sender, EventArgs e)

@@ -22,51 +22,58 @@ namespace BetaCinema.DAO
 
         private ShowtimesDAO() { }
 
-        public List<Showtimes> GetShowtimesByDate(DateTime date)
+        public string GetNextShowtimesID()
         {
-            List<Showtimes> list = new List<Showtimes>();
+            string query = "SELECT 'SC' + RIGHT('000' + CAST(MAX(RIGHT(MaSC, 3)) + 1 AS VARCHAR(3)), 3) FROM SuatChieu";
+            string showtimesID = DataProvider.Instance.ExecuteScalar(query)?.ToString();
+            return showtimesID;
+        }
+
+        public List<ShowtimesDTO> GetShowtimesByDate(DateTime date)
+        {
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string query = String.Format("SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' ORDER BY ThoiGian ASC", ngayChieu);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateAndRoomID(DateTime date, string maPhong)
+        public List<ShowtimesDTO> GetShowtimesByDateAndRoomID(DateTime date, string maPhong)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string query = String.Format("SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{0}' AND MaPhong = N'{1}' ORDER BY ThoiGian ASC", ngayChieu, maPhong);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateAndMovieID(DateTime date, string movieID)
+        public List<ShowtimesDTO> GetShowtimesByDateAndMovieID(DateTime date, string movieID)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhim = N'{movieID}' ORDER BY ThoiGian ASC";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateAndMovieTime(DateTime date, DateTime start, DateTime finish)
+        public List<ShowtimesDTO> GetShowtimesByDateAndMovieTime(DateTime date, DateTime start, DateTime finish)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string tuGio = start.ToString("HH:mm");
             string denGio = finish.ToString("HH:mm");
@@ -74,15 +81,15 @@ namespace BetaCinema.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateAndMovieIDMovieTime(DateTime date, string movieID, DateTime start, DateTime finish)
+        public List<ShowtimesDTO> GetShowtimesByDateAndMovieIDMovieTime(DateTime date, string movieID, DateTime start, DateTime finish)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string tuGio = start.ToString("HH:mm");
             string denGio = finish.ToString("HH:mm");
@@ -90,29 +97,29 @@ namespace BetaCinema.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieID(DateTime date, string maPhong, string movieID)
+        public List<ShowtimesDTO> GetShowtimesByDateRoomIDAndMovieID(DateTime date, string maPhong, string movieID)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND MaPhong = N'{maPhong}' AND MaPhim = N'{movieID}' ORDER BY ThoiGian ASC";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieTime(DateTime date, string maPhong, DateTime start, DateTime finish)
+        public List<ShowtimesDTO> GetShowtimesByDateRoomIDAndMovieTime(DateTime date, string maPhong, DateTime start, DateTime finish)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string tuGio = start.ToString("HH:mm");
             string denGio = finish.ToString("HH:mm");
@@ -120,15 +127,15 @@ namespace BetaCinema.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
         }
 
-        public List<Showtimes> GetShowtimesByDateRoomIDAndMovieIDMovieTime(DateTime date, string maPhong, string movieID, DateTime start, DateTime finish)
+        public List<ShowtimesDTO> GetShowtimesByDateRoomIDAndMovieIDMovieTime(DateTime date, string maPhong, string movieID, DateTime start, DateTime finish)
         {
-            List<Showtimes> list = new List<Showtimes>();
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
             string ngayChieu = date.Date.ToString("yyyy-MM-dd");
             string tuGio = start.ToString("HH:mm");
             string denGio = finish.ToString("HH:mm");
@@ -136,10 +143,36 @@ namespace BetaCinema.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Showtimes showtimes = new Showtimes(item);
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
                 list.Add(showtimes);
             }
             return list;
+        }
+
+        public bool InsertShowtimes(string maPhong, string maPhim, DateTime thoiGian)
+        {
+            try
+            {
+                string query = "INSERT INTO SuatChieu(MaSC, MaPhong, MaPhim, ThoiGian) VALUES (dbo.f_AutoMaSC(), @maPhong , @maPhim , @thoiGian )";
+                object[] parameters = new object[]
+                {
+                    maPhong,
+                    maPhim,
+                    thoiGian
+                };
+                int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+                return result > 0;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi SQL: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
         }
 
         public bool UpdateShowtimes(string maSC, string maPhong, string maPhim, DateTime thoiGian)

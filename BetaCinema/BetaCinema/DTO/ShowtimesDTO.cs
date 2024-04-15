@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class Showtimes
+    public class ShowtimesDTO
     {
         private string maSC;
         private string maPhong;
@@ -32,7 +32,7 @@ namespace BetaCinema.DTO
         public int SoGheTrong { get => soGheTrong; set => soGheTrong = value; }
         public int TongSoGhe { get => tongSoGhe; set => tongSoGhe = value; }
 
-        public Showtimes(string maSC, string maPhong, string tenPhong, string maPhim, string tenPhim, int thoiLuong, DateTime thoiGianBD, int soGheTrong, int tongSoGhe)
+        public ShowtimesDTO(string maSC, string maPhong, string tenPhong, string maPhim, string tenPhim, int thoiLuong, DateTime thoiGianBD, int soGheTrong, int tongSoGhe)
         {
             this.maSC = maSC;
             this.maPhong = maPhong;
@@ -45,7 +45,7 @@ namespace BetaCinema.DTO
             this.tongSoGhe = tongSoGhe;
         }
 
-        public Showtimes(DataRow row)
+        public ShowtimesDTO(DataRow row)
         {
             this.maSC = row["maSC"].ToString();
             this.maPhong = row["maPhong"].ToString();

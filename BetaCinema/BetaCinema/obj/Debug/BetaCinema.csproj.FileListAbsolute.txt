@@ -52,3 +52,5 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\bin\Debug\stdole.dll
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.fReport.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.csproj.CopyComplete
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Showtimes.fAddShowtimes.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Genre.fGenre.resources

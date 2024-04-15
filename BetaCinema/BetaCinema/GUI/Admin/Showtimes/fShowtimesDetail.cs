@@ -21,6 +21,7 @@ namespace BetaCinema.GUI.Admin.Showtimes
 
             LoadRoom();
             LoadMovie();
+            btnSave.Location = new Point(170, 457);
         }
 
         #region Methods
@@ -40,7 +41,7 @@ namespace BetaCinema.GUI.Admin.Showtimes
             txtShowtimesID.Text = maSC;
             LoadSeat(maSC);
 
-            foreach (Room item in cboRoom.Items)
+            foreach (RoomDTO item in cboRoom.Items)
             {
                 if (item.MaPhong == selectedRow.Cells["MaPhong"].Value.ToString())
                 {
@@ -49,7 +50,7 @@ namespace BetaCinema.GUI.Admin.Showtimes
                     break;
                 }
             }
-            foreach (BetaCinema.DTO.Movie item in cboMovie.Items)
+            foreach (BetaCinema.DTO.MovieDTO item in cboMovie.Items)
             {
                 if (item.MaPhim == selectedRow.Cells["MaPhim"].Value.ToString())
                 {
@@ -73,7 +74,7 @@ namespace BetaCinema.GUI.Admin.Showtimes
         void LoadRoom()
         {
             cboRoom.Items.Clear();
-            List<Room> listRoom = RoomDAO.Instance.GetRoomList();
+            List<RoomDTO> listRoom = RoomDAO.Instance.GetRoomList();
             cboRoom.DataSource = listRoom;
             cboRoom.DisplayMember = "TenPhong";
         }
@@ -81,16 +82,16 @@ namespace BetaCinema.GUI.Admin.Showtimes
         void LoadMovie()
         {
             cboMovie.Items.Clear();
-            List<BetaCinema.DTO.Movie> listMovie = MovieDAO.Instance.GetMovieList();
+            List<BetaCinema.DTO.MovieDTO> listMovie = MovieDAO.Instance.GetMovieList();
             cboMovie.DataSource = listMovie;
             cboMovie.DisplayMember = "TenPhim";
         }
 
         private void LoadSeat(string maSC)
         {
-            List<SeatDetail> seatList = SeatDetailDAO.Instance.GetListSeatDetailByShowtimesID(maSC);
+            List<SeatDetailDTO> seatList = SeatDetailDAO.Instance.GetListSeatDetailByShowtimesID(maSC);
 
-            foreach (SeatDetail seat in seatList)
+            foreach (SeatDetailDTO seat in seatList)
             {
                 Button btn = new Button();
                 btn.FlatStyle = FlatStyle.Flat;
@@ -156,9 +157,9 @@ namespace BetaCinema.GUI.Admin.Showtimes
         private bool UpdateShowtimeToDatabase()
         {
             string maSC = txtShowtimesID.Text;
-            Room room = (Room)cboRoom.SelectedItem;
+            RoomDTO room = (RoomDTO)cboRoom.SelectedItem;
             string maPhong = room.MaPhong;
-            BetaCinema.DTO.Movie movie = (BetaCinema.DTO.Movie)cboMovie.SelectedItem;
+            BetaCinema.DTO.MovieDTO movie = (BetaCinema.DTO.MovieDTO)cboMovie.SelectedItem;
             string maPhim = movie.MaPhim;
             string ngayChieu = dtpDate.Value.ToString("dd/MM/yyyy");
             string gioBD = dtpStart.Value.ToString("HH:mm:ss");
@@ -169,11 +170,6 @@ namespace BetaCinema.GUI.Admin.Showtimes
         #endregion
 
         #region Events
-        private void fShowtimesDetail_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
             DateTime time = dtpStart.Value.AddMinutes(thoiLuong);
@@ -207,7 +203,7 @@ namespace BetaCinema.GUI.Admin.Showtimes
             }
             else
             {
-                string message = $"Khoảng thời gian từ {dtpDate.Value.ToString("HH:mm")} đến {txtFinish.Text} đã có phim chiếu tại {cboRoom.Text}";
+                string message = $"Khoảng thời gian từ {dtpStart.Value.ToString("HH:mm")} đến {txtFinish.Text} đã có phim chiếu tại {cboRoom.Text}";
                 MessageBox.Show(message, "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboRoom.Text = tenPhong;
                 cboMovie.Text = tenPhim;

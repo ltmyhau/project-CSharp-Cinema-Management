@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class Room
+    public class RoomDTO
     {
         private string maPhong;
         private string tenPhong;
@@ -19,7 +19,7 @@ namespace BetaCinema.DTO
         public string ViTri { get => viTri; set => viTri = value; }
         public int SucChua { get => sucChua; set => sucChua = value; }
 
-        public Room(string maPhong, string tenPhong, string viTri, int sucChua)
+        public RoomDTO(string maPhong, string tenPhong, string viTri, int sucChua)
         {
             this.maPhong = maPhong;
             this.tenPhong = tenPhong;
@@ -27,7 +27,7 @@ namespace BetaCinema.DTO
             this.sucChua = sucChua;
         }
 
-        public Room(DataRow row)
+        public RoomDTO(DataRow row)
         {
             this.maPhong = row["maPhong"].ToString();
             this.tenPhong = row["tenPhong"].ToString();

@@ -129,7 +129,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(171, 457);
+            this.btnEdit.Location = new System.Drawing.Point(170, 457);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 40);
             this.btnEdit.TabIndex = 7;
@@ -577,11 +577,11 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(900, 560);
+            this.MinimumSize = new System.Drawing.Size(900, 560);
             this.Name = "fShowtimesDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết lịch chiếu";
-            this.Load += new System.EventHandler(this.fShowtimesDetail_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

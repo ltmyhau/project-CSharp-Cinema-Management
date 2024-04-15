@@ -14,7 +14,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BetaCinema.GUI.Admin.Movie
 {
@@ -35,8 +34,8 @@ namespace BetaCinema.GUI.Admin.Movie
         void LoadGenre()
         {
             clbGenre.Items.Clear();
-            List<Genre> listGenre = GenreDAO.Instance.GetListGenre();
-            foreach (Genre genre in listGenre)
+            List<GenreDTO> listGenre = GenreDAO.Instance.GetListGenre();
+            foreach (GenreDTO genre in listGenre)
             {
                 clbGenre.Items.Add(genre.TenTheLoai);
             }
@@ -45,7 +44,7 @@ namespace BetaCinema.GUI.Admin.Movie
         void LoadMovieRatingSystem()
         {
             cboMovieRatingSystem.Items.Clear();
-            List<MovieRatingSystem> listMovieRatingSystem = MovieRatingSystemDAO.Instance.GetListMovieRatingSystem();
+            List<MovieRatingSystemDTO> listMovieRatingSystem = MovieRatingSystemDAO.Instance.GetListMovieRatingSystem();
             cboMovieRatingSystem.DataSource = listMovieRatingSystem;
             cboMovieRatingSystem.DisplayMember = "MaPL";
         }
@@ -65,7 +64,7 @@ namespace BetaCinema.GUI.Admin.Movie
             dtpReleaseDate.Value = DateTime.Parse(selectedRow.Cells["NgayKhoiChieu"].Value?.ToString());
             txtTrailerURL.Text = selectedRow.Cells["Trailer"].Value?.ToString();
 
-            foreach (MovieRatingSystem item in cboMovieRatingSystem.Items)
+            foreach (MovieRatingSystemDTO item in cboMovieRatingSystem.Items)
             {
                 if (item.MaPL == selectedRow.Cells["MaPL"].Value.ToString())
                 {
@@ -90,14 +89,14 @@ namespace BetaCinema.GUI.Admin.Movie
 
         void CheckGenreInCheckListBox(string maPhim)
         {
-            List<GenreMovie> genreMovies = GenreMovieDAO.Instance.GetListGenreMovieByMovieID(maPhim);
+            List<GenreMovieDTO> genreMovies = GenreMovieDAO.Instance.GetListGenreMovieByMovieID(maPhim);
             for (int i = 0; i < clbGenre.Items.Count; i++)
             {
                 string genreName = clbGenre.Items[i].ToString();
-                foreach (GenreMovie genreMovie in genreMovies)
+                foreach (GenreMovieDTO genreMovie in genreMovies)
                 {
-                    List<Genre> genreList = GenreDAO.Instance.GetListGenreByGenreID(genreMovie.MaTL);
-                    foreach (Genre genre in genreList)
+                    List<GenreDTO> genreList = GenreDAO.Instance.GetListGenreByGenreID(genreMovie.MaTL);
+                    foreach (GenreDTO genre in genreList)
                     {
                         if (genreName == genre.TenTheLoai)
                         {
@@ -202,7 +201,7 @@ namespace BetaCinema.GUI.Admin.Movie
 
         private string GetMaTLFromIndex(int index)
         {
-            List<Genre> listGenre = GenreDAO.Instance.GetListGenre();
+            List<GenreDTO> listGenre = GenreDAO.Instance.GetListGenre();
             if (index >= 0 && index < listGenre.Count)
             {
                 return listGenre[index].MaTL;
@@ -305,6 +304,5 @@ namespace BetaCinema.GUI.Admin.Movie
             }
         }
         #endregion
-
     }
 }

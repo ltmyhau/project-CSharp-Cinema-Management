@@ -22,14 +22,14 @@ namespace BetaCinema.DAO
 
         private SeatDetailDAO() { }
 
-        public List<SeatDetail> GetListSeatDetailByShowtimesID(string maSC)
+        public List<SeatDetailDTO> GetListSeatDetailByShowtimesID(string maSC)
         {
-            List<SeatDetail> list = new List<SeatDetail>();
+            List<SeatDetailDTO> list = new List<SeatDetailDTO>();
             string query = string.Format("SELECT ctsc.*, MaLoaiGhe FROM ChiTietSuatChieu ctsc INNER JOIN Ghe g On ctsc.MaGhe = g.MaGhe WHERE MaSC = N'{0}'", maSC);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                SeatDetail seatDetail = new SeatDetail(item);
+                SeatDetailDTO seatDetail = new SeatDetailDTO(item);
                 list.Add(seatDetail);
             }
             return list;

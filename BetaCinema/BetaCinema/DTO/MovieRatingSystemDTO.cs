@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class MovieRatingSystem
+    public class MovieRatingSystemDTO
     {
         private string maPL;
         private string moTa;
@@ -17,14 +17,14 @@ namespace BetaCinema.DTO
         public string MoTa { get => moTa; set => moTa = value; }
         public byte[] BieuTuongPL { get => bieuTuongPL; set => bieuTuongPL = value; }
 
-        public MovieRatingSystem(string maPL, string moTa, byte[] bieuTuongPL)
+        public MovieRatingSystemDTO(string maPL, string moTa, byte[] bieuTuongPL)
         {
             this.maPL = maPL;
             this.moTa = moTa;
             this.bieuTuongPL = bieuTuongPL;
         }
 
-        public MovieRatingSystem(DataRow row)
+        public MovieRatingSystemDTO(DataRow row)
         {
             this.maPL = row["maPL"].ToString();
             this.moTa = row["moTa"].ToString();

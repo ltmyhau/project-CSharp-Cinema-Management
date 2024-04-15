@@ -23,14 +23,14 @@ namespace BetaCinema.DAO
 
         private RoomDAO() { }
 
-        public List<Room> GetRoomList()
+        public List<RoomDTO> GetRoomList()
         {
-            List<Room> list = new List<Room>();
+            List<RoomDTO> list = new List<RoomDTO>();
             string query = "SELECT * FROM PhongChieu";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Room room = new Room(item);
+                RoomDTO room = new RoomDTO(item);
                 list.Add(room);
             }
             return list;

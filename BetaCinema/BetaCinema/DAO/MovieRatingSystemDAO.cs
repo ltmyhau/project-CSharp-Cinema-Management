@@ -21,14 +21,14 @@ namespace BetaCinema.DAO
 
         private MovieRatingSystemDAO() { }
 
-        public List<MovieRatingSystem> GetListMovieRatingSystem()
+        public List<MovieRatingSystemDTO> GetListMovieRatingSystem()
         {
-            List<MovieRatingSystem> list = new List<MovieRatingSystem> ();
+            List<MovieRatingSystemDTO> list = new List<MovieRatingSystemDTO> ();
             string query = "SELECT * FROM PhanLoai";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                MovieRatingSystem movieRatingSystem = new MovieRatingSystem(item);
+                MovieRatingSystemDTO movieRatingSystem = new MovieRatingSystemDTO(item);
                 list.Add(movieRatingSystem);
             }
             return list;

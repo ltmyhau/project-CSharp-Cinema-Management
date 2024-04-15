@@ -77,7 +77,7 @@ namespace BetaCinema
         private void btnTrailer_Click(object sender, EventArgs e)
         {
             fMovieTrailer fMovieTrailer = new fMovieTrailer(trailerURL);
-            fMovieTrailer.Show();
+            fMovieTrailer.ShowDialog();
         }
 
         private void btnTrailer_MouseEnter(object sender, EventArgs e)

@@ -356,7 +356,8 @@
             this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "fMovieDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết phim";

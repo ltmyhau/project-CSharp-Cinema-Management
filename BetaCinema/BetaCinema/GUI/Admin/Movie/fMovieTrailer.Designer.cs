@@ -50,7 +50,8 @@
             this.ClientSize = new System.Drawing.Size(621, 320);
             this.Controls.Add(this.wbsTrailer);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(639, 367);
+            this.MinimumSize = new System.Drawing.Size(639, 367);
             this.Name = "fMovieTrailer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trailer";

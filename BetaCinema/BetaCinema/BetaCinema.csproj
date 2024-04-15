@@ -67,14 +67,14 @@
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\SeatDetailDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
-    <Compile Include="DTO\Genre.cs" />
-    <Compile Include="DTO\GenreMovie.cs" />
-    <Compile Include="DTO\Movie.cs" />
-    <Compile Include="DTO\MovieDetail.cs" />
-    <Compile Include="DTO\MovieRatingSystem.cs" />
-    <Compile Include="DTO\Room.cs" />
-    <Compile Include="DTO\SeatDetail.cs" />
-    <Compile Include="DTO\Showtimes.cs" />
+    <Compile Include="DTO\GenreDTO.cs" />
+    <Compile Include="DTO\GenreMovieDTO.cs" />
+    <Compile Include="DTO\MovieDTO.cs" />
+    <Compile Include="DTO\MovieDetailDTO.cs" />
+    <Compile Include="DTO\MovieRatingSystemDTO.cs" />
+    <Compile Include="DTO\RoomDTO.cs" />
+    <Compile Include="DTO\SeatDetailDTO.cs" />
+    <Compile Include="DTO\ShowtimesDTO.cs" />
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +86,12 @@
     </Compile>
     <Compile Include="GUI\Admin\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Genre\fGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Genre\fGenre.Designer.cs">
+      <DependentUpon>fGenre.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Movie\fAddEditMovie.cs">
       <SubType>Form</SubType>
@@ -116,6 +122,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptMovie.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fAddShowtimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Showtimes\fAddShowtimes.Designer.cs">
+      <DependentUpon>fAddShowtimes.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Showtimes\fShowtimes.cs">
       <SubType>Form</SubType>
@@ -156,6 +168,9 @@
     <EmbeddedResource Include="GUI\Admin\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Genre\fGenre.resx">
+      <DependentUpon>fGenre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Movie\fAddEditMovie.resx">
       <DependentUpon>fAddEditMovie.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     <EmbeddedResource Include="GUI\Admin\Movie\rptMovie.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptMovie.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Showtimes\fAddShowtimes.resx">
+      <DependentUpon>fAddShowtimes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Showtimes\fShowtimes.resx">
       <DependentUpon>fShowtimes.cs</DependentUpon>
@@ -309,6 +327,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\film1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

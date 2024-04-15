@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DTO
 {
-    public class Genre
+    public class GenreMovieDTO
     {
+        private string maPhim;
         private string maTL;
-        private string tenTheLoai;
 
+        public string MaPhim { get => maPhim; set => maPhim = value; }
         public string MaTL { get => maTL; set => maTL = value; }
-        public string TenTheLoai { get => tenTheLoai; set => tenTheLoai = value; }
 
-        public Genre(string maTL, string tenTheLoai)
+        public GenreMovieDTO(string maPhim, string maTL)
         {
+            this.maPhim = maPhim;
             this.maTL = maTL;
-            this.tenTheLoai = tenTheLoai;
         }
 
-        public Genre(DataRow row)
+        public GenreMovieDTO(DataRow row)
         {
+            this.maPhim = row["maPhim"].ToString();
             this.maTL = row["maTL"].ToString();
-            this.tenTheLoai = row["tenTheLoai"].ToString();
         }
+
     }
 }

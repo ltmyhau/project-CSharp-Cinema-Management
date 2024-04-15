@@ -20,27 +20,27 @@ namespace BetaCinema.DAO
 
         private GenreDAO() { }
 
-        public List<Genre> GetListGenre()
+        public List<GenreDTO> GetListGenre()
         {
-            List<Genre> list = new List<Genre>();
+            List<GenreDTO> list = new List<GenreDTO>();
             string query = "SELECT * FROM TheLoai";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Genre genre = new Genre(item);
+                GenreDTO genre = new GenreDTO(item);
                 list.Add(genre);
             }
             return list;
         }
 
-        public List<Genre> GetListGenreByGenreID(string maTL)
+        public List<GenreDTO> GetListGenreByGenreID(string maTL)
         {
-            List<Genre> list = new List<Genre>();
+            List<GenreDTO> list = new List<GenreDTO>();
             string query = string.Format("SELECT * FROM TheLoai WHERE MaTL = '{0}'", maTL);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Genre genre = new Genre(item);
+                GenreDTO genre = new GenreDTO(item);
                 list.Add(genre);
             }
             return list;
