@@ -57,3 +57,5 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fEmployee.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.Movie.fEShowtimes.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.Showtimes.fEShowtimesDetail.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.fBillInfo.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.fEProduct.resources

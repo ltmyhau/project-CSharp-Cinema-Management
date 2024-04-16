@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\CustomerTypeDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\GenreDAO.cs" />
@@ -65,18 +68,25 @@
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\MovieDetailDAO.cs" />
     <Compile Include="DAO\MovieRatingSystemDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\SeatDetailDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
+    <Compile Include="DAO\TicketDAO.cs" />
+    <Compile Include="DTO\BillDTO.cs" />
+    <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\CustomerTypeDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\GenreDTO.cs" />
     <Compile Include="DTO\GenreMovieDTO.cs" />
     <Compile Include="DTO\MovieDTO.cs" />
     <Compile Include="DTO\MovieDetailDTO.cs" />
     <Compile Include="DTO\MovieRatingSystemDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\RoomDTO.cs" />
     <Compile Include="DTO\SeatDetailDTO.cs" />
     <Compile Include="DTO\ShowtimesDTO.cs" />
+    <Compile Include="DTO\TicketDTO.cs" />
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,22 +171,34 @@
       <DependentUpon>rptShowtimes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Employee\fBillInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\fBillInfo.Designer.cs">
+      <DependentUpon>fBillInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Employee\fEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Employee\fEmployee.Designer.cs">
       <DependentUpon>fEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Employee\Showtimes\fEShowtimes.cs">
+    <Compile Include="GUI\Employee\fEProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Employee\Showtimes\fEShowtimes.Designer.cs">
+    <Compile Include="GUI\Employee\fEProduct.Designer.cs">
+      <DependentUpon>fEProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\fEShowtimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\fEShowtimes.Designer.cs">
       <DependentUpon>fEShowtimes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Employee\Showtimes\fEShowtimesDetail.cs">
+    <Compile Include="GUI\Employee\fEShowtimesDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Employee\Showtimes\fEShowtimesDetail.Designer.cs">
+    <Compile Include="GUI\Employee\fEShowtimesDetail.Designer.cs">
       <DependentUpon>fEShowtimesDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fReport.cs">
@@ -240,13 +262,19 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptShowtimes.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\fBillInfo.resx">
+      <DependentUpon>fBillInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Employee\fEmployee.resx">
       <DependentUpon>fEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Employee\Showtimes\fEShowtimes.resx">
+    <EmbeddedResource Include="GUI\Employee\fEProduct.resx">
+      <DependentUpon>fEProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\fEShowtimes.resx">
       <DependentUpon>fEShowtimes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Employee\Showtimes\fEShowtimesDetail.resx">
+    <EmbeddedResource Include="GUI\Employee\fEShowtimesDetail.resx">
       <DependentUpon>fEShowtimesDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fReport.resx">
@@ -388,6 +416,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\funnel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

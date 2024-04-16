@@ -665,16 +665,16 @@ INSERT INTO NhanVien(MaNV, TenNV, MaCV, Email, MatKhau) VALUES
 GO
 
 INSERT INTO NhanVien(MaNV, HoNV, TenNV, NgaySinh, GioiTinh, NgayVaoLam, MaCV, DienThoai, Email, MatKhau, DiaChi) VALUES 
-(N'NV001', N'Nguyễn Văn', N'Anh', '1990-01-15', N'Nam', N'2024-01-15', N'NV', N'0123456789', N'nguyenvananh@email.com', '123456', N'123 Đường Lê Lợi, Phường 1, Quận 5, TP. Hồ Chí Minh'),
-(N'NV002', N'Trần Thị', N'Bình', '1985-05-22', N'Nữ', N'2023-04-30', N'NV', N'0987654321', N'tranthibinh@email.com', '123456', N'456 Đường Nguyễn Huệ, Phường 2, Quận 10, TP. Hồ Chí Minh'),
-(N'NV003', N'Lê Văn', N'Cường', '1992-03-10', N'Nam', N'2024-03-16', N'NV', N'0901234567', N'levancuong@email.com', '123456', N'789 Đường Nam Kỳ Khởi Nghĩa, Phường 3, Quận 3, TP. Hồ Chí Minh'),
-(N'NV004', N'Phạm Thị Diệu', N'Linh', '1988-07-05', N'Nữ', N'2022-11-15', N'NV', N'0912345678', N'phamthidieulinh@email.com', '123456', N'101 Đường Trần Hưng Đạo, Phường 4, Quận 1, TP. Hồ Chí Minh'),
-(N'NV005', N'Huỳnh Văn', N'Đức', '1995-11-20', N'Nam', N'2022-11-27', N'NV', N'0876543210', N'huynhvanduc@email.com', '123456', N'202 Đường Cách Mạng Tháng Tám, Phường 5, Quận Bình Thạnh, TP. Hồ Chí Minh'),
-(N'NV006', N'Đặng Thị Mai', N'Anh', '1983-09-18', N'Nữ', N'2024-01-22', N'NV', N'0956789012', N'dangthimaianh@email.com', '123456', N'303 Đường Nguyễn Văn Linh, Phường 6, Quận 7, TP. Hồ Chí Minh'),
-(N'NV007', N'Trần Thị Kim', N'Oanh', '1998-04-25', N'Nữ', N'2023-06-09', N'NV', N'0888777666', N'tranthikimoanh@email.com', '123456', N'404 Đường Võ Văn Kiệt, Phường 7, Quận 4, TP. Hồ Chí Minh'),
-(N'NV008', N'Mai Thị', N'Phương', '1993-12-30', N'Nữ', N'2022-07-15', N'NV', N'0945454545', N'maithiphuong@email.com', '123456', N'505 Đường Lý Thường Kiệt, Phường 8, Quận 6, TP. Hồ Chí Minh'),
-(N'NV009', N'Võ Văn', N'Tuấn', '1989-06-08', N'Nam', N'2023-05-09', N'NV', N'0123456789', N'vovantuan@email.com', '123456', N'606 Đường 3 Tháng 2, Phường 9, Quận 10, TP. Hồ Chí Minh'),
-(N'NV010', N'Nguyễn Thị Quỳnh', N'Anh', '1984-02-14', N'Nữ', N'2023-10-12', N'NV', N'0987654321', N'nguyenthiquynhanh@email.com', '123456', N'707 Đường Cộng Hòa, Phường 10, Quận Tân Bình, TP. Hồ Chí Minh')
+(N'NV001', N'Nguyễn Văn', N'Anh', '1990-01-15', N'Nam', N'2024-01-15', N'NV', N'0843652384', N'nguyenvananh@email.com', '123456', N'123 Đường Lê Lợi, Phường 1, Quận 5, TP. Hồ Chí Minh'),
+(N'NV002', N'Trần Thị', N'Bình', '1985-05-22', N'Nữ', N'2023-04-30', N'NV', N'0952857496', N'tranthibinh@email.com', '123456', N'456 Đường Nguyễn Huệ, Phường 2, Quận 10, TP. Hồ Chí Minh'),
+(N'NV003', N'Lê Văn', N'Cường', '1992-03-10', N'Nam', N'2024-03-16', N'NV', N'03648720195', N'levancuong@email.com', '123456', N'789 Đường Nam Kỳ Khởi Nghĩa, Phường 3, Quận 3, TP. Hồ Chí Minh'),
+(N'NV004', N'Phạm Thị Diệu', N'Linh', '1988-07-05', N'Nữ', N'2022-11-15', N'NV', N'09468300913', N'phamthidieulinh@email.com', '123456', N'101 Đường Trần Hưng Đạo, Phường 4, Quận 1, TP. Hồ Chí Minh'),
+(N'NV005', N'Huỳnh Văn', N'Đức', '1995-11-20', N'Nam', N'2022-11-27', N'NV', N'0389265491', N'huynhvanduc@email.com', '123456', N'202 Đường Cách Mạng Tháng Tám, Phường 5, Quận Bình Thạnh, TP. Hồ Chí Minh'),
+(N'NV006', N'Đặng Thị Mai', N'Anh', '1983-09-18', N'Nữ', N'2024-01-22', N'NV', N'0958360981', N'dangthimaianh@email.com', '123456', N'303 Đường Nguyễn Văn Linh, Phường 6, Quận 7, TP. Hồ Chí Minh'),
+(N'NV007', N'Trần Thị Kim', N'Oanh', '1998-04-25', N'Nữ', N'2023-06-09', N'NV', N'0395748650', N'tranthikimoanh@email.com', '123456', N'404 Đường Võ Văn Kiệt, Phường 7, Quận 4, TP. Hồ Chí Minh'),
+(N'NV008', N'Mai Thị', N'Phương', '1993-12-30', N'Nữ', N'2022-07-15', N'NV', N'0904358628', N'maithiphuong@email.com', '123456', N'505 Đường Lý Thường Kiệt, Phường 8, Quận 6, TP. Hồ Chí Minh'),
+(N'NV009', N'Võ Văn', N'Tuấn', '1989-06-08', N'Nam', N'2023-05-09', N'NV', N'0937471529', N'vovantuan@email.com', '123456', N'606 Đường 3 Tháng 2, Phường 9, Quận 10, TP. Hồ Chí Minh'),
+(N'NV010', N'Nguyễn Thị Quỳnh', N'Anh', '1984-02-14', N'Nữ', N'2023-10-12', N'NV', N'09096582531', N'nguyenthiquynhanh@email.com', '123456', N'707 Đường Cộng Hòa, Phường 10, Quận Tân Bình, TP. Hồ Chí Minh')
 GO
 
 CREATE TABLE BacThanhVien
@@ -686,7 +686,7 @@ CREATE TABLE BacThanhVien
 GO
 
 INSERT INTO BacThanhVien(MaBacTV, TenBacTV, ChietKhau) VALUES
-(N'MOI', N'Thành viên mới', 0),
+(N'THG', N'Thành viên thường', 0),
 (N'BAC', N'Thành viên Bạc', 5),
 (N'VANG', N'Thành viên Vàng', 10),
 (N'KC', N'Thành viên Kim Cương', 15)
@@ -698,27 +698,48 @@ CREATE TABLE KhachHang
 	HoKH NVARCHAR(50) NOT NULL,
 	TenKH NVARCHAR(50) NOT NULL,
 	NgaySinh DATE,
-	GioiTinh NVARCHAR(10) CONSTRAINT CK_KH_GioiTinh CHECK (GioiTinh IN(N'Nam', N'Nữ', N'Khác')),
+	GioiTinh NVARCHAR(10),
 	NgayDangKy DATETIME NOT NULL,
 	DiemTichLuy FLOAT,
 	MaBacTV NVARCHAR(10) CONSTRAINT FK_KH_MaBacTV FOREIGN KEY(MaBacTV) REFERENCES BacThanhVien(MaBacTV),
-	DienThoai NVARCHAR(15),
+	DienThoai NVARCHAR(15) NOT NULL,
 	Email NVARCHAR(50),
 	DiaChi NVARCHAR(100)
 )
 GO
 
+CREATE FUNCTION f_AutoMaKH()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaKH VARCHAR(10)
+
+    IF NOT EXISTS (SELECT * FROM KhachHang)
+		BEGIN
+			SET @MaKH = 'KH001'
+		END
+    ELSE
+		BEGIN
+			DECLARE @MaxMaKH INT
+			SELECT @MaxMaKH = MAX(RIGHT(MaKH, 3)) FROM KhachHang
+			SET @MaKH = 'KH' + RIGHT('000' + CAST(@MaxMaKH + 1 AS VARCHAR(3)), 3)
+		END
+
+    RETURN @MaKH
+END
+GO
+
 INSERT INTO KhachHang(MaKH, HoKH, TenKH, NgaySinh, GioiTinh, NgayDangKy, DiemTichLuy, MaBacTV, DienThoai, Email, DiaChi) VALUES 
-(N'KH001', N'Hoàng Văn', N'Nam', '1991-03-08', N'Nam', '2023-03-08', 0, N'MOI', N'0123456789', N'hoangvannam@email.com', N'808 Đường Hòa Bình, Phường 11, Quận Gò Vấp, TP. Hồ Chí Minh'),
-(N'KH002', N'Lê Thị Thùy', N'Trang', '1986-12-10', N'Nữ', '2023-12-24', 0, N'MOI', N'0987654321', N'lethithuytrang@email.com', N'909 Đường Tân Bình, Phường 12, Quận Tân Phú, TP. Hồ Chí Minh'),
-(N'KH003', N'Nguyễn Văn', N'Long', '1994-07-28', N'Nam', '2023-11-28', 0, N'MOI', N'0901234567', N'nguyenvanlong@email.com', N'1010 Đường 3/2, Phường 13, Quận 3, TP. Hồ Chí Minh'),
-(N'KH004', N'Trần Thị', N'Mai', '1987-06-17', N'Nữ', '2024-03-19', 0, N'MOI', N'0912345678', N'tranthimai@email.com', N'1111 Đường Bình Thạnh, Phường 14, Quận Bình Thạnh, TP. Hồ Chí Minh'),
-(N'KH005', N'Phan Văn', N'Hòa', '1997-09-01', N'Nam', '2024-04-08', 0, N'MOI', N'0876543210', N'phanvanhoa@email.com', N'1212 Đường Phú Nhuận, Phường 15, Quận Phú Nhuận, TP. Hồ Chí Minh'),
-(N'KH006', N'Hồ Thị', N'Thảo', '1982-05-11', N'Nữ', '2024-03-01', 0, N'MOI', N'0956789012', N'hothithao@email.com', N'1313 Đường 30/4, Phường 16, Quận 8, TP. Hồ Chí Minh'),
-(N'KH007', N'Lý Văn', N'Minh', '1988-06-21', N'Nam', '2023-12-17', 0, N'MOI', N'0888777666', N'lyvanminh@email.com', N'1414 Đường 1/5, Phường 17, Quận 9, TP. Hồ Chí Minh'),
-(N'KH008', N'Mai Thị', N'Hoài', '1993-03-29', N'Nữ', '2024-03-29', 0, N'MOI', N'0945454545', N'maithihoai@email.com', N'1515 Đường 2/9, Phường 18, Quận 10, TP. Hồ Chí Minh'),
-(N'KH009', N'Vương Văn', N'Phú', '1984-12-09', N'Nam', '2023-06-13', 0, N'MOI', N'0123456789', N'vuongvanphu@email.com', N'1616 Đường 1/7, Phường 19, Quận 11, TP. Hồ Chí Minh'),
-(N'KH010', N'Nguyễn Thị', N'Thu', '1990-05-20', N'Nữ', '2023-11-09', 0, N'MOI', N'0987654321', N'nguyenthithu@email.com', N'1717 Đường 2/4, Phường 20, Quận 12, TP. Hồ Chí Minh');
+(N'KH001', N'Hoàng Văn', N'Nam', '1991-03-08', N'Nam', '2023-03-08', 0, N'THG', N'0395726301', N'hoangvannam@email.com', N'808 Đường Hòa Bình, Phường 11, Quận Gò Vấp, TP. Hồ Chí Minh'),
+(N'KH002', N'Lê Thị Thùy', N'Trang', '1986-12-10', N'Nữ', '2023-12-24', 0, N'THG', N'0987654321', N'lethithuytrang@email.com', N'909 Đường Tân Bình, Phường 12, Quận Tân Phú, TP. Hồ Chí Minh'),
+(N'KH003', N'Nguyễn Văn', N'Long', '1994-07-28', N'Nam', '2023-11-28', 0, N'THG', N'0901234567', N'nguyenvanlong@email.com', N'1010 Đường 3/2, Phường 13, Quận 3, TP. Hồ Chí Minh'),
+(N'KH004', N'Trần Thị', N'Mai', '1987-06-17', N'Nữ', '2024-03-19', 0, N'THG', N'0912345678', N'tranthimai@email.com', N'1111 Đường Bình Thạnh, Phường 14, Quận Bình Thạnh, TP. Hồ Chí Minh'),
+(N'KH005', N'Phan Văn', N'Hòa', '1997-09-01', N'Nam', '2024-04-08', 0, N'THG', N'0876543210', N'phanvanhoa@email.com', N'1212 Đường Phú Nhuận, Phường 15, Quận Phú Nhuận, TP. Hồ Chí Minh'),
+(N'KH006', N'Hồ Thị', N'Thảo', '1982-05-11', N'Nữ', '2024-03-01', 0, N'THG', N'0956789012', N'hothithao@email.com', N'1313 Đường 30/4, Phường 16, Quận 8, TP. Hồ Chí Minh'),
+(N'KH007', N'Lý Văn', N'Minh', '1988-06-21', N'Nam', '2023-12-17', 0, N'THG', N'0368273640', N'lyvanminh@email.com', N'1414 Đường 1/5, Phường 17, Quận 9, TP. Hồ Chí Minh'),
+(N'KH008', N'Mai Thị', N'Hoài', '1993-03-29', N'Nữ', '2024-03-29', 0, N'THG', N'0926389401', N'maithihoai@email.com', N'1515 Đường 2/9, Phường 18, Quận 10, TP. Hồ Chí Minh'),
+(N'KH009', N'Vương Văn', N'Phú', '1984-12-09', N'Nam', '2023-06-13', 0, N'THG', N'0378434329', N'vuongvanphu@email.com', N'1616 Đường 1/7, Phường 19, Quận 11, TP. Hồ Chí Minh'),
+(N'KH010', N'Nguyễn Thị', N'Thu', '1990-05-20', N'Nữ', '2023-11-09', 0, N'THG', N'0987298435', N'nguyenthithu@email.com', N'1717 Đường 2/4, Phường 20, Quận 12, TP. Hồ Chí Minh');
 GO
 
 CREATE TABLE LoaiSanPham
@@ -730,7 +751,8 @@ GO
 
 INSERT INTO LoaiSanPham(MaLoaiSP, TenLoaiSP) VALUES
 (N'LSP001', N'Đồ ăn'),
-(N'LSP002', N'Thức uống')
+(N'LSP002', N'Thức uống'),
+(N'LSP003', N'Combo')
 GO
 
 CREATE TABLE SanPham
@@ -738,13 +760,13 @@ CREATE TABLE SanPham
 	MaSP NVARCHAR(10) CONSTRAINT PK_SP_MaBacTV PRIMARY KEY(MaSP),
 	TenSP NVARCHAR(50) NOT NULL,
 	MaLoaiSP NVARCHAR(10) CONSTRAINT FK_SP_MaLoaiSP FOREIGN KEY(MaLoaiSP) REFERENCES LoaiSanPham(MaLoaiSP),
-	Gia FLOAT NOT NULL,
+	GiaBan FLOAT NOT NULL,
 	SoLuongTon INT NOT NULL,
 	HinhAnh VARBINARY(MAX)
 )
 GO
 
-INSERT INTO SanPham(MaSP, TenSP, MaLoaiSP, Gia, SoLuongTon, HinhAnh) VALUES 
+INSERT INTO SanPham(MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon, HinhAnh) VALUES 
 (N'SP001', N'Bắp rang bơ caramel', N'LSP001', 50000, 137, NULL),
 (N'SP002', N'Bắp rang bơ phô mai', N'LSP001', 50000, 123, NULL),
 (N'SP003', N'Hot dog', N'LSP001', 35000, 20, NULL),
@@ -841,7 +863,7 @@ INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES
 ('V005', 'HD001', 'E105', 'SC003')
 
 --------- start -----------
-SELECT * FROM ChiTietSuatChieu WHERE MaSC = 'SC003'
+SELECT * FROM KhachHang
 
 SELECT dbo.f_AutoMaVe()
 

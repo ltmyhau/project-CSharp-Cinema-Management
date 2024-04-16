@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BetaCinema.DAO
 {
-    internal class EmployeeDAO
+    public class EmployeeDAO
     {
         private static EmployeeDAO instance;
 

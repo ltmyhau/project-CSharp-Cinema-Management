@@ -162,7 +162,10 @@ namespace BetaCinema.GUI.Employee.Showtimes
         {
             if (selectedSeats.Count > 0)
             {
-
+                this.Hide();
+                fEProduct f = new fEProduct();
+                f.Text = "Bắp - Nước";
+                f.ShowDialog();
             }
             else
             {
