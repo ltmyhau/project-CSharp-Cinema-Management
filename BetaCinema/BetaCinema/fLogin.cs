@@ -1,4 +1,5 @@
 ﻿using BetaCinema.DAO;
+using BetaCinema.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,11 @@ namespace BetaCinema
 {
     public partial class fLogin : Form
     {
+        EmployeeDTO employee;
+
         public fLogin()
         {
             InitializeComponent();
-            
-            //hjSDN
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -26,10 +27,28 @@ namespace BetaCinema
             string passWord = txtPassWord.Text;
             if (Login(userName, passWord))
             {
-                fMain f = new fMain();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                EmployeeQAccount(userName, passWord);
+                switch (employee.MaCV)
+                {
+                    case "QL":
+                    {
+                        fMain f = new fMain(employee);
+                        this.Hide();
+                        f.ShowDialog();
+                        this.Show();
+                        break;
+                    }
+                    case "NV":
+                    {
+                        fEmployee f = new fEmployee(employee);
+                        this.Hide();
+                        f.ShowDialog();
+                        this.Show();
+                        break;
+                    }
+                    default:
+                        break;
+                }
             }
             else
             {
@@ -40,7 +59,16 @@ namespace BetaCinema
 
         bool Login(string userName, string passWord)
         {
-            return AccountDAO.Instance.Login(userName, passWord);
+            return EmployeeDAO.Instance.Login(userName, passWord);
+        }
+
+        void EmployeeQAccount(string userName, string passWord)
+        {
+            List<EmployeeDTO> employees = EmployeeDAO.Instance.GetEmployeeByAccount(userName, passWord);
+            if (employees != null && employees.Count > 0)
+            {
+                employee = employees[0];
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -149,6 +149,20 @@ namespace BetaCinema.DAO
             return list;
         }
 
+        public List<ShowtimesDTO> GetShowtimesByDateAndMovieName(DateTime date, string movieName)
+        {
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
+            string ngayChieu = date.Date.ToString("yyyy-MM-dd");
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE CONVERT(DATE, ThoiGian) = '{ngayChieu}' AND TenPhim = N'%{movieName}%' ORDER BY ThoiGian ASC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
         public bool InsertShowtimes(string maPhong, string maPhim, DateTime thoiGian)
         {
             try

@@ -22,7 +22,7 @@ namespace BetaCinema.DAO
 
         public bool Login(string userName, string passWord)
         {
-            string query = "SELECT * FROM TaiKhoan WHERE UserName = @userName AND PassWord = @passWord";
+            string query = "SELECT * FROM NhanVien WHERE Email = @userName AND MatKhau = @passWord";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
             return result.Rows.Count > 0;
         }

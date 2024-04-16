@@ -15,14 +15,19 @@ namespace BetaCinema
 {
     public partial class fMain : Form
     {
+        EmployeeDTO employee;
+
         fMovie fMovie;
         fShowtimes fShowtime;
         fGenre fGenre;
         InsertImage fInsertImage;
-        public fMain()
+        public fMain(EmployeeDTO e)
         {
             InitializeComponent();
+            this.employee = e;
             mdiProp();
+
+            txtName.Text = employee.HoNV + " " + employee.TenNV;
 
             foreach (Control control in flpSidebarTransition.Controls)
             {

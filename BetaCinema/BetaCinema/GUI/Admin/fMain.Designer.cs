@@ -29,32 +29,85 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.picMenu = new System.Windows.Forms.PictureBox();
             this.flpSidebarTransition = new System.Windows.Forms.FlowLayoutPanel();
-            this.tmrSidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.btnMovie = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
             this.btnShowTime = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picMenu = new System.Windows.Forms.PictureBox();
+            this.tmrSidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            this.flpSidebarTransition.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
+            this.flpSidebarTransition.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.picMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 50);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(917, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BetaCinema.Properties.Resources.beta_logo_2;
+            this.pictureBox2.Location = new System.Drawing.Point(53, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(238, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Enabled = false;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(600, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(300, 30);
+            this.txtName.TabIndex = 4;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // picMenu
+            // 
+            this.picMenu.Image = global::BetaCinema.Properties.Resources.menu;
+            this.picMenu.Location = new System.Drawing.Point(1, 3);
+            this.picMenu.Name = "picMenu";
+            this.picMenu.Size = new System.Drawing.Size(45, 45);
+            this.picMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picMenu.TabIndex = 0;
+            this.picMenu.TabStop = false;
+            this.picMenu.Click += new System.EventHandler(this.picMenu_Click);
+            this.picMenu.MouseEnter += new System.EventHandler(this.picMenu_MouseEnter);
+            this.picMenu.MouseLeave += new System.EventHandler(this.picMenu_MouseLeave);
             // 
             // flpSidebarTransition
             // 
@@ -71,11 +124,6 @@
             this.flpSidebarTransition.Padding = new System.Windows.Forms.Padding(0, 24, 0, 0);
             this.flpSidebarTransition.Size = new System.Drawing.Size(230, 503);
             this.flpSidebarTransition.TabIndex = 1;
-            // 
-            // tmrSidebarTransition
-            // 
-            this.tmrSidebarTransition.Interval = 10;
-            this.tmrSidebarTransition.Tick += new System.EventHandler(this.tmrSidebarTransition_Tick);
             // 
             // btnMovie
             // 
@@ -148,7 +196,7 @@
             this.btnProduct.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnProduct.Size = new System.Drawing.Size(230, 50);
             this.btnProduct.TabIndex = 6;
-            this.btnProduct.Text = "      Sản phẩm";
+            this.btnProduct.Text = "      Bắp - Nước";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.UseVisualStyleBackColor = false;
             // 
@@ -171,28 +219,10 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // pictureBox2
+            // tmrSidebarTransition
             // 
-            this.pictureBox2.Image = global::BetaCinema.Properties.Resources.beta_logo_2;
-            this.pictureBox2.Location = new System.Drawing.Point(53, 1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(238, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // picMenu
-            // 
-            this.picMenu.Image = global::BetaCinema.Properties.Resources.menu;
-            this.picMenu.Location = new System.Drawing.Point(1, 3);
-            this.picMenu.Name = "picMenu";
-            this.picMenu.Size = new System.Drawing.Size(45, 45);
-            this.picMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picMenu.TabIndex = 0;
-            this.picMenu.TabStop = false;
-            this.picMenu.Click += new System.EventHandler(this.picMenu_Click);
-            this.picMenu.MouseEnter += new System.EventHandler(this.picMenu_MouseEnter);
-            this.picMenu.MouseLeave += new System.EventHandler(this.picMenu_MouseLeave);
+            this.tmrSidebarTransition.Interval = 10;
+            this.tmrSidebarTransition.Tick += new System.EventHandler(this.tmrSidebarTransition_Tick);
             // 
             // fMain
             // 
@@ -205,9 +235,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Beta Cinema";
             this.panel1.ResumeLayout(false);
-            this.flpSidebarTransition.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
+            this.flpSidebarTransition.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,5 +256,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Timer tmrSidebarTransition;
         private System.Windows.Forms.Button btnProduct;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtName;
     }
 }

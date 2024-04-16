@@ -75,7 +75,7 @@ namespace BetaCinema.GUI.Admin.Showtime
 
         public void ShowShowtimes()
         {
-            BetaCinema.DTO.MovieDTO movie = (BetaCinema.DTO.MovieDTO)cboMovie.SelectedItem;
+            MovieDTO movie = (MovieDTO)cboMovie.SelectedItem;
             string maPhim = movie.MaPhim;
             DateTime tuGio = dtpStart.Value;
             DateTime denGio = dtpFinish.Value;

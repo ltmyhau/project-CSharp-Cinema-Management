@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pnlConfirm = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnPrintGenre = new System.Windows.Forms.Button();
             this.btnExportGenre = new System.Windows.Forms.Button();
             this.dgvGenre = new System.Windows.Forms.DataGridView();
@@ -39,21 +45,15 @@
             this.txtGenreID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.pnlControls = new System.Windows.Forms.Panel();
-            this.pnlConfirm = new System.Windows.Forms.Panel();
-            this.dgvMovie = new System.Windows.Forms.DataGridView();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnPrintMovie = new System.Windows.Forms.Button();
             this.btnExportMovie = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dgvMovie = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.pnlConfirm.SuspendLayout();
+            this.pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenre)).BeginInit();
             this.panel2.SuspendLayout();
-            this.pnlControls.SuspendLayout();
-            this.pnlConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(654, 630);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(253, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 38);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "THỂ LOẠI";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlConfirm
+            // 
+            this.pnlConfirm.Controls.Add(this.btnOK);
+            this.pnlConfirm.Controls.Add(this.btnCancel);
+            this.pnlConfirm.Location = new System.Drawing.Point(38, 130);
+            this.pnlConfirm.Name = "pnlConfirm";
+            this.pnlConfirm.Size = new System.Drawing.Size(110, 54);
+            this.pnlConfirm.TabIndex = 28;
+            this.pnlConfirm.Visible = false;
             // 
             // btnOK
             // 
@@ -98,6 +120,64 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // pnlControls
+            // 
+            this.pnlControls.Controls.Add(this.btnAdd);
+            this.pnlControls.Controls.Add(this.btnDelete);
+            this.pnlControls.Controls.Add(this.btnEdit);
+            this.pnlControls.Location = new System.Drawing.Point(225, 134);
+            this.pnlControls.Name = "pnlControls";
+            this.pnlControls.Size = new System.Drawing.Size(408, 45);
+            this.pnlControls.TabIndex = 27;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(130, 39);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(275, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(130, 39);
+            this.btnDelete.TabIndex = 26;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(139, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(130, 39);
+            this.btnEdit.TabIndex = 25;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnPrintGenre
             // 
@@ -144,7 +224,7 @@
             this.dgvGenre.RowTemplate.Height = 24;
             this.dgvGenre.Size = new System.Drawing.Size(595, 339);
             this.dgvGenre.TabIndex = 2;
-            this.dgvGenre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenre_CellContentClick);
+            this.dgvGenre.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenre_CellClick);
             // 
             // label1
             // 
@@ -195,92 +275,16 @@
             this.panel2.Size = new System.Drawing.Size(286, 630);
             this.panel2.TabIndex = 1;
             // 
-            // btnAdd
+            // lblTitle
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(130, 39);
-            this.btnAdd.TabIndex = 24;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(139, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(130, 39);
-            this.btnEdit.TabIndex = 25;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(275, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(130, 39);
-            this.btnDelete.TabIndex = 26;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // pnlControls
-            // 
-            this.pnlControls.Controls.Add(this.btnAdd);
-            this.pnlControls.Controls.Add(this.btnDelete);
-            this.pnlControls.Controls.Add(this.btnEdit);
-            this.pnlControls.Location = new System.Drawing.Point(225, 134);
-            this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(408, 45);
-            this.pnlControls.TabIndex = 27;
-            // 
-            // pnlConfirm
-            // 
-            this.pnlConfirm.Controls.Add(this.btnOK);
-            this.pnlConfirm.Controls.Add(this.btnCancel);
-            this.pnlConfirm.Location = new System.Drawing.Point(38, 130);
-            this.pnlConfirm.Name = "pnlConfirm";
-            this.pnlConfirm.Size = new System.Drawing.Size(110, 54);
-            this.pnlConfirm.TabIndex = 28;
-            this.pnlConfirm.Visible = false;
-            // 
-            // dgvMovie
-            // 
-            this.dgvMovie.AllowUserToResizeColumns = false;
-            this.dgvMovie.AllowUserToResizeRows = false;
-            this.dgvMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMovie.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMovie.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvMovie.ColumnHeadersHeight = 50;
-            this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvMovie.Location = new System.Drawing.Point(19, 82);
-            this.dgvMovie.Name = "dgvMovie";
-            this.dgvMovie.RowHeadersVisible = false;
-            this.dgvMovie.RowHeadersWidth = 50;
-            this.dgvMovie.RowTemplate.Height = 24;
-            this.dgvMovie.Size = new System.Drawing.Size(233, 517);
-            this.dgvMovie.TabIndex = 13;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(19, 32);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(88, 38);
+            this.lblTitle.TabIndex = 19;
+            this.lblTitle.Text = "PHIM";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPrintMovie
             // 
@@ -308,28 +312,24 @@
             this.btnExportMovie.UseVisualStyleBackColor = true;
             this.btnExportMovie.Click += new System.EventHandler(this.btnExportMovie_Click);
             // 
-            // lblTitle
+            // dgvMovie
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(19, 32);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(90, 40);
-            this.lblTitle.TabIndex = 19;
-            this.lblTitle.Text = "PHIM";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(253, 210);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 40);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "THỂ LOẠI";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dgvMovie.AllowUserToResizeColumns = false;
+            this.dgvMovie.AllowUserToResizeRows = false;
+            this.dgvMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMovie.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMovie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMovie.ColumnHeadersHeight = 50;
+            this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMovie.Location = new System.Drawing.Point(19, 82);
+            this.dgvMovie.Name = "dgvMovie";
+            this.dgvMovie.RowHeadersVisible = false;
+            this.dgvMovie.RowHeadersWidth = 50;
+            this.dgvMovie.RowTemplate.Height = 24;
+            this.dgvMovie.Size = new System.Drawing.Size(233, 517);
+            this.dgvMovie.TabIndex = 13;
             // 
             // fGenre
             // 
@@ -344,11 +344,11 @@
             this.Load += new System.EventHandler(this.fGenre_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlConfirm.ResumeLayout(false);
+            this.pnlControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenre)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pnlControls.ResumeLayout(false);
-            this.pnlConfirm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
             this.ResumeLayout(false);
 

@@ -297,7 +297,7 @@ namespace BetaCinema.GUI.Admin.Genre
             SetColumnWidthsInPercentageDgvGenre();
         }
 
-        private void dgvGenre_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvGenre_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
@@ -464,11 +464,11 @@ namespace BetaCinema.GUI.Admin.Genre
             //TextObject text = rptMovie.ReportDefinition.Section["Section3"].ReportObjects["tobTheLoai"];
             //text.Text = txtGenreName.Text;
 
-            rptMovieByGenre r = new rptMovieByGenre();
-            r.SetDataSource(list);
-            fReportMovieByGenre f = new fReportMovieByGenre(txtGenreName.Text);
-            f.crvReport.ReportSource = r;
-            f.ShowDialog();
+            //rptMovieByGenre r = new rptMovieByGenre();
+            //r.SetDataSource(list);
+            //fReportMovieByGenre f = new fReportMovieByGenre(txtGenreName.Text);
+            //f.crvReport.ReportSource = r;
+            //f.ShowDialog();
         }
         #endregion
     }

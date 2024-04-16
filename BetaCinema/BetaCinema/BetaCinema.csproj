@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\GenreDAO.cs" />
     <Compile Include="DAO\GenreMovieDAO.cs" />
     <Compile Include="DAO\MovieDAO.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\SeatDetailDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\GenreDTO.cs" />
     <Compile Include="DTO\GenreMovieDTO.cs" />
     <Compile Include="DTO\MovieDTO.cs" />
@@ -92,12 +94,6 @@
     </Compile>
     <Compile Include="GUI\Admin\Genre\fGenre.Designer.cs">
       <DependentUpon>fGenre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Admin\Genre\fReportMovieByGenre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Admin\Genre\fReportMovieByGenre.Designer.cs">
-      <DependentUpon>fReportMovieByGenre.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Genre\rptGenre.cs">
       <AutoGen>True</AutoGen>
@@ -165,11 +161,23 @@
       <DependentUpon>rptShowtimes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="GUI\Employee\fEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\Employee\fEmployee.Designer.cs">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\Showtimes\fEShowtimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\Showtimes\fEShowtimes.Designer.cs">
+      <DependentUpon>fEShowtimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\Showtimes\fEShowtimesDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\Showtimes\fEShowtimesDetail.Designer.cs">
+      <DependentUpon>fEShowtimesDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fReport.cs">
       <SubType>Form</SubType>
@@ -194,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Genre\fGenre.resx">
       <DependentUpon>fGenre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\Genre\fReportMovieByGenre.resx">
-      <DependentUpon>fReportMovieByGenre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Genre\rptGenre.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -235,8 +240,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptShowtimes.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Employee\fEmployee.resx">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\Showtimes\fEShowtimes.resx">
+      <DependentUpon>fEShowtimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\Showtimes\fEShowtimesDetail.resx">
+      <DependentUpon>fEShowtimesDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fReport.resx">
       <DependentUpon>fReport.cs</DependentUpon>
