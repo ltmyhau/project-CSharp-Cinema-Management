@@ -89,6 +89,42 @@
     <Compile Include="DTO\SeatDetailDTO.cs" />
     <Compile Include="DTO\ShowtimesDTO.cs" />
     <Compile Include="DTO\TicketDTO.cs" />
+    <Compile Include="GUI\Admin\Customer\fCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Customer\fCustomer.Designer.cs">
+      <DependentUpon>fCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Employee\fEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Employee\fEmployee.Designer.cs">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Product\fProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Product\fProduct.Designer.cs">
+      <DependentUpon>fProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Statistic\fStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Statistic\fStatistic.Designer.cs">
+      <DependentUpon>fStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\fEProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\fEProductList.Designer.cs">
+      <DependentUpon>fEProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\rptTicket.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTicket.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,11 +215,11 @@
     <Compile Include="GUI\Employee\fBillInfo.Designer.cs">
       <DependentUpon>fBillInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Employee\fEmployee.cs">
+    <Compile Include="GUI\Employee\fEMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Employee\fEmployee.Designer.cs">
-      <DependentUpon>fEmployee.cs</DependentUpon>
+    <Compile Include="GUI\Employee\fEMain.Designer.cs">
+      <DependentUpon>fEMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Employee\fEProduct.cs">
       <SubType>Form</SubType>
@@ -218,6 +254,13 @@
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Employee\fEProductList.resx">
+      <DependentUpon>fEProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\rptTicket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTicket.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,8 +310,8 @@
     <EmbeddedResource Include="GUI\Employee\fBillInfo.resx">
       <DependentUpon>fBillInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Employee\fEmployee.resx">
-      <DependentUpon>fEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Employee\fEMain.resx">
+      <DependentUpon>fEMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Employee\fEProduct.resx">
       <DependentUpon>fEProduct.cs</DependentUpon>
@@ -424,6 +467,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trend.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

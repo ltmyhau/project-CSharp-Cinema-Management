@@ -33,7 +33,7 @@ namespace BetaCinema.GUI.Employee
         public fBillInfo()
         {
             InitializeComponent();
-            employee = fEmployee.employee;
+            employee = fEMain.employee;
 
             seatList = fEShowtimesDetail.selectedSeats;
             showtimesID = fEShowtimesDetail.maSC;
@@ -147,6 +147,7 @@ namespace BetaCinema.GUI.Employee
                     cusDiscountPercent = customerTypeList[0].ChietKhau;
                     txtCusDiscount.Text = cusDiscountPercent.ToString() + "%";
                 }
+                btnCreateBill.Visible = true;
             }
             else
             {
@@ -226,21 +227,46 @@ namespace BetaCinema.GUI.Employee
 
         private void PrintBill()
         {
+            MessageBox.Show("Tạo hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form != Application.OpenForms["fLogin"] && form.Visible == false)
+                {
+                    form.Close();
+                }
+            }
 
+            DataTable data = DataProvider.Instance.ExecuteQuery($"EXEC dbo.sp_HoaDon_Ve N'{maHD}'");
+            rptTicket r = new rptTicket();
+            r.SetDataSource(data);
+            fReport f = new fReport();
+            f.crvReport.ReportSource = r;
+            f.ShowDialog();
         }
         #endregion
 
         #region Events
         private void fBillInfo_Load(object sender, EventArgs e)
         {
-            LoadShowtimesInfo();
             LoadProducts();
             LoadTotalPay();
 
-            if (productList.Count == 0)
+            if (seatList.Count > 0)
             {
-                pnlProduct.Visible = false;
-                pnlMovie.Location = new Point(450, 22);
+                LoadShowtimesInfo();
+                if (productList.Count == 0)
+                {
+                    pnlProduct.Visible = false;
+                    pnlMovie.Location = new Point(450, 22);
+                }
+            }
+            else
+            {
+                if (productList.Count >= 0)
+                {
+                    pnlMovie.Visible = false;
+                    pnlProduct.Location = new Point(450, 22);
+                }
             }
         }
 
@@ -317,18 +343,32 @@ namespace BetaCinema.GUI.Employee
             if (InsertBillToDatabase())
             {
                 maHD = BillDAO.Instance.GetMaHD(customer.MaKH, employee.MaNV, ngayTao);
-                if (InsertTicketToDatabase())
+
+                if (seatList.Count > 0)
+                {
+                    if (InsertTicketToDatabase())
+                    {
+                        if (productList.Count > 0)
+                        {
+                            if (InsertProductBillToDatabase())
+                            {
+                                PrintBill();
+                            }
+                        }
+                        else
+                        {
+                            PrintBill();
+                        }
+                    }
+                }
+                else
                 {
                     if (productList.Count > 0)
                     {
                         if (InsertProductBillToDatabase())
                         {
-                            MessageBox.Show("Tạo hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            PrintBill();
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tạo hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

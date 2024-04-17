@@ -40,7 +40,7 @@ namespace BetaCinema
                     }
                     case "NV":
                     {
-                        fEmployee f = new fEmployee(employee);
+                        fEMain f = new fEMain(employee);
                         this.Hide();
                         f.ShowDialog();
                         this.Show();

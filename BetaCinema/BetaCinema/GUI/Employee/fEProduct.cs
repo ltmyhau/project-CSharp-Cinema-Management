@@ -20,13 +20,13 @@ namespace BetaCinema.GUI.Employee
     public partial class fEProduct : Form
     {
         public static Dictionary<string, int> productList = new Dictionary<string, int>();
+        private List<string> seatList = new List<string>();
 
         public fEProduct()
         {
             InitializeComponent();
 
-            LoadProduct();
-            CustomizeDataGridView();
+            seatList = fEShowtimesDetail.selectedSeats;
         }
 
         #region Methods
@@ -66,7 +66,10 @@ namespace BetaCinema.GUI.Employee
             dgvProduct.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvProduct.Columns["MaSP"].Visible = false;
+        }
 
+        private void SetColumnWidthsInPercentage()
+        {
             int totalWidth = dgvProduct.Width;
             dgvProduct.Columns["TenSP"].Width = (int)(0.3 * totalWidth);
             dgvProduct.Columns["GiaBan"].Width = (int)(0.2 * totalWidth);
@@ -208,10 +211,26 @@ namespace BetaCinema.GUI.Employee
         private void btnContinue_Click(object sender, EventArgs e)
         {
             SaveProductList();
-            this.Hide();
-            fBillInfo f = new fBillInfo();
-            f.Text = "Thông tin hóa đơn";
-            f.ShowDialog();
+            if (seatList.Count > 0)
+            {
+                this.Hide();
+                fBillInfo f = new fBillInfo();
+                f.Text = "Thông tin hóa đơn";
+                f.ShowDialog();
+            }
+            else
+            {
+                if (productList.Count > 0)
+                {
+                    fBillInfo f = new fBillInfo();
+                    f.Text = "Thông tin hóa đơn";
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
         #endregion
 
@@ -223,6 +242,19 @@ namespace BetaCinema.GUI.Employee
                 Application.OpenForms["fEShowtimesDetail"].Focus();
                 productList = new Dictionary<string, int>();
             }
+        }
+
+        private void fEProduct_Load(object sender, EventArgs e)
+        {
+            LoadProduct();
+            CustomizeDataGridView();
+            this.SizeChanged += fEProduct_SizeChanged;
+            SetColumnWidthsInPercentage();
+        }
+
+        private void fEProduct_SizeChanged(object sender, EventArgs e)
+        {
+            SetColumnWidthsInPercentage();
         }
     }
 }

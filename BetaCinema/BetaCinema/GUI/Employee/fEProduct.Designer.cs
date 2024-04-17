@@ -47,6 +47,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,23 +56,28 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProduct
             // 
             this.dgvProduct.AllowUserToResizeColumns = false;
             this.dgvProduct.AllowUserToResizeRows = false;
+            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.ColumnHeadersHeight = 40;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProduct.Location = new System.Drawing.Point(354, 29);
+            this.dgvProduct.Location = new System.Drawing.Point(18, 34);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.Size = new System.Drawing.Size(504, 355);
+            this.dgvProduct.Size = new System.Drawing.Size(485, 355);
             this.dgvProduct.TabIndex = 0;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
@@ -79,7 +86,7 @@
             this.panel1.Controls.Add(this.cboProduct);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(29, 261);
+            this.panel1.Location = new System.Drawing.Point(27, 273);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 37);
             this.panel1.TabIndex = 3;
@@ -108,7 +115,7 @@
             this.panel2.Controls.Add(this.txtQuantityStock);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(29, 304);
+            this.panel2.Location = new System.Drawing.Point(27, 316);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 37);
             this.panel2.TabIndex = 4;
@@ -136,7 +143,7 @@
             this.panel3.Controls.Add(this.txtPrice);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(29, 347);
+            this.panel3.Location = new System.Drawing.Point(27, 359);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(294, 37);
             this.panel3.TabIndex = 5;
@@ -165,7 +172,7 @@
             this.panel4.Controls.Add(this.txtQuantity);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(29, 398);
+            this.panel4.Location = new System.Drawing.Point(27, 410);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(291, 40);
             this.panel4.TabIndex = 6;
@@ -202,14 +209,14 @@
             // 
             // btnContinue
             // 
-            this.btnContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.btnContinue.FlatAppearance.BorderSize = 0;
             this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinue.ForeColor = System.Drawing.Color.White;
             this.btnContinue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinue.Location = new System.Drawing.Point(669, 456);
+            this.btnContinue.Location = new System.Drawing.Point(314, 443);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(189, 45);
             this.btnContinue.TabIndex = 23;
@@ -219,9 +226,8 @@
             // 
             // picPoster
             // 
-            this.picPoster.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picPoster.BackColor = System.Drawing.SystemColors.Control;
-            this.picPoster.Location = new System.Drawing.Point(111, 29);
+            this.picPoster.Location = new System.Drawing.Point(107, 44);
             this.picPoster.Name = "picPoster";
             this.picPoster.Size = new System.Drawing.Size(130, 204);
             this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,10 +236,11 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.txtTotal);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(539, 401);
+            this.panel5.Location = new System.Drawing.Point(184, 397);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(319, 37);
             this.panel5.TabIndex = 6;
@@ -258,19 +265,37 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tổng cộng:";
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.picPoster);
+            this.panel6.Controls.Add(this.panel1);
+            this.panel6.Controls.Add(this.panel2);
+            this.panel6.Controls.Add(this.panel4);
+            this.panel6.Controls.Add(this.panel3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(348, 513);
+            this.panel6.TabIndex = 24;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.panel5);
+            this.panel7.Controls.Add(this.dgvProduct);
+            this.panel7.Controls.Add(this.btnContinue);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(348, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(534, 513);
+            this.panel7.TabIndex = 25;
+            // 
             // fEProduct
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(882, 513);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.btnContinue);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.picPoster);
-            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 560);
             this.MinimumSize = new System.Drawing.Size(900, 560);
@@ -278,6 +303,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fEProduct";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fEProduct_FormClosing);
+            this.Load += new System.EventHandler(this.fEProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -290,13 +316,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvProduct;
         private System.Windows.Forms.PictureBox picPoster;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
@@ -315,5 +341,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataGridView dgvProduct;
     }
 }

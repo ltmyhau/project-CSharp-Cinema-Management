@@ -899,62 +899,67 @@ BEGIN
     WHERE MaSP = @MaSP;
 END;
 
+CREATE PROCEDURE sp_HoaDon_Ve @MaHD NVARCHAR(50)
+AS
+BEGIN
+    SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, 
+		ISNULL(HoKH, '') + ' ' + ISNULL(TenKH, '') AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
+        (SELECT STRING_AGG(MaGhe, ', ') FROM Ve v JOIN SuatChieu sc ON v.MaSC = sc.MaSC WHERE MaHD = hd.MaHD) AS GheDaDat
+    FROM HoaDon hd 
+    JOIN Ve v ON hd.MaHD = v.MaHD
+    JOIN SuatChieu sc ON v.MaSC = sc.MaSC
+    JOIN Phim p ON sc.MaPhim = p.MaPhim
+    JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
+    JOIN NhanVien nv ON hd.MaNV = nv.MaNV
+    JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+    WHERE hd.MaHD = @MaHD
+    GROUP BY hd.MaHD, NgayTao, HoNV, TenNV, HoKH, TenKH, TenPhim, ThoiGian, TenPhong
+END
 
-
+EXEC dbo.sp_HoaDon_Ve 'HD000001'
 --------- start -----------
 
-SELECT * FROM HoaDon WHERE MaKH = @maKH, MaNV = @maNV, NgayTao = @ngayTao
 
 SELECT * FROM HoaDon
 SELECT * FROM Ve
 SELECT * FROM HoaDonBapNuoc
 
-SELECT * FROM SuatChieu ORDER BY ThoiGian ASC
-SELECT * FROM SanPham
-
-SC010	PC004	P002 17-1854
-f3	e8	c3	a10
-310
-
-x4 SP004	Sandwich	LSP001	45000	20
-x4 SP005	Pepsi	LSP002	20000	230
-260
-
-KH011 NV000
-
 SELECT * FROM KhachHang
-SELECT * FROM NhanVien
 
-SELECT MAX(RIGHT(MaVe, 3))
-FROM Ve
 
-INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES 
-(dbo.f_AutoMaVe(), 'HD000002', 'F403', 'SC010')
+SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
+MaGhe
+FROM HoaDon hd JOIN Ve v ON hd.MaHD = v.MaHD
+JOIN SuatChieu sc ON v.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
+JOIN NhanVien nv ON hd.MaNV = nv.MaNV
+JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+WHERE hd.MaHD = 'HD000001'
 
-UPDATE ChiTietSuatChieu
-SET TinhTrang = N'Trống'
-WHERE MaSC = 'SC010' AND MaGhe = N'F403'
 
-SELECT 'V' + RIGHT('000' + CAST(MAX(RIGHT(MaVe, 3)) + 1 AS VARCHAR(3)), 3) FROM Ve
+SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
+(SELECT STRING_AGG(MaGhe, ', ') FROM Ve v JOIN SuatChieu sc ON v.MaSC = sc.MaSC WHERE MaHD = 'HD000001') AS GheDaDat
+FROM HoaDon hd JOIN Ve v ON hd.MaHD = v.MaHD
+JOIN SuatChieu sc ON v.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
+JOIN NhanVien nv ON hd.MaNV = nv.MaNV
+JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+WHERE hd.MaHD = 'HD000001'
 
-SELECT 'HD' + RIGHT('000' + CAST(MAX(RIGHT(MaHD, 3)) + 1 AS VARCHAR(3)), 3) FROM HoaDon
 
-SELECT 'HD' + RIGHT('000000' + CAST(MAX(RIGHT(MaHD, 6)) + 1 AS VARCHAR(6)), 6) FROM HoaDon
 
-INSERT INTO HoaDon(MaHD, MaKH, MaNV, NgayTao) VALUES 
-('HD000001', 'KH001', 'NV001', '2024-04-16 08:30:00'),
-('HD000002', 'KH002', 'NV002', '2024-04-16 09:45:00'),
-('HD000003', 'KH003', 'NV003', '2024-04-16 10:15:00');
 
-INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES 
-('V000001', 'HD000001', 'C102', 'SC003'),
-('V000002', 'HD000001', 'C103', 'SC003'),
-('V000003', 'HD000001', 'C105', 'SC003'),
-('V000004', 'HD000001', 'E104', 'SC003'),
-('V000005', 'HD000001', 'E105', 'SC003')
 
-INSERT INTO HoaDonBapNuoc(MaHDBN, MaHD, MaSP, SoLuong) VALUES 
-(dbo.f_AutoMaHDBN(), 'HD000001', 'SP005', 4)
+SELECT *
+FROM HoaDon hd JOIN HoaDonBapNuoc hdbn ON hd.MaHD = hdbn.MaHD
+
+SELECT p.MaPhim, p.TenPhim, p.MaPL,	pl.BieuTuongPL, p.DaoDien, p.QuocGia, p.ThoiLuong, p.NgayKhoiChieu, p.MoTa, p.Poster, p.Trailer,
+(SELECT STRING_AGG(tl.TenTheLoai, ', ')
+FROM TheLoai_Phim AS tlp INNER JOIN TheLoai AS tl ON tlp.MaTL = tl.MaTL
+WHERE tlp.MaPhim = p.MaPhim) AS 'TheLoaiPhim'
+FROM Phim AS p LEFT JOIN PhanLoai AS pl ON p.MaPL = pl.MaPL
 --------- end -----------
 
 --CREATE TABLE ChiTietHoaDon

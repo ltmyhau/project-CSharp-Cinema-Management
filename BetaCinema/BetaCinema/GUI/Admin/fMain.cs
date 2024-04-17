@@ -1,6 +1,10 @@
 ﻿using BetaCinema.DTO;
+using BetaCinema.GUI.Admin.Customer;
+using BetaCinema.GUI.Admin.Employee;
 using BetaCinema.GUI.Admin.Genre;
+using BetaCinema.GUI.Admin.Product;
 using BetaCinema.GUI.Admin.Showtime;
+using BetaCinema.GUI.Admin.Statistic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +24,10 @@ namespace BetaCinema
         fMovie fMovie;
         fShowtimes fShowtime;
         fGenre fGenre;
+        fProduct fProduct;
+        fCustomer fCustomer;
+        fEmployee fEmployee;
+        fStatistic fStatistic;
         InsertImage fInsertImage;
         public fMain(EmployeeDTO e)
         {
@@ -171,6 +179,90 @@ namespace BetaCinema
         private void fShowtime_FormClosed(object sender, FormClosedEventArgs e)
         {
             fShowtime = null;
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            if (fProduct == null)
+            {
+                fProduct = new fProduct();
+                fProduct.FormClosed += fProduct_FormClosed;
+                fProduct.MdiParent = this;
+                fProduct.Dock = DockStyle.Fill;
+                fProduct.Show();
+            }
+            else
+            {
+                fProduct.Activate();
+            }
+        }
+
+        private void fProduct_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fProduct = null;
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            if (fCustomer == null)
+            {
+                fCustomer = new fCustomer();
+                fCustomer.FormClosed += fCustomer_FormClosed;
+                fCustomer.MdiParent = this;
+                fCustomer.Dock = DockStyle.Fill;
+                fCustomer.Show();
+            }
+            else
+            {
+                fCustomer.Activate();
+            }
+        }
+
+        private void fCustomer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fCustomer = null;
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            if (fEmployee == null)
+            {
+                fEmployee = new fEmployee();
+                fEmployee.FormClosed += fEmployee_FormClosed;
+                fEmployee.MdiParent = this;
+                fEmployee.Dock = DockStyle.Fill;
+                fEmployee.Show();
+            }
+            else
+            {
+                fEmployee.Activate();
+            }
+        }
+
+        private void fEmployee_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fEmployee = null;
+        }
+
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            if (fStatistic == null)
+            {
+                fStatistic = new fStatistic();
+                fStatistic.FormClosed += fStatistic_FormClosed;
+                fStatistic.MdiParent = this;
+                fStatistic.Dock = DockStyle.Fill;
+                fStatistic.Show();
+            }
+            else
+            {
+                fStatistic.Activate();
+            }
+        }
+
+        private void fStatistic_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fStatistic = null;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

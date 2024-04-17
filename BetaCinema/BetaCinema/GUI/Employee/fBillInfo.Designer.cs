@@ -661,6 +661,7 @@
             this.btnCreateBill.TabIndex = 39;
             this.btnCreateBill.Text = "Tạo hóa đơn";
             this.btnCreateBill.UseVisualStyleBackColor = false;
+            this.btnCreateBill.Visible = false;
             this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
             // 
             // fBillInfo
