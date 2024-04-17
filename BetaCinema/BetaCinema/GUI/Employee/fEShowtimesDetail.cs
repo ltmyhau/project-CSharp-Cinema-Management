@@ -16,8 +16,9 @@ namespace BetaCinema.GUI.Employee.Showtimes
     public partial class fEShowtimesDetail : Form
     {
         private Dictionary<string, bool> seatStatus = new Dictionary<string, bool>();
-        private List<string> selectedSeats = new List<string>();
-        private double totalAmount = 0;
+        public static List<string> selectedSeats = new List<string>();
+        public static string maSC;
+        public static double totalAmount = 0;
 
         public fEShowtimesDetail()
         {
@@ -27,7 +28,7 @@ namespace BetaCinema.GUI.Employee.Showtimes
         #region Methods
         public void LoadData(DataGridViewRow selectedRow)
         {
-            string maSC = selectedRow.Cells["MaSC"].Value?.ToString();
+            maSC = selectedRow.Cells["MaSC"].Value?.ToString();
             LoadSeat(maSC);
 
             string tenPhim = selectedRow.Cells["TenPhim"].Value?.ToString();
@@ -163,7 +164,7 @@ namespace BetaCinema.GUI.Employee.Showtimes
             if (selectedSeats.Count > 0)
             {
                 this.Hide();
-                fEProduct f = new fEProduct();
+                fEProduct f = new fEProduct();  
                 f.Text = "Bắp - Nước";
                 f.ShowDialog();
             }
@@ -171,6 +172,14 @@ namespace BetaCinema.GUI.Employee.Showtimes
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một ghế.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void fEShowtimesDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            seatStatus = new Dictionary<string, bool>();
+            selectedSeats = new List<string>();
+            maSC = null;
+            totalAmount = 0;
         }
         #endregion
     }

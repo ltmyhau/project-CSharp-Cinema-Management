@@ -45,5 +45,18 @@ namespace BetaCinema.DAO
             }
             return list;
         }
+
+        public bool InsertBill(string maHD, string maGhe, string maSC)
+        {
+            string query = "INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES (dbo.f_AutoMaVe(), @maHD , @maGhe , @maSC )";
+            object[] parameters = new object[]
+            {
+                maHD,
+                maGhe,
+                maSC
+            };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
     }
 }

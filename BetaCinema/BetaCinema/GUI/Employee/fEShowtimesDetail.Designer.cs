@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -49,6 +50,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flpSeat = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -64,10 +68,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnContinue = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -75,12 +75,12 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,6 +100,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 513);
             this.panel1.TabIndex = 0;
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            this.btnContinue.FlatAppearance.BorderSize = 0;
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinue.ForeColor = System.Drawing.Color.White;
+            this.btnContinue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinue.Location = new System.Drawing.Point(87, 449);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(189, 50);
+            this.btnContinue.TabIndex = 22;
+            this.btnContinue.Text = "Tiếp tục";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // txtTotal
             // 
@@ -299,6 +316,37 @@
             this.panel8.Size = new System.Drawing.Size(594, 88);
             this.panel8.TabIndex = 3;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Location = new System.Drawing.Point(81, 14);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(139, 26);
+            this.panel6.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 1);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 23);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Đang chọn";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(-1, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 25);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.label13);
@@ -452,54 +500,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "MÀN HÌNH";
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Location = new System.Drawing.Point(81, 14);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(139, 26);
-            this.panel6.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 1);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 23);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Đang chọn";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(-1, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnContinue
-            // 
-            this.btnContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            this.btnContinue.FlatAppearance.BorderSize = 0;
-            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContinue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinue.ForeColor = System.Drawing.Color.White;
-            this.btnContinue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinue.Location = new System.Drawing.Point(87, 449);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(189, 50);
-            this.btnContinue.TabIndex = 22;
-            this.btnContinue.Text = "Tiếp tục";
-            this.btnContinue.UseVisualStyleBackColor = false;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
-            // 
             // fEShowtimesDetail
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -515,6 +515,7 @@
             this.Name = "fEShowtimesDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fEShowtimesDetail";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fEShowtimesDetail_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -528,6 +529,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -538,8 +541,6 @@
             this.panel13.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }

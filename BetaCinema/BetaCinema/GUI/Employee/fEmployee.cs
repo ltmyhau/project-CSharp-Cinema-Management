@@ -14,7 +14,7 @@ namespace BetaCinema
 {
     public partial class fEmployee : Form
     {
-        EmployeeDTO employee;
+        public static EmployeeDTO employee;
 
         fEShowtimes fEMovie;
         InsertImage fInsertImage;
@@ -22,7 +22,7 @@ namespace BetaCinema
         public fEmployee(EmployeeDTO e)
         {
             InitializeComponent();
-            this.employee = e;
+            employee = e;
             mdiProp();
 
             txtName.Text = employee.HoNV + " " + employee.TenNV;

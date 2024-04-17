@@ -20,11 +20,17 @@ namespace BetaCinema.DAO
 
         private BillDAO() { }
 
-        public string GetNextMaHD()
+        public string GetMaHD(string maKH, string maNV, DateTime ngayTao)
         {
-            string query = "SELECT 'HD' + RIGHT('000' + CAST(MAX(RIGHT(MaHD, 3)) + 1 AS VARCHAR(3)), 3) FROM HoaDon";
-            string maTL = DataProvider.Instance.ExecuteScalar(query)?.ToString();
-            return maTL;
+            string query = "SELECT MaHD FROM HoaDon WHERE MaKH = @maKH AND MaNV = @maNV AND NgayTao = @ngayTao ";
+            object[] parameters = new object[]
+            {
+                maKH,
+                maNV,
+                ngayTao
+            };
+            string maHD = DataProvider.Instance.ExecuteScalar(query, parameters)?.ToString();
+            return maHD;
         }
 
         public bool InsertBill(string maKH, string maNV, DateTime ngayTao)

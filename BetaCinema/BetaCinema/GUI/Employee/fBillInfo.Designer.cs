@@ -29,7 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlCustomerInfo = new System.Windows.Forms.Panel();
+            this.txtCusDiscount = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPoint = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pnlAddCustomer = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.rdoOther = new System.Windows.Forms.RadioButton();
             this.rdoFemale = new System.Windows.Forms.RadioButton();
             this.rdoMale = new System.Windows.Forms.RadioButton();
@@ -37,43 +46,30 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.txtMovieName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTime = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtRoom = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSeats = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlMovie = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTotalMovie = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSeats = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtRoom = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMovieName = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pnlProduct = new System.Windows.Forms.Panel();
+            this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.txtTotalProduct = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.pnlCustomerInfo = new System.Windows.Forms.Panel();
-            this.txtPoint = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCusDiscount = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -83,12 +79,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnCreateBill = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.pnlAddCustomer.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.pnlCustomerInfo.SuspendLayout();
+            this.pnlAddCustomer.SuspendLayout();
+            this.pnlMovie.SuspendLayout();
+            this.pnlProduct.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +101,93 @@
             this.panel1.Size = new System.Drawing.Size(297, 291);
             this.panel1.TabIndex = 0;
             // 
+            // pnlCustomerInfo
+            // 
+            this.pnlCustomerInfo.Controls.Add(this.txtCusDiscount);
+            this.pnlCustomerInfo.Controls.Add(this.label13);
+            this.pnlCustomerInfo.Controls.Add(this.txtPoint);
+            this.pnlCustomerInfo.Controls.Add(this.label11);
+            this.pnlCustomerInfo.Controls.Add(this.txtCustomerName);
+            this.pnlCustomerInfo.Controls.Add(this.label12);
+            this.pnlCustomerInfo.Location = new System.Drawing.Point(3, 132);
+            this.pnlCustomerInfo.Name = "pnlCustomerInfo";
+            this.pnlCustomerInfo.Size = new System.Drawing.Size(290, 123);
+            this.pnlCustomerInfo.TabIndex = 26;
+            this.pnlCustomerInfo.Visible = false;
+            // 
+            // txtCusDiscount
+            // 
+            this.txtCusDiscount.BackColor = System.Drawing.Color.White;
+            this.txtCusDiscount.Enabled = false;
+            this.txtCusDiscount.Location = new System.Drawing.Point(127, 85);
+            this.txtCusDiscount.Name = "txtCusDiscount";
+            this.txtCusDiscount.Size = new System.Drawing.Size(151, 30);
+            this.txtCusDiscount.TabIndex = 10;
+            this.txtCusDiscount.Text = "15%";
+            this.txtCusDiscount.TextChanged += new System.EventHandler(this.txtCusDiscount_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 88);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(96, 23);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Chiết khấu:";
+            // 
+            // txtPoint
+            // 
+            this.txtPoint.BackColor = System.Drawing.Color.White;
+            this.txtPoint.Enabled = false;
+            this.txtPoint.Location = new System.Drawing.Point(127, 49);
+            this.txtPoint.Name = "txtPoint";
+            this.txtPoint.Size = new System.Drawing.Size(151, 30);
+            this.txtPoint.TabIndex = 8;
+            this.txtPoint.Text = "17042003";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(114, 23);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Điểm tích lũy:";
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.BackColor = System.Drawing.Color.White;
+            this.txtCustomerName.Enabled = false;
+            this.txtCustomerName.Location = new System.Drawing.Point(127, 13);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(150, 30);
+            this.txtCustomerName.TabIndex = 6;
+            this.txtCustomerName.Text = "Lê Thị Mỹ Hậu";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 23);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Họ và tên:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(3, 28);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(290, 30);
+            this.textBox3.TabIndex = 12;
+            this.textBox3.Text = "THÔNG TIN KHÁCH HÀNG";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // pnlAddCustomer
             // 
             this.pnlAddCustomer.Controls.Add(this.btnAdd);
@@ -122,6 +203,18 @@
             this.pnlAddCustomer.Size = new System.Drawing.Size(290, 133);
             this.pnlAddCustomer.TabIndex = 4;
             this.pnlAddCustomer.Visible = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::BetaCinema.Properties.Resources.add;
+            this.btnAdd.Location = new System.Drawing.Point(243, 88);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnAdd.TabIndex = 25;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // rdoOther
             // 
@@ -189,12 +282,25 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Họ:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Image = global::BetaCinema.Properties.Resources.loupe;
+            this.btnSearch.Location = new System.Drawing.Point(246, 81);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 35);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(113, 83);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(127, 30);
             this.txtPhoneNumber.TabIndex = 2;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // label2
             // 
@@ -205,210 +311,28 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Điện thoại:";
             // 
-            // panel2
+            // pnlMovie
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.txtTotalMovie);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.txtSeats);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtRoom);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.txtTime);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtDate);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtMovieName);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Location = new System.Drawing.Point(315, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 479);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.flowLayoutPanel1);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.txtTotalProduct);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Location = new System.Drawing.Point(596, 22);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(275, 479);
-            this.panel3.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(3, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(290, 30);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.Text = "THÔNG TIN KHÁCH HÀNG";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(12, 28);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 30);
-            this.textBox4.TabIndex = 13;
-            this.textBox4.Text = "PHIM";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.BackColor = System.Drawing.Color.White;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(12, 28);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(247, 30);
-            this.textBox5.TabIndex = 14;
-            this.textBox5.Text = "BẮP - NƯỚC";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtMovieName
-            // 
-            this.txtMovieName.BackColor = System.Drawing.Color.White;
-            this.txtMovieName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMovieName.Enabled = false;
-            this.txtMovieName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMovieName.Location = new System.Drawing.Point(98, 83);
-            this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.Size = new System.Drawing.Size(161, 23);
-            this.txtMovieName.TabIndex = 12;
-            this.txtMovieName.Text = "TÊN PHIM";
-            this.txtMovieName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 23);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Tên phim:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Ngày chiếu:";
-            // 
-            // txtDate
-            // 
-            this.txtDate.BackColor = System.Drawing.Color.White;
-            this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDate.Enabled = false;
-            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDate.Location = new System.Drawing.Point(114, 117);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(145, 23);
-            this.txtDate.TabIndex = 15;
-            this.txtDate.Text = "10/04/2024";
-            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 152);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 23);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Giờ chiếu:";
-            // 
-            // txtTime
-            // 
-            this.txtTime.BackColor = System.Drawing.Color.White;
-            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTime.Enabled = false;
-            this.txtTime.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTime.Location = new System.Drawing.Point(98, 152);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(161, 23);
-            this.txtTime.TabIndex = 17;
-            this.txtTime.Text = "10:04 ~ 10:04";
-            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 186);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 23);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Phòng chiếu:";
-            // 
-            // txtRoom
-            // 
-            this.txtRoom.BackColor = System.Drawing.Color.White;
-            this.txtRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRoom.Enabled = false;
-            this.txtRoom.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoom.Location = new System.Drawing.Point(124, 186);
-            this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Size = new System.Drawing.Size(135, 23);
-            this.txtRoom.TabIndex = 19;
-            this.txtRoom.Text = "Phòng 4";
-            this.txtRoom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 23);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Ghế:";
-            // 
-            // txtSeats
-            // 
-            this.txtSeats.BackColor = System.Drawing.Color.White;
-            this.txtSeats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSeats.Enabled = false;
-            this.txtSeats.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeats.Location = new System.Drawing.Point(62, 223);
-            this.txtSeats.Name = "txtSeats";
-            this.txtSeats.Size = new System.Drawing.Size(197, 23);
-            this.txtSeats.TabIndex = 21;
-            this.txtSeats.Text = "A4, A10";
-            this.txtSeats.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Location = new System.Drawing.Point(15, 391);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 2);
-            this.panel4.TabIndex = 22;
+            this.pnlMovie.BackColor = System.Drawing.Color.White;
+            this.pnlMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMovie.Controls.Add(this.label9);
+            this.pnlMovie.Controls.Add(this.txtTotalMovie);
+            this.pnlMovie.Controls.Add(this.panel4);
+            this.pnlMovie.Controls.Add(this.label8);
+            this.pnlMovie.Controls.Add(this.txtSeats);
+            this.pnlMovie.Controls.Add(this.label7);
+            this.pnlMovie.Controls.Add(this.txtRoom);
+            this.pnlMovie.Controls.Add(this.label6);
+            this.pnlMovie.Controls.Add(this.txtTime);
+            this.pnlMovie.Controls.Add(this.label5);
+            this.pnlMovie.Controls.Add(this.txtDate);
+            this.pnlMovie.Controls.Add(this.label1);
+            this.pnlMovie.Controls.Add(this.txtMovieName);
+            this.pnlMovie.Controls.Add(this.textBox4);
+            this.pnlMovie.Location = new System.Drawing.Point(315, 22);
+            this.pnlMovie.Name = "pnlMovie";
+            this.pnlMovie.Size = new System.Drawing.Size(275, 479);
+            this.pnlMovie.TabIndex = 1;
             // 
             // label9
             // 
@@ -433,6 +357,166 @@
             this.txtTotalMovie.Text = "100.000";
             this.txtTotalMovie.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Silver;
+            this.panel4.Location = new System.Drawing.Point(15, 391);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(247, 2);
+            this.panel4.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 23);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Ghế:";
+            // 
+            // txtSeats
+            // 
+            this.txtSeats.BackColor = System.Drawing.Color.White;
+            this.txtSeats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSeats.Enabled = false;
+            this.txtSeats.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeats.Location = new System.Drawing.Point(62, 223);
+            this.txtSeats.Name = "txtSeats";
+            this.txtSeats.Size = new System.Drawing.Size(197, 23);
+            this.txtSeats.TabIndex = 21;
+            this.txtSeats.Text = "A4, A10";
+            this.txtSeats.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 186);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 23);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Phòng chiếu:";
+            // 
+            // txtRoom
+            // 
+            this.txtRoom.BackColor = System.Drawing.Color.White;
+            this.txtRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRoom.Enabled = false;
+            this.txtRoom.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoom.Location = new System.Drawing.Point(124, 186);
+            this.txtRoom.Name = "txtRoom";
+            this.txtRoom.Size = new System.Drawing.Size(135, 23);
+            this.txtRoom.TabIndex = 19;
+            this.txtRoom.Text = "Phòng 4";
+            this.txtRoom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 152);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 23);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Giờ chiếu:";
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.White;
+            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTime.Enabled = false;
+            this.txtTime.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTime.Location = new System.Drawing.Point(98, 152);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(161, 23);
+            this.txtTime.TabIndex = 17;
+            this.txtTime.Text = "10:04 ~ 10:04";
+            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 23);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Ngày chiếu:";
+            // 
+            // txtDate
+            // 
+            this.txtDate.BackColor = System.Drawing.Color.White;
+            this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDate.Enabled = false;
+            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(114, 117);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(145, 23);
+            this.txtDate.TabIndex = 15;
+            this.txtDate.Text = "10/04/2024";
+            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 23);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Tên phim:";
+            // 
+            // txtMovieName
+            // 
+            this.txtMovieName.BackColor = System.Drawing.Color.White;
+            this.txtMovieName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMovieName.Enabled = false;
+            this.txtMovieName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMovieName.Location = new System.Drawing.Point(98, 83);
+            this.txtMovieName.Name = "txtMovieName";
+            this.txtMovieName.Size = new System.Drawing.Size(161, 23);
+            this.txtMovieName.TabIndex = 12;
+            this.txtMovieName.Text = "TÊN PHIM";
+            this.txtMovieName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Enabled = false;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(12, 28);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(247, 30);
+            this.textBox4.TabIndex = 13;
+            this.textBox4.Text = "PHIM";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pnlProduct
+            // 
+            this.pnlProduct.BackColor = System.Drawing.Color.White;
+            this.pnlProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlProduct.Controls.Add(this.flpProducts);
+            this.pnlProduct.Controls.Add(this.label10);
+            this.pnlProduct.Controls.Add(this.textBox5);
+            this.pnlProduct.Controls.Add(this.txtTotalProduct);
+            this.pnlProduct.Controls.Add(this.panel5);
+            this.pnlProduct.Location = new System.Drawing.Point(596, 22);
+            this.pnlProduct.Name = "pnlProduct";
+            this.pnlProduct.Size = new System.Drawing.Size(275, 479);
+            this.pnlProduct.TabIndex = 2;
+            // 
+            // flpProducts
+            // 
+            this.flpProducts.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpProducts.Location = new System.Drawing.Point(-1, 77);
+            this.flpProducts.Name = "flpProducts";
+            this.flpProducts.Size = new System.Drawing.Size(275, 313);
+            this.flpProducts.TabIndex = 31;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -442,6 +526,21 @@
             this.label10.Size = new System.Drawing.Size(53, 23);
             this.label10.TabIndex = 26;
             this.label10.Text = "Tổng:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Enabled = false;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(12, 28);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(247, 30);
+            this.textBox5.TabIndex = 14;
+            this.textBox5.Text = "BẮP - NƯỚC";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTotalProduct
             // 
@@ -464,156 +563,6 @@
             this.panel5.Size = new System.Drawing.Size(247, 2);
             this.panel5.TabIndex = 25;
             // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.White;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(9, 3);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(247, 23);
-            this.textBox8.TabIndex = 25;
-            this.textBox8.Text = "TÊN PHIM";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.White;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Enabled = false;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(9, 32);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(94, 23);
-            this.textBox9.TabIndex = 28;
-            this.textBox9.Text = "1 x 30000";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.White;
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Enabled = false;
-            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(131, 32);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(125, 23);
-            this.textBox10.TabIndex = 29;
-            this.textBox10.Text = "30000";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.textBox8);
-            this.panel6.Controls.Add(this.textBox10);
-            this.panel6.Controls.Add(this.textBox9);
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(267, 60);
-            this.panel6.TabIndex = 30;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.panel6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 77);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(275, 313);
-            this.flowLayoutPanel1.TabIndex = 31;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = global::BetaCinema.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(243, 88);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnAdd.TabIndex = 25;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Image = global::BetaCinema.Properties.Resources.loupe;
-            this.btnSearch.Location = new System.Drawing.Point(246, 81);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 35);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // pnlCustomerInfo
-            // 
-            this.pnlCustomerInfo.Controls.Add(this.txtCusDiscount);
-            this.pnlCustomerInfo.Controls.Add(this.label13);
-            this.pnlCustomerInfo.Controls.Add(this.txtPoint);
-            this.pnlCustomerInfo.Controls.Add(this.label11);
-            this.pnlCustomerInfo.Controls.Add(this.txtCustomerName);
-            this.pnlCustomerInfo.Controls.Add(this.label12);
-            this.pnlCustomerInfo.Location = new System.Drawing.Point(3, 132);
-            this.pnlCustomerInfo.Name = "pnlCustomerInfo";
-            this.pnlCustomerInfo.Size = new System.Drawing.Size(290, 123);
-            this.pnlCustomerInfo.TabIndex = 26;
-            this.pnlCustomerInfo.Visible = false;
-            // 
-            // txtPoint
-            // 
-            this.txtPoint.BackColor = System.Drawing.Color.White;
-            this.txtPoint.Enabled = false;
-            this.txtPoint.Location = new System.Drawing.Point(127, 49);
-            this.txtPoint.Name = "txtPoint";
-            this.txtPoint.Size = new System.Drawing.Size(151, 30);
-            this.txtPoint.TabIndex = 8;
-            this.txtPoint.Text = "17042003";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 52);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 23);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Điểm tích lũy:";
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.BackColor = System.Drawing.Color.White;
-            this.txtCustomerName.Enabled = false;
-            this.txtCustomerName.Location = new System.Drawing.Point(127, 13);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(150, 30);
-            this.txtCustomerName.TabIndex = 6;
-            this.txtCustomerName.Text = "Lê Thị Mỹ Hậu";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 23);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Họ và tên:";
-            // 
-            // txtCusDiscount
-            // 
-            this.txtCusDiscount.BackColor = System.Drawing.Color.White;
-            this.txtCusDiscount.Enabled = false;
-            this.txtCusDiscount.Location = new System.Drawing.Point(127, 85);
-            this.txtCusDiscount.Name = "txtCusDiscount";
-            this.txtCusDiscount.Size = new System.Drawing.Size(151, 30);
-            this.txtCusDiscount.TabIndex = 10;
-            this.txtCusDiscount.Text = "15%";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 88);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 23);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Chiết khấu:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -634,7 +583,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(150, 23);
             this.txtTotal.TabIndex = 33;
-            this.txtTotal.Text = "100.000";
+            this.txtTotal.Text = "100.000 đ";
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
@@ -657,7 +606,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(150, 23);
             this.txtDiscount.TabIndex = 35;
-            this.txtDiscount.Text = "100.000";
+            this.txtDiscount.Text = "0 đ";
             this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label16
@@ -680,7 +629,7 @@
             this.txtPay.Name = "txtPay";
             this.txtPay.Size = new System.Drawing.Size(123, 23);
             this.txtPay.TabIndex = 37;
-            this.txtPay.Text = "100.000";
+            this.txtPay.Text = "100.000 đ";
             this.txtPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel8
@@ -712,6 +661,7 @@
             this.btnCreateBill.TabIndex = 39;
             this.btnCreateBill.Text = "Tạo hóa đơn";
             this.btnCreateBill.UseVisualStyleBackColor = false;
+            this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
             // 
             // fBillInfo
             // 
@@ -720,26 +670,25 @@
             this.ClientSize = new System.Drawing.Size(882, 513);
             this.Controls.Add(this.btnCreateBill);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlProduct);
+            this.Controls.Add(this.pnlMovie);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "fBillInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBillInfo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fBillInfo_FormClosing);
+            this.Load += new System.EventHandler(this.fBillInfo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pnlAddCustomer.ResumeLayout(false);
-            this.pnlAddCustomer.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlCustomerInfo.ResumeLayout(false);
             this.pnlCustomerInfo.PerformLayout();
+            this.pnlAddCustomer.ResumeLayout(false);
+            this.pnlAddCustomer.PerformLayout();
+            this.pnlMovie.ResumeLayout(false);
+            this.pnlMovie.PerformLayout();
+            this.pnlProduct.ResumeLayout(false);
+            this.pnlProduct.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
@@ -760,8 +709,8 @@
         private System.Windows.Forms.RadioButton rdoOther;
         private System.Windows.Forms.RadioButton rdoFemale;
         private System.Windows.Forms.RadioButton rdoMale;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlMovie;
+        private System.Windows.Forms.Panel pnlProduct;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
@@ -781,11 +730,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTotalProduct;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpProducts;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel pnlCustomerInfo;
         private System.Windows.Forms.TextBox txtPoint;

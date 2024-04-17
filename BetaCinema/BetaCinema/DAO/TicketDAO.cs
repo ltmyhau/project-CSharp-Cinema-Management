@@ -18,14 +18,7 @@ namespace BetaCinema.DAO
 
         private TicketDAO() { }
 
-        public string GetNextMaVe()
-        {
-            string query = "SELECT 'V' + RIGHT('000' + CAST(MAX(RIGHT(MaVe, 3)) + 1 AS VARCHAR(3)), 3) FROM Ve";
-            string maTL = DataProvider.Instance.ExecuteScalar(query)?.ToString();
-            return maTL;
-        }
-
-        public bool InsertBill(string maHD, string maGhe, string maSC)
+        public bool InsertTicketToBill(string maHD, string maGhe, string maSC)
         {
             string query = "INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES (dbo.f_AutoMaVe(), @maHD , @maGhe , @maSC )";
             object[] parameters = new object[]

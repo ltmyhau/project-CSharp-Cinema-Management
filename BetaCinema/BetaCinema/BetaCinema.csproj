@@ -68,6 +68,7 @@
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\MovieDetailDAO.cs" />
     <Compile Include="DAO\MovieRatingSystemDAO.cs" />
+    <Compile Include="DAO\ProductBillDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\SeatDetailDAO.cs" />
@@ -82,15 +83,16 @@
     <Compile Include="DTO\MovieDTO.cs" />
     <Compile Include="DTO\MovieDetailDTO.cs" />
     <Compile Include="DTO\MovieRatingSystemDTO.cs" />
+    <Compile Include="DTO\ProductBillDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\RoomDTO.cs" />
     <Compile Include="DTO\SeatDetailDTO.cs" />
     <Compile Include="DTO\ShowtimesDTO.cs" />
     <Compile Include="DTO\TicketDTO.cs" />
-    <Compile Include="fLogin.cs">
+    <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fLogin.Designer.cs">
+    <Compile Include="GUI\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\fMain.cs">
@@ -216,7 +218,7 @@
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fLogin.resx">
+    <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\fMain.resx">

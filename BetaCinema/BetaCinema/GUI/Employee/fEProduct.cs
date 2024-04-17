@@ -1,5 +1,6 @@
 ﻿using BetaCinema.DAO;
 using BetaCinema.DTO;
+using BetaCinema.GUI.Employee.Showtimes;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,14 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Application = System.Windows.Forms.Application;
 
 namespace BetaCinema.GUI.Employee
 {
     public partial class fEProduct : Form
     {
+        public static Dictionary<string, int> productList = new Dictionary<string, int>();
+
         public fEProduct()
         {
             InitializeComponent();
@@ -36,6 +40,7 @@ namespace BetaCinema.GUI.Employee
 
         private void CustomizeDataGridView()
         {
+            AddColumnDataGridView("MaSP", "Mã sản phẩm");
             AddColumnDataGridView("TenSP", "Sản phẩm");
             AddColumnDataGridView("GiaBan", "Đơn giá");
             AddColumnDataGridView("SoLuong", "Số lượng");
@@ -59,7 +64,9 @@ namespace BetaCinema.GUI.Employee
             dgvProduct.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProduct.Columns["SoLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProduct.Columns["ThanhTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        
+
+            dgvProduct.Columns["MaSP"].Visible = false;
+
             int totalWidth = dgvProduct.Width;
             dgvProduct.Columns["TenSP"].Width = (int)(0.3 * totalWidth);
             dgvProduct.Columns["GiaBan"].Width = (int)(0.2 * totalWidth);
@@ -124,6 +131,18 @@ namespace BetaCinema.GUI.Employee
             txtTotal.Text = string.Format("{0:N0} đ", tongTien);
         }
 
+        private void SaveProductList()
+        {
+            foreach (DataGridViewRow row in dgvProduct.Rows)
+            {
+                if (!row.IsNewRow && row.Cells["MaSP"].Value != null && row.Cells["SoLuong"].Value != null)
+                {
+                    string maSanPham = row.Cells["MaSP"].Value.ToString();
+                    int soLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    productList[maSanPham] = soLuong;
+                }
+            }
+        }
         #endregion
 
         #region Events
@@ -160,11 +179,13 @@ namespace BetaCinema.GUI.Employee
             {
                 return;
             }
+
+            ProductDTO sanPham = (ProductDTO)cboProduct.SelectedItem;
             int soLuong = int.Parse(txtQuantity.Text);
             int donGia = int.Parse(txtPrice.Text);
             int thanhTien = int.Parse(txtQuantity.Text) * int.Parse(txtPrice.Text);
 
-            dgvProduct.Rows.Add(cboProduct.Text, soLuong, donGia, thanhTien);
+            dgvProduct.Rows.Add(sanPham.MaSP, sanPham.TenSP, donGia, soLuong, thanhTien);
             CalculateTotalPrice();
         }
 
@@ -186,11 +207,22 @@ namespace BetaCinema.GUI.Employee
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            SaveProductList();
             this.Hide();
             fBillInfo f = new fBillInfo();
             f.Text = "Thông tin hóa đơn";
             f.ShowDialog();
         }
         #endregion
+
+        private void fEProduct_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!(Application.OpenForms["fEShowtimesDetail"] == null || Application.OpenForms["fEShowtimesDetail"].IsDisposed))
+            {
+                Application.OpenForms["fEShowtimesDetail"].Show();
+                Application.OpenForms["fEShowtimesDetail"].Focus();
+                productList = new Dictionary<string, int>();
+            }
+        }
     }
 }

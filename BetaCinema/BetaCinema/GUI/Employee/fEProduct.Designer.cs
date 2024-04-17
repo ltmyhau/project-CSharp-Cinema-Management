@@ -30,19 +30,19 @@
         {
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.cboProduct = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtQuantityStock = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnContinue = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.picPoster = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -84,15 +84,6 @@
             this.panel1.Size = new System.Drawing.Size(294, 37);
             this.panel1.TabIndex = 3;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên sản phẩm:";
-            // 
             // cboProduct
             // 
             this.cboProduct.BackColor = System.Drawing.Color.White;
@@ -102,6 +93,15 @@
             this.cboProduct.Size = new System.Drawing.Size(162, 31);
             this.cboProduct.TabIndex = 1;
             this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên sản phẩm:";
             // 
             // panel2
             // 
@@ -113,15 +113,6 @@
             this.panel2.Size = new System.Drawing.Size(294, 37);
             this.panel2.TabIndex = 4;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Số lượng tồn:";
-            // 
             // txtQuantityStock
             // 
             this.txtQuantityStock.BackColor = System.Drawing.Color.White;
@@ -130,6 +121,15 @@
             this.txtQuantityStock.Name = "txtQuantityStock";
             this.txtQuantityStock.Size = new System.Drawing.Size(162, 30);
             this.txtQuantityStock.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Số lượng tồn:";
             // 
             // panel3
             // 
@@ -170,6 +170,18 @@
             this.panel4.Size = new System.Drawing.Size(291, 40);
             this.panel4.TabIndex = 6;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::BetaCinema.Properties.Resources.plus;
+            this.btnAdd.Location = new System.Drawing.Point(253, 1);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // txtQuantity
             // 
             this.txtQuantity.BackColor = System.Drawing.Color.White;
@@ -204,18 +216,6 @@
             this.btnContinue.Text = "Tiếp tục";
             this.btnContinue.UseVisualStyleBackColor = false;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = global::BetaCinema.Properties.Resources.plus;
-            this.btnAdd.Location = new System.Drawing.Point(253, 1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnAdd.TabIndex = 24;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // picPoster
             // 
@@ -277,6 +277,7 @@
             this.Name = "fEProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fEProduct";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fEProduct_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

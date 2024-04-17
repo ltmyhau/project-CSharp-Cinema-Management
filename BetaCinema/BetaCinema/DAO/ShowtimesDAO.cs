@@ -29,6 +29,19 @@ namespace BetaCinema.DAO
             return showtimesID;
         }
 
+        public List<ShowtimesDTO> GetShowtimesByShowtimesID(string showtimesID)
+        {
+            List<ShowtimesDTO> list = new List<ShowtimesDTO>();
+            string query = $"SELECT * FROM vwDanhSachLichChieu WHERE MaSC = N'{showtimesID}'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ShowtimesDTO showtimes = new ShowtimesDTO(item);
+                list.Add(showtimes);
+            }
+            return list;
+        }
+
         public List<ShowtimesDTO> GetShowtimesByDate(DateTime date)
         {
             List<ShowtimesDTO> list = new List<ShowtimesDTO>();
