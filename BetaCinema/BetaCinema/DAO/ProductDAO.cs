@@ -20,6 +20,13 @@ namespace BetaCinema.DAO
 
         private ProductDAO() { }
 
+        public string GetNextMaSP()
+        {
+            string query = "SELECT 'SP' + RIGHT('000' + CAST(MAX(RIGHT(MaSP, 3)) + 1 AS VARCHAR(3)), 3) FROM SanPham";
+            string maSP = DataProvider.Instance.ExecuteScalar(query)?.ToString();
+            return maSP;
+        }
+
         public List<ProductDTO> GetListProduct()
         {
             List<ProductDTO> list = new List<ProductDTO>();
@@ -46,14 +53,17 @@ namespace BetaCinema.DAO
             return list;
         }
 
-        public bool InsertBill(string maHD, string maGhe, string maSC)
+        public bool InsertProduct(string tenSP, string maLSP, int giaBan, int soLuongTon, byte[] hinhAnh)
         {
-            string query = "INSERT INTO Ve(MaVe, MaHD, MaGhe, MaSC) VALUES (dbo.f_AutoMaVe(), @maHD , @maGhe , @maSC )";
+            string query = "INSERT INTO SanPham(MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon, HinhAnh) " +
+                "VALUES (dbo.f_AutoMaSP(), @tenSP , @maLSP , @giaBan , @soLuongTon , @hinhAnh )";
             object[] parameters = new object[]
             {
-                maHD,
-                maGhe,
-                maSC
+                tenSP,
+                maLSP,
+                giaBan,
+                soLuongTon,
+                hinhAnh
             };
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;

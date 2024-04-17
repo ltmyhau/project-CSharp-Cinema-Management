@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBillInfo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlCustomerInfo = new System.Windows.Forms.Panel();
             this.txtCusDiscount = new System.Windows.Forms.TextBox();
@@ -674,6 +675,7 @@
             this.Controls.Add(this.pnlProduct);
             this.Controls.Add(this.pnlMovie);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fBillInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

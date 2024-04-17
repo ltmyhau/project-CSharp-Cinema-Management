@@ -250,7 +250,7 @@ namespace BetaCinema.GUI.Admin.Movie
 
         private void btnUpLoadImg_Click(object sender, EventArgs e)
         {
-            ofd.InitialDirectory = @"D:\MIS\2024 HK I\Lập trình C#.NET\Đồ án\Beta-Cinema\Image\";
+            ofd.InitialDirectory = @"D:\";
             ofd.Filter = "Image|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
             if (ofd.ShowDialog() == DialogResult.OK)
             {

@@ -304,6 +304,8 @@ namespace BetaCinema.GUI.Admin.Genre
                 string tenTL = dgvGenre.Rows[e.RowIndex].Cells["TenTheLoai"].Value.ToString();
                 dgvMovie.DataSource = MovieDetailDAO.Instance.GetListMoiveDetailByGenreName(tenTL);
             }
+            pnlControls.Visible = true;
+            pnlConfirm.Visible = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

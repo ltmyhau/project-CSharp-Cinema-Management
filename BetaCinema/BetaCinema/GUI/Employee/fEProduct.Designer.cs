@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEProduct));
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cboProduct = new System.Windows.Forms.ComboBox();
@@ -296,6 +297,7 @@
             this.ClientSize = new System.Drawing.Size(882, 513);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 560);
             this.MinimumSize = new System.Drawing.Size(900, 560);

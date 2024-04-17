@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMovie));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvMovie = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -191,6 +192,7 @@
             this.Controls.Add(this.dgvMovie);
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fMovie";
             this.Text = "fMovie";
             this.Load += new System.EventHandler(this.fMovie_Load);

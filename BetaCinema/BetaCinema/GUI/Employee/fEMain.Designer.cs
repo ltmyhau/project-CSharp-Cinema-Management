@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.picHelp = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -196,14 +197,15 @@
             this.tmrSidebarTransition.Interval = 10;
             this.tmrSidebarTransition.Tick += new System.EventHandler(this.tmrSidebarTransition_Tick);
             // 
-            // fEmployee
+            // fEMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.flpSidebarTransition);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Name = "fEmployee";
+            this.Name = "fEMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Beta Cinema";
             this.panel1.ResumeLayout(false);

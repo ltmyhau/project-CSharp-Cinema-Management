@@ -254,6 +254,18 @@
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Admin\Customer\fCustomer.resx">
+      <DependentUpon>fCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Employee\fEmployee.resx">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Product\fProduct.resx">
+      <DependentUpon>fProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Statistic\fStatistic.resx">
+      <DependentUpon>fStatistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Employee\fEProductList.resx">
       <DependentUpon>fEProductList.cs</DependentUpon>
     </EmbeddedResource>

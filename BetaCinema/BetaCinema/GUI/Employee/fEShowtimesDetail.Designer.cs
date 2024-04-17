@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEShowtimesDetail));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnContinue = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -509,6 +510,7 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 560);
             this.MinimumSize = new System.Drawing.Size(900, 560);

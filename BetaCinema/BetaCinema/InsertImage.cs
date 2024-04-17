@@ -53,7 +53,8 @@ namespace BetaCinema
                         hinhAnh = reader.ReadBytes((int)stream.Length);
                     }
                 }
-                string query = "UPDATE PhanLoai SET BieuTuongPL = @hinhAnh WHERE MaPL = @ma";
+                string query = "UPDATE SanPham SET HinhANh = @hinhAnh WHERE MaSP = @ma";
+                //string query = "UPDATE PhanLoai SET BieuTuongPL = @hinhAnh WHERE MaPL = @ma";
                 //string query = "UPDATE Phim SET Poster = @hinhAnh WHERE MaPhim = @ma";
                 int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hinhAnh, ma });
                 MessageBox.Show("Đã thêm ảnh vào cơ sở dữ liệu.");

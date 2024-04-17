@@ -60,3 +60,7 @@ C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Deb
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.fEProduct.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Employee.fEProductList.resources
 C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.fEMain.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Customer.fCustomer.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Employee.fEmployee.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Product.fProduct.resources
+C:\Users\My Hau\Documents\GitHub\project-CS-Cinema\BetaCinema\BetaCinema\obj\Debug\BetaCinema.GUI.Admin.Statistic.fStatistic.resources

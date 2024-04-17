@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddShowtimes));
             this.label7 = new System.Windows.Forms.Label();
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -41,13 +42,13 @@
             this.picPoster = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.grbShowtimesInfo = new System.Windows.Forms.GroupBox();
-            this.lblMovieName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMovieName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.grbShowtimesInfo.SuspendLayout();
             this.SuspendLayout();
@@ -197,45 +198,6 @@
             this.grbShowtimesInfo.TabStop = false;
             this.grbShowtimesInfo.Text = "Thông tin suất chiếu";
             // 
-            // lblMovieName
-            // 
-            this.lblMovieName.AutoSize = true;
-            this.lblMovieName.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovieName.Location = new System.Drawing.Point(30, 38);
-            this.lblMovieName.Name = "lblMovieName";
-            this.lblMovieName.Size = new System.Drawing.Size(0, 25);
-            this.lblMovieName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ngày chiếu: ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Giờ chiếu: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Phòng chiếu:";
-            // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
@@ -263,6 +225,45 @@
             this.lblDate.Size = new System.Drawing.Size(0, 25);
             this.lblDate.TabIndex = 4;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(30, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Phòng chiếu:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(30, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Giờ chiếu: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ngày chiếu: ";
+            // 
+            // lblMovieName
+            // 
+            this.lblMovieName.AutoSize = true;
+            this.lblMovieName.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovieName.Location = new System.Drawing.Point(30, 38);
+            this.lblMovieName.Name = "lblMovieName";
+            this.lblMovieName.Size = new System.Drawing.Size(0, 25);
+            this.lblMovieName.TabIndex = 0;
+            // 
             // fAddShowtimes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -281,6 +282,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtShowtimesID);
             this.Controls.Add(this.label11);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 500);
             this.MinimumSize = new System.Drawing.Size(800, 500);

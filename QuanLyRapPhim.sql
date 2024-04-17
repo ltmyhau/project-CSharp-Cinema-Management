@@ -775,6 +775,41 @@ INSERT INTO SanPham(MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon, HinhAnh) VALUES
 (N'SP006', N'Nước suối', N'LSP002', 15000, 140, NULL)
 GO
 
+CREATE FUNCTION f_AutoMaSP()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaSP VARCHAR(10)
+
+    IF NOT EXISTS (SELECT * FROM SanPham)
+		BEGIN
+			SET @MaSP = 'SP001'
+		END
+    ELSE
+		BEGIN
+			DECLARE @MaxMaSP INT
+			SELECT @MaxMaSP = MAX(RIGHT(MaSP, 3)) FROM SanPham
+			SET @MaSP = 'SP' + RIGHT('000' + CAST(@MaxMaSP + 1 AS VARCHAR(3)), 3)
+		END
+
+    RETURN @MaSP
+END
+GO
+
+CREATE TRIGGER SetProductImageToNullOnEmpty
+ON SanPham
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE SanPham
+    SET HinhAnh = NULL
+    FROM SanPham
+    INNER JOIN inserted ON SanPham.MaSP = inserted.MaSP
+    WHERE inserted.HinhAnh IS NOT NULL AND DATALENGTH(inserted.HinhAnh) = 0;
+END
+GO
 
 CREATE TABLE HoaDon
 (
@@ -920,11 +955,12 @@ EXEC dbo.sp_HoaDon_Ve 'HD000001'
 --------- start -----------
 
 
+
 SELECT * FROM HoaDon
 SELECT * FROM Ve
 SELECT * FROM HoaDonBapNuoc
 
-SELECT * FROM KhachHang
+SELECT * FROM SanPham
 
 
 SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
@@ -947,9 +983,6 @@ JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
 JOIN NhanVien nv ON hd.MaNV = nv.MaNV
 JOIN KhachHang kh ON hd.MaKH = kh.MaKH
 WHERE hd.MaHD = 'HD000001'
-
-
-
 
 
 SELECT *
