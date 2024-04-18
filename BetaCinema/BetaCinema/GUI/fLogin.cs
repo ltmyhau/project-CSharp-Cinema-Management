@@ -83,5 +83,17 @@ namespace BetaCinema
                 e.Cancel = true;
             }
         }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPassword.Checked)
+            {
+                txtPassWord.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassWord.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
