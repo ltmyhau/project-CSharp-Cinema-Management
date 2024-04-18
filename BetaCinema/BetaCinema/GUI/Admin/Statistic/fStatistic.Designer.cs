@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fStatistic));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMovie = new System.Windows.Forms.TabPage();
+            this.btnPChart = new System.Windows.Forms.Button();
+            this.btnPPrint = new System.Windows.Forms.Button();
+            this.btnPExport = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpPDenNgay = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +48,9 @@
             this.txtDoanhThuPhim = new System.Windows.Forms.TextBox();
             this.dgvStatisticsByMovie = new System.Windows.Forms.DataGridView();
             this.tabProduct = new System.Windows.Forms.TabPage();
+            this.btnSPChart = new System.Windows.Forms.Button();
+            this.btnSPPrint = new System.Windows.Forms.Button();
+            this.btnSPExport = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpSPDenNgay = new System.Windows.Forms.DateTimePicker();
@@ -58,12 +64,6 @@
             this.txtDoanhThuSP = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvStatisticsByProduct = new System.Windows.Forms.DataGridView();
-            this.btnPChart = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnPExport = new System.Windows.Forms.Button();
-            this.btnSPChart = new System.Windows.Forms.Button();
-            this.btnSPPrint = new System.Windows.Forms.Button();
-            this.btnSPExport = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabMovie.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,7 +92,7 @@
             // tabMovie
             // 
             this.tabMovie.Controls.Add(this.btnPChart);
-            this.tabMovie.Controls.Add(this.btnPrint);
+            this.tabMovie.Controls.Add(this.btnPPrint);
             this.tabMovie.Controls.Add(this.btnPExport);
             this.tabMovie.Controls.Add(this.groupBox1);
             this.tabMovie.Controls.Add(this.panel2);
@@ -106,6 +106,45 @@
             this.tabMovie.TabIndex = 0;
             this.tabMovie.Text = "Phim";
             this.tabMovie.UseVisualStyleBackColor = true;
+            // 
+            // btnPChart
+            // 
+            this.btnPChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPChart.FlatAppearance.BorderSize = 0;
+            this.btnPChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPChart.Image = global::BetaCinema.Properties.Resources.bar_chart;
+            this.btnPChart.Location = new System.Drawing.Point(758, 546);
+            this.btnPChart.Name = "btnPChart";
+            this.btnPChart.Size = new System.Drawing.Size(45, 45);
+            this.btnPChart.TabIndex = 10;
+            this.btnPChart.UseVisualStyleBackColor = true;
+            this.btnPChart.Click += new System.EventHandler(this.btnPChart_Click);
+            // 
+            // btnPPrint
+            // 
+            this.btnPPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPPrint.FlatAppearance.BorderSize = 0;
+            this.btnPPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPPrint.Image = global::BetaCinema.Properties.Resources.printer;
+            this.btnPPrint.Location = new System.Drawing.Point(810, 546);
+            this.btnPPrint.Name = "btnPPrint";
+            this.btnPPrint.Size = new System.Drawing.Size(45, 45);
+            this.btnPPrint.TabIndex = 9;
+            this.btnPPrint.UseVisualStyleBackColor = true;
+            this.btnPPrint.Click += new System.EventHandler(this.btnPPrint_Click);
+            // 
+            // btnPExport
+            // 
+            this.btnPExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPExport.FlatAppearance.BorderSize = 0;
+            this.btnPExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPExport.Image = global::BetaCinema.Properties.Resources.xls;
+            this.btnPExport.Location = new System.Drawing.Point(862, 546);
+            this.btnPExport.Name = "btnPExport";
+            this.btnPExport.Size = new System.Drawing.Size(45, 45);
+            this.btnPExport.TabIndex = 8;
+            this.btnPExport.UseVisualStyleBackColor = true;
+            this.btnPExport.Click += new System.EventHandler(this.btnPExport_Click);
             // 
             // groupBox1
             // 
@@ -294,6 +333,45 @@
             this.tabProduct.Text = "Bắp - Nước";
             this.tabProduct.UseVisualStyleBackColor = true;
             // 
+            // btnSPChart
+            // 
+            this.btnSPChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSPChart.FlatAppearance.BorderSize = 0;
+            this.btnSPChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSPChart.Image = global::BetaCinema.Properties.Resources.bar_chart;
+            this.btnSPChart.Location = new System.Drawing.Point(758, 546);
+            this.btnSPChart.Name = "btnSPChart";
+            this.btnSPChart.Size = new System.Drawing.Size(45, 45);
+            this.btnSPChart.TabIndex = 10;
+            this.btnSPChart.UseVisualStyleBackColor = true;
+            this.btnSPChart.Click += new System.EventHandler(this.btnSPChart_Click);
+            // 
+            // btnSPPrint
+            // 
+            this.btnSPPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSPPrint.FlatAppearance.BorderSize = 0;
+            this.btnSPPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSPPrint.Image = global::BetaCinema.Properties.Resources.printer;
+            this.btnSPPrint.Location = new System.Drawing.Point(810, 546);
+            this.btnSPPrint.Name = "btnSPPrint";
+            this.btnSPPrint.Size = new System.Drawing.Size(45, 45);
+            this.btnSPPrint.TabIndex = 9;
+            this.btnSPPrint.UseVisualStyleBackColor = true;
+            this.btnSPPrint.Click += new System.EventHandler(this.btnSPPrint_Click);
+            // 
+            // btnSPExport
+            // 
+            this.btnSPExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSPExport.FlatAppearance.BorderSize = 0;
+            this.btnSPExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSPExport.Image = global::BetaCinema.Properties.Resources.xls;
+            this.btnSPExport.Location = new System.Drawing.Point(862, 546);
+            this.btnSPExport.Name = "btnSPExport";
+            this.btnSPExport.Size = new System.Drawing.Size(45, 45);
+            this.btnSPExport.TabIndex = 8;
+            this.btnSPExport.UseVisualStyleBackColor = true;
+            this.btnSPExport.Click += new System.EventHandler(this.btnSPExport_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
@@ -450,84 +528,6 @@
             this.dgvStatisticsByProduct.TabIndex = 1;
             this.dgvStatisticsByProduct.DataSourceChanged += new System.EventHandler(this.dgvProduct_DataSourceChanged);
             // 
-            // btnPChart
-            // 
-            this.btnPChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPChart.FlatAppearance.BorderSize = 0;
-            this.btnPChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPChart.Image = global::BetaCinema.Properties.Resources.bar_chart;
-            this.btnPChart.Location = new System.Drawing.Point(758, 546);
-            this.btnPChart.Name = "btnPChart";
-            this.btnPChart.Size = new System.Drawing.Size(45, 45);
-            this.btnPChart.TabIndex = 10;
-            this.btnPChart.UseVisualStyleBackColor = true;
-            this.btnPChart.Click += new System.EventHandler(this.btnPChart_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Image = global::BetaCinema.Properties.Resources.printer;
-            this.btnPrint.Location = new System.Drawing.Point(810, 546);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(45, 45);
-            this.btnPrint.TabIndex = 9;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnPExport
-            // 
-            this.btnPExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPExport.FlatAppearance.BorderSize = 0;
-            this.btnPExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPExport.Image = global::BetaCinema.Properties.Resources.xls;
-            this.btnPExport.Location = new System.Drawing.Point(862, 546);
-            this.btnPExport.Name = "btnPExport";
-            this.btnPExport.Size = new System.Drawing.Size(45, 45);
-            this.btnPExport.TabIndex = 8;
-            this.btnPExport.UseVisualStyleBackColor = true;
-            this.btnPExport.Click += new System.EventHandler(this.btnPExport_Click);
-            // 
-            // btnSPChart
-            // 
-            this.btnSPChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSPChart.FlatAppearance.BorderSize = 0;
-            this.btnSPChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSPChart.Image = global::BetaCinema.Properties.Resources.bar_chart;
-            this.btnSPChart.Location = new System.Drawing.Point(758, 546);
-            this.btnSPChart.Name = "btnSPChart";
-            this.btnSPChart.Size = new System.Drawing.Size(45, 45);
-            this.btnSPChart.TabIndex = 10;
-            this.btnSPChart.UseVisualStyleBackColor = true;
-            this.btnSPChart.Click += new System.EventHandler(this.btnSPChart_Click);
-            // 
-            // btnSPPrint
-            // 
-            this.btnSPPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSPPrint.FlatAppearance.BorderSize = 0;
-            this.btnSPPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSPPrint.Image = global::BetaCinema.Properties.Resources.printer;
-            this.btnSPPrint.Location = new System.Drawing.Point(810, 546);
-            this.btnSPPrint.Name = "btnSPPrint";
-            this.btnSPPrint.Size = new System.Drawing.Size(45, 45);
-            this.btnSPPrint.TabIndex = 9;
-            this.btnSPPrint.UseVisualStyleBackColor = true;
-            this.btnSPPrint.Click += new System.EventHandler(this.btnSPPrint_Click);
-            // 
-            // btnSPExport
-            // 
-            this.btnSPExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSPExport.FlatAppearance.BorderSize = 0;
-            this.btnSPExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSPExport.Image = global::BetaCinema.Properties.Resources.xls;
-            this.btnSPExport.Location = new System.Drawing.Point(862, 546);
-            this.btnSPExport.Name = "btnSPExport";
-            this.btnSPExport.Size = new System.Drawing.Size(45, 45);
-            this.btnSPExport.TabIndex = 8;
-            this.btnSPExport.UseVisualStyleBackColor = true;
-            this.btnSPExport.Click += new System.EventHandler(this.btnSPExport_Click);
-            // 
             // fStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -591,7 +591,7 @@
         private System.Windows.Forms.DateTimePicker dtpSPTuNgay;
         private System.Windows.Forms.DateTimePicker dtpSPDenNgay;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPPrint;
         private System.Windows.Forms.Button btnPExport;
         private System.Windows.Forms.Button btnPChart;
         private System.Windows.Forms.Button btnSPPrint;

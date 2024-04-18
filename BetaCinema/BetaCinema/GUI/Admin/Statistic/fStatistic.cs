@@ -1,4 +1,6 @@
 ﻿using BetaCinema.DAO;
+using BetaCinema.DTO;
+using BetaCinema.GUI.Admin.Movie;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -118,6 +120,166 @@ namespace BetaCinema.GUI.Admin.Statistic
 
             dgvStatisticsByProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
+
+        public void ExportFileStatisticsByMovie(DataTable dataTable, string sheetName, string title)
+        {
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks oBooks;
+            Microsoft.Office.Interop.Excel.Sheets oSheets;
+            Microsoft.Office.Interop.Excel.Workbook oBook;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = oExcel.Workbooks.Add(Type.Missing);
+            oSheets = oBook.Worksheets;
+            oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = sheetName;
+
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "G1");
+            head.MergeCells = true;
+            head.Value2 = title;
+            head.Font.Bold = true;
+            head.Font.Name = "Times New Roman";
+            head.Font.Size = "20";
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
+            cl1.Value2 = "Mã phim";
+            cl1.ColumnWidth = 10;
+            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
+            cl2.Value2 = "Tên phim";
+            cl2.ColumnWidth = 40;
+            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
+            cl3.Value2 = "Số suất chiếu";
+            cl3.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
+            cl4.Value2 = "Tổng số vé";
+            cl4.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            cl5.Value2 = "Số vé bán ra";
+            cl5.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
+            cl6.Value2 = "Số vé tồn";
+            cl6.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl7 = oSheet.get_Range("G3", "G3");
+            cl7.Value2 = "Doanh thu";
+            cl7.ColumnWidth = 13;
+
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "G3");
+            rowHead.Font.Bold = true;
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            rowHead.Interior.ColorIndex = 6;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            rowHead.Font.Name = "Times New Roman";
+            rowHead.Font.Size = "11";
+
+            object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.Rows[row];
+                for (int col = 0; col < dataTable.Columns.Count; col++)
+                {
+                    arr[row, col] = dataRow[col];
+                }
+            }
+
+            int rowStart = 4;
+            int colStart = 1;
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            int colEnd = dataTable.Columns.Count;
+            Microsoft.Office.Interop.Excel.Range c0 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart];
+            Microsoft.Office.Interop.Excel.Range cN = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colEnd];
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c0, cN);
+            range.Value2 = arr;
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            oSheet.get_Range(c0, cN).Font.Name = "Times New Roman";
+            oSheet.get_Range(c0, cN).Font.Size = "11";
+            oSheet.get_Range(c0, cN).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range c02 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart + 1];
+            Microsoft.Office.Interop.Excel.Range cN2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colStart + 1];
+            oSheet.get_Range(c02, cN2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
+        }
+
+        public void ExportFileStatisticsByProduct(DataTable dataTable, string sheetName, string title)
+        {
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks oBooks;
+            Microsoft.Office.Interop.Excel.Sheets oSheets;
+            Microsoft.Office.Interop.Excel.Workbook oBook;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = oExcel.Workbooks.Add(Type.Missing);
+            oSheets = oBook.Worksheets;
+            oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = sheetName;
+
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "E1");
+            head.MergeCells = true;
+            head.Value2 = title;
+            head.Font.Bold = true;
+            head.Font.Name = "Times New Roman";
+            head.Font.Size = "20";
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
+            cl1.Value2 = "Mã sản phẩm";
+            cl1.ColumnWidth = 13;
+            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
+            cl2.Value2 = "Tên sản phẩm";
+            cl2.ColumnWidth = 40;
+            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
+            cl3.Value2 = "Số lượng tồn";
+            cl3.ColumnWidth = 15;
+            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
+            cl4.Value2 = "Số lượng bán ra";
+            cl4.ColumnWidth = 15;
+            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            cl5.Value2 = "Doanh thu";
+            cl5.ColumnWidth = 15;
+
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "E3");
+            rowHead.Font.Bold = true;
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            rowHead.Interior.ColorIndex = 6;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            rowHead.Font.Name = "Times New Roman";
+            rowHead.Font.Size = "11";
+
+            object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.Rows[row];
+                for (int col = 0; col < dataTable.Columns.Count; col++)
+                {
+                    arr[row, col] = dataRow[col];
+                }
+            }
+
+            int rowStart = 4;
+            int colStart = 1;
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            int colEnd = dataTable.Columns.Count;
+            Microsoft.Office.Interop.Excel.Range c0 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart];
+            Microsoft.Office.Interop.Excel.Range cN = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colEnd];
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c0, cN);
+            range.Value2 = arr;
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            oSheet.get_Range(c0, cN).Font.Name = "Times New Roman";
+            oSheet.get_Range(c0, cN).Font.Size = "11";
+            oSheet.get_Range(c0, cN).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            Microsoft.Office.Interop.Excel.Range c02 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, colStart + 1];
+            Microsoft.Office.Interop.Excel.Range cN2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, colStart + 1];
+            oSheet.get_Range(c02, cN2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
+        }
         #endregion
 
         #region Events
@@ -227,14 +389,52 @@ namespace BetaCinema.GUI.Admin.Statistic
             f.ShowDialog();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void btnPPrint_Click(object sender, EventArgs e)
         {
-
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("EXEC spThongKeDoanhThuPhim");
+            rptStatisticMovie r = new rptStatisticMovie();
+            r.SetDataSource(dataTable);
+            fReport f = new fReport();
+            f.crvReport.ReportSource = r;
+            f.ShowDialog();
         }
 
         private void btnPExport_Click(object sender, EventArgs e)
         {
+            DataTable dataTable = new DataTable();
 
+            DataColumn col1 = new DataColumn("MaPhim");
+            DataColumn col2 = new DataColumn("TenPhim");
+            DataColumn col3 = new DataColumn("SoSuatChieu");
+            DataColumn col4 = new DataColumn("TongSoVe");
+            DataColumn col5 = new DataColumn("SoVeBanRa");
+            DataColumn col6 = new DataColumn("SoVeTon");
+            DataColumn col7 = new DataColumn("DoanhThu");
+
+            dataTable.Columns.Add(col1);
+            dataTable.Columns.Add(col2);
+            dataTable.Columns.Add(col3);
+            dataTable.Columns.Add(col4);
+            dataTable.Columns.Add(col5);
+            dataTable.Columns.Add(col6);
+            dataTable.Columns.Add(col7);
+
+            foreach (DataGridViewRow dgvRow in dgvStatisticsByMovie.Rows)
+            {
+                DataRow row = dataTable.NewRow();
+
+                row[0] = dgvRow.Cells["MaPhim"].Value;
+                row[1] = dgvRow.Cells["TenPhim"].Value;
+                row[2] = dgvRow.Cells["SoSuatChieu"].Value;
+                row[3] = dgvRow.Cells["TongSoVe"].Value;
+                row[4] = dgvRow.Cells["SoVeBanRa"].Value;
+                row[5] = dgvRow.Cells["SoVeTon"].Value;
+                row[6] = dgvRow.Cells["DoanhThu"].Value;
+
+                dataTable.Rows.Add(row);
+            }
+
+            ExportFileStatisticsByMovie(dataTable, "Doanh thu", "THỐNG KÊ DOANH THU THEO PHIM");
         }
 
         private void btnSPChart_Click(object sender, EventArgs e)
@@ -246,12 +446,44 @@ namespace BetaCinema.GUI.Admin.Statistic
 
         private void btnSPPrint_Click(object sender, EventArgs e)
         {
-
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("EXEC spThongKeDoanhThuSanPham");
+            rptStatisticProduct r = new rptStatisticProduct();
+            r.SetDataSource(dataTable);
+            fReport f = new fReport();
+            f.crvReport.ReportSource = r;
+            f.ShowDialog();
         }
 
         private void btnSPExport_Click(object sender, EventArgs e)
         {
+            DataTable dataTable = new DataTable();
 
+            DataColumn col1 = new DataColumn("MaSP");
+            DataColumn col2 = new DataColumn("TenSP");
+            DataColumn col3 = new DataColumn("SoLuongTon");
+            DataColumn col4 = new DataColumn("SoLuongDaBan");
+            DataColumn col5 = new DataColumn("DoanhThu");
+
+            dataTable.Columns.Add(col1);
+            dataTable.Columns.Add(col2);
+            dataTable.Columns.Add(col3);
+            dataTable.Columns.Add(col4);
+            dataTable.Columns.Add(col5);
+
+            foreach (DataGridViewRow dgvRow in dgvStatisticsByProduct.Rows)
+            {
+                DataRow row = dataTable.NewRow();
+
+                row[0] = dgvRow.Cells["MaSP"].Value;
+                row[1] = dgvRow.Cells["TenSP"].Value;
+                row[2] = dgvRow.Cells["SoLuongTon"].Value;
+                row[3] = dgvRow.Cells["SoLuongDaBan"].Value;
+                row[4] = dgvRow.Cells["DoanhThu"].Value;
+
+                dataTable.Rows.Add(row);
+            }
+
+            ExportFileStatisticsByProduct(dataTable, "Doanh thu", "THỐNG KÊ DOANH THU THEO SẢN PHẨM");
         }
         #endregion
     }

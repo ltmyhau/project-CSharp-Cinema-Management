@@ -134,6 +134,18 @@
     <Compile Include="GUI\Admin\Statistic\fStatistic.Designer.cs">
       <DependentUpon>fStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Admin\Statistic\rptStatisticProduct.cs">
+      <DependentUpon>rptStatisticProduct.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GUI\Admin\Statistic\rptStatisticMovie.cs">
+      <DependentUpon>rptStatisticMovie.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="GUI\Employee\fEProductList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +308,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Statistic\fStatistic.resx">
       <DependentUpon>fStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Statistic\rptStatisticProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStatisticProduct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Statistic\rptStatisticMovie.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStatisticMovie.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Employee\fEProductList.resx">
       <DependentUpon>fEProductList.cs</DependentUpon>
