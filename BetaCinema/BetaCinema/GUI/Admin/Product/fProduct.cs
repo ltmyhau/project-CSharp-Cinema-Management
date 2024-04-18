@@ -1,5 +1,6 @@
 ﻿using BetaCinema.DAO;
 using BetaCinema.DTO;
+using BetaCinema.GUI.Admin.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -406,7 +407,12 @@ namespace BetaCinema.GUI.Admin.Product
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            List<ProductDTO> list = ProductDAO.Instance.GetListProduct();
+            rptProduct r = new rptProduct();
+            r.SetDataSource(list);
+            fReport f = new fReport();
+            f.crvReport.ReportSource = r;
+            f.ShowDialog();
         }
 
         private void btnExport_Click(object sender, EventArgs e)

@@ -148,10 +148,10 @@ namespace BetaCinema.GUI.Admin.Customer
             cl9.ColumnWidth = 13;
             Microsoft.Office.Interop.Excel.Range cl10 = oSheet.get_Range("J3", "J3");
             cl10.Value2 = "Email";
-            cl10.ColumnWidth = 23;
+            cl10.ColumnWidth = 30;
             Microsoft.Office.Interop.Excel.Range cl11 = oSheet.get_Range("K3", "K3");
             cl11.Value2 = "Địa chỉ";
-            cl11.ColumnWidth = 20;
+            cl11.ColumnWidth = 30;
 
             Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "K3");
             rowHead.Font.Bold = true;
@@ -224,7 +224,7 @@ namespace BetaCinema.GUI.Admin.Customer
             if (e.ColumnIndex == dgvCustomer.Columns["EditColumn"].Index)
             {
                 fAddEditCustoner f = new fAddEditCustoner();
-                f.Text = "Chi tiết khách hành";
+                f.Text = "Thông tin khách hàng";
                 f.LoadData(dgvCustomer.Rows[e.RowIndex]);
                 f.ShowDialog();
             }
@@ -257,7 +257,7 @@ namespace BetaCinema.GUI.Admin.Customer
             }
             DataGridViewRow selectedRow = dgvCustomer.CurrentRow;
             fAddEditCustoner f = new fAddEditCustoner();
-            f.Text = "Chi tiết khách hàng";
+            f.Text = "Thông tin khách hàng";
             f.LoadData(selectedRow);
             f.ShowDialog();
         }
@@ -289,6 +289,7 @@ namespace BetaCinema.GUI.Admin.Customer
         private void btnAdd_Click(object sender, EventArgs e)
         {
             fAddEditCustoner f = new fAddEditCustoner();
+            f.Text = "Thêm khách hàng mới";
             f.ShowDialog();
         }
 

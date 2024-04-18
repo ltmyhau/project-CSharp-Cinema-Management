@@ -677,6 +677,27 @@ INSERT INTO NhanVien(MaNV, HoNV, TenNV, NgaySinh, GioiTinh, NgayVaoLam, MaCV, Di
 (N'NV010', N'Nguyễn Thị Quỳnh', N'Anh', '1984-02-14', N'Nữ', N'2023-10-12', N'NV', N'09096582531', N'nguyenthiquynhanh@email.com', '123456', N'707 Đường Cộng Hòa, Phường 10, Quận Tân Bình, TP. Hồ Chí Minh')
 GO
 
+CREATE FUNCTION f_AutoMaNV()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaNV VARCHAR(10)
+    IF NOT EXISTS (SELECT * FROM NhanVien WHERE MaNV != N'ADMIN' AND MaNV != N'NV000')
+    BEGIN
+        SET @MaNV = 'NV001'
+    END
+    ELSE
+    BEGIN
+        DECLARE @MaxMaNV INT
+        SELECT @MaxMaNV = MAX(RIGHT(MaNV, 3)) FROM NhanVien WHERE MaNV != N'ADMIN' AND MaNV != N'NV000'
+        IF @MaxMaNV IS NULL
+            SET @MaxMaNV = 0
+        SET @MaNV = 'NV' + RIGHT('000' + CAST(@MaxMaNV + 1 AS VARCHAR(3)), 3)
+    END
+    RETURN @MaNV
+END
+GO
+
 CREATE TABLE BacThanhVien
 (
 	MaBacTV NVARCHAR(10) CONSTRAINT PK_BTV_MaBacTV PRIMARY KEY(MaBacTV),
@@ -1141,6 +1162,9 @@ SELECT SUM(SoLuong * GiaBan)
 FROM Ve Ve v ON hd.MaHD = v.MaHD
 LEFT JOIN Ghe g ON v.MaGhe = g.MaGhe
 LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+
+
+SELECT * FROM NhanVien
 
 --------- end -----------
 

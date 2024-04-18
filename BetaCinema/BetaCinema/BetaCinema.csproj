@@ -64,6 +64,7 @@
     <Compile Include="DAO\CustomerTypeDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\EmployeeTypeDAO.cs" />
     <Compile Include="DAO\GenreDAO.cs" />
     <Compile Include="DAO\GenreMovieDAO.cs" />
     <Compile Include="DAO\MovieDAO.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\CustomerTypeDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\EmployeeTypeDTO.cs" />
     <Compile Include="DTO\GenreDTO.cs" />
     <Compile Include="DTO\GenreMovieDTO.cs" />
     <Compile Include="DTO\MovieDTO.cs" />
@@ -110,17 +112,35 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="GUI\Admin\Employee\fAddEditEmloyee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Employee\fAddEditEmloyee.Designer.cs">
+      <DependentUpon>fAddEditEmloyee.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Admin\Employee\fEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Admin\Employee\fEmployee.Designer.cs">
       <DependentUpon>fEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Admin\Employee\rptEmployee.cs">
+      <DependentUpon>rptEmployee.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="GUI\Admin\Product\fProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Admin\Product\fProduct.Designer.cs">
       <DependentUpon>fProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Product\rptProduct.cs">
+      <DependentUpon>rptProduct.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="GUI\Admin\Statistic\fChart.cs">
       <SubType>Form</SubType>
@@ -297,11 +317,22 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCustomer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Employee\fAddEditEmloyee.resx">
+      <DependentUpon>fAddEditEmloyee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Employee\fEmployee.resx">
       <DependentUpon>fEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Employee\rptEmployee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmployee.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Product\fProduct.resx">
       <DependentUpon>fProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Product\rptProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptProduct.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Statistic\fChart.resx">
       <DependentUpon>fChart.cs</DependentUpon>
