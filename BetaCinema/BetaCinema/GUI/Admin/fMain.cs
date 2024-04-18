@@ -28,7 +28,6 @@ namespace BetaCinema
         fCustomer fCustomer;
         fEmployee fEmployee;
         fStatistic fStatistic;
-        InsertImage fInsertImage;
         public fMain(EmployeeDTO e)
         {
             InitializeComponent();
@@ -267,23 +266,7 @@ namespace BetaCinema
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (fInsertImage == null)
-            {
-                fInsertImage = new InsertImage();
-                fInsertImage.FormClosed += fInsertImage_FormClosed;
-                fInsertImage.MdiParent = this;
-                fInsertImage.Dock = DockStyle.Fill;
-                fInsertImage.Show();
-            }
-            else
-            {
-                fInsertImage.Activate();
-            }
-        }
-
-        private void fInsertImage_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            fInsertImage = null;
+            this.Close();
         }
         #endregion
     }

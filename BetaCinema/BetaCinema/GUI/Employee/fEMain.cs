@@ -19,7 +19,6 @@ namespace BetaCinema
 
         fEShowtimes fEMovie;
         fEProduct fEProduct;
-        InsertImage fInsertImage;
 
         public fEMain(EmployeeDTO e)
         {
@@ -156,23 +155,7 @@ namespace BetaCinema
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (fInsertImage == null)
-            {
-                fInsertImage = new InsertImage();
-                fInsertImage.FormClosed += fInsertImage_FormClosed;
-                fInsertImage.MdiParent = this;
-                fInsertImage.Dock = DockStyle.Fill;
-                fInsertImage.Show();
-            }
-            else
-            {
-                fInsertImage.Activate();
-            }
-        }
-
-        private void fInsertImage_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            fInsertImage = null;
+            this.Close();
         }
         #endregion
     }
