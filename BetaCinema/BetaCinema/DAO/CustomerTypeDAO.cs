@@ -23,7 +23,7 @@ namespace BetaCinema.DAO
         public List<CustomerTypeDTO> GetListCustomerType()
         {
             List<CustomerTypeDTO> list = new List<CustomerTypeDTO>();
-            string query = "SELECT * FROM BacThanhVien";
+            string query = "SELECT * FROM BacThanhVien ORDER BY ChietKhau ASC";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

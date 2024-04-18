@@ -70,6 +70,7 @@
     <Compile Include="DAO\MovieRatingSystemDAO.cs" />
     <Compile Include="DAO\ProductBillDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ProductTypeDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\SeatDetailDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
@@ -85,15 +86,28 @@
     <Compile Include="DTO\MovieRatingSystemDTO.cs" />
     <Compile Include="DTO\ProductBillDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\ProductTypeDTO.cs" />
     <Compile Include="DTO\RoomDTO.cs" />
     <Compile Include="DTO\SeatDetailDTO.cs" />
     <Compile Include="DTO\ShowtimesDTO.cs" />
     <Compile Include="DTO\TicketDTO.cs" />
+    <Compile Include="GUI\Admin\Customer\fAddEditCustoner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Customer\fAddEditCustoner.Designer.cs">
+      <DependentUpon>fAddEditCustoner.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Admin\Customer\fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Admin\Customer\fCustomer.Designer.cs">
       <DependentUpon>fCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Customer\rptCustomer.cs">
+      <DependentUpon>rptCustomer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="GUI\Admin\Employee\fEmployee.cs">
       <SubType>Form</SubType>
@@ -254,8 +268,15 @@
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Admin\Customer\fAddEditCustoner.resx">
+      <DependentUpon>fAddEditCustoner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Customer\fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Customer\rptCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCustomer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Employee\fEmployee.resx">
       <DependentUpon>fEmployee.cs</DependentUpon>

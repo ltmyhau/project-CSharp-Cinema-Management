@@ -951,16 +951,14 @@ BEGIN
     GROUP BY hd.MaHD, NgayTao, HoNV, TenNV, HoKH, TenKH, TenPhim, ThoiGian, TenPhong
 END
 
-EXEC dbo.sp_HoaDon_Ve 'HD000001'
 --------- start -----------
+SELECT * FROM SanPham WHERE GiaBan BEtWEEN 1 AND 1222222
 
-
+UPDATE SanPham SET TenSP = N'', MaLoaiSP = N'LSP001', GiaBan = 0, SoLuongTon = 0, HinhAnh = NULL WHERE MaSP = N'SP007'
 
 SELECT * FROM HoaDon
 SELECT * FROM Ve
 SELECT * FROM HoaDonBapNuoc
-
-SELECT * FROM SanPham
 
 
 SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 

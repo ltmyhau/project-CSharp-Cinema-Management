@@ -53,6 +53,32 @@ namespace BetaCinema.DAO
             return list;
         }
 
+        public List<ProductDTO> GetListProductByProductName(string productName)
+        {
+            List<ProductDTO> list = new List<ProductDTO>();
+            string query = $"SELECT * FROM SanPham WHERE TenSP LIKE N'%{productName}%'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ProductDTO product = new ProductDTO(item);
+                list.Add(product);
+            }
+            return list;
+        }
+
+        public List<ProductDTO> GetListProductByPrice(int fromPrice, int toPrice)
+        {
+            List<ProductDTO> list = new List<ProductDTO>();
+            string query = $"SELECT * FROM SanPham WHERE GiaBan BEtWEEN {fromPrice} AND {toPrice}";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ProductDTO product = new ProductDTO(item);
+                list.Add(product);
+            }
+            return list;
+        }
+
         public bool InsertProduct(string tenSP, string maLSP, int giaBan, int soLuongTon, byte[] hinhAnh)
         {
             string query = "INSERT INTO SanPham(MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon, HinhAnh) " +
@@ -66,6 +92,29 @@ namespace BetaCinema.DAO
                 hinhAnh
             };
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+
+        public bool UpdateProduct(string maSP, string tenSP, string maLoaiSP, int giaBan, int soLuongTon, byte[] hinhAnh)
+        {
+            string query = "UPDATE SanPham SET TenSP = @tenSP , MaLoaiSP = @maLoaiSP , GiaBan = @giaBan , SoLuongTon = @soLuongTon , HinhAnh = @hinhAnh WHERE MaSP = @maSP ";
+            object[] parameters = new object[]
+            {
+                tenSP,
+                maLoaiSP,
+                giaBan,
+                soLuongTon,
+                hinhAnh,
+                maSP
+            };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+
+        public bool DeleteProduct(string maSP)
+        {
+            string query = $"DELETE SanPham WHERE MaSP = N'{maSP}'";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
     }

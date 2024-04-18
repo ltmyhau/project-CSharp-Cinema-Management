@@ -23,7 +23,6 @@ namespace BetaCinema.DTO
         public int SoLuongTon { get => soLuongTon; set => soLuongTon = value; }
         public byte[] HinhAnh { get => hinhAnh; set => hinhAnh = value; }
 
-
         public ProductDTO(string maSP, string tenSP, string maLoaiSP, int giaBan, int soLuongTon, byte[] hinhAnh)
         {
             this.maSP = maSP;
