@@ -951,47 +951,253 @@ BEGIN
     GROUP BY hd.MaHD, NgayTao, HoNV, TenNV, HoKH, TenKH, TenPhim, ThoiGian, TenPhong
 END
 
+
+--------- Thông kê ---------
+CREATE PROCEDURE spThongKeDoanhThuSanPham @ngayBatDau DATE = NULL, @ngayKetThuc DATE = NULL
+AS
+BEGIN
+	IF (@ngayBatDau IS NOT NULL AND @ngayKetThuc IS NOT NULL)
+	BEGIN
+		SELECT sp.MaSP, TenSP, SoLuongTon, COUNT(SoLuong) AS SoLuongDaBan, GiaBan * COALESCE(SUM(SoLuong),0) AS DoanhThu
+		FROM SanPham sp
+		LEFT JOIN HoaDonBapNuoc hdbp ON hdbp.MaSP = sp.MaSP
+		LEFT JOIN HoaDon hd ON hdbp.MaHD = hd.MaHD
+		WHERE NgayTao BETWEEN @ngayBatDau AND @ngayKetThuc
+		GROUP BY sp.MaSP, TenSP, SoLuongTon, GiaBan
+		ORDER BY sp.MaSP
+	END
+    ELSE
+    BEGIN
+	SELECT sp.MaSP, TenSP, SoLuongTon, COUNT(SoLuong) AS SoLuongDaBan, GiaBan * COALESCE(SUM(SoLuong),0) AS DoanhThu
+		FROM SanPham sp
+		LEFT JOIN HoaDonBapNuoc hdbp ON hdbp.MaSP = sp.MaSP
+		LEFT JOIN HoaDon hd ON hdbp.MaHD = hd.MaHD
+		GROUP BY sp.MaSP, TenSP, SoLuongTon, GiaBan
+		ORDER BY sp.MaSP
+	END
+END;
+
+EXEC spThongKeDoanhThuSanPham '03/01/2024', '04/30/2024'
+
+CREATE PROCEDURE spThongKeDoanhThuPhim @ngayBatDau DATE = NULL, @ngayKetThuc DATE = NULL
+AS
+BEGIN
+	IF (@ngayBatDau IS NOT NULL AND @ngayKetThuc IS NOT NULL)
+    BEGIN
+		SELECT p.MaPhim, TenPhim, COUNT(DISTINCT sc.MaSC) AS SoSuatChieu, COUNT(ctsc.MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN ctsc.MaGhe END) AS SoVeBanRa, 
+		COUNT(CASE WHEN TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SoVeTon,
+		SUM(CASE WHEN TinhTrang = N'Đã đặt' THEN Gia ELSE 0 END) AS DoanhThu
+		FROM Phim p
+		LEFT JOIN SuatChieu sc ON sc.MaPhim = p.MaPhim
+		LEFT JOIN ChiTietSuatChieu ctsc ON ctsc.MaSC = sc.MaSC
+		LEFT JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
+		LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+		WHERE sc.ThoiGian BETWEEN @ngayBatDau AND @ngayKetThuc
+		GROUP BY p.MaPhim, TenPhim
+		ORDER BY p.MaPhim
+	END
+    ELSE
+    BEGIN
+		SELECT p.MaPhim, TenPhim, COUNT(DISTINCT sc.MaSC) AS SoSuatChieu, COUNT(ctsc.MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN ctsc.MaGhe END) AS SoVeBanRa, 
+		COUNT(CASE WHEN TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SoVeTon,
+		SUM(CASE WHEN TinhTrang = N'Đã đặt' THEN Gia ELSE 0 END) AS DoanhThu
+		FROM Phim p
+		LEFT JOIN SuatChieu sc ON sc.MaPhim = p.MaPhim
+		LEFT JOIN ChiTietSuatChieu ctsc ON ctsc.MaSC = sc.MaSC
+		LEFT JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
+		LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+		GROUP BY p.MaPhim, TenPhim
+		ORDER BY p.MaPhim
+	END
+END;
+
+EXEC spThongKeDoanhThuPhim '03/9/2024', '04/9/2024'
+
+EXEC spThongKeDoanhThuPhim
+EXEC spThongKeDoanhThuSanPham
+
+
+
 --------- start -----------
 SELECT * FROM SanPham WHERE GiaBan BEtWEEN 1 AND 1222222
+
+UPDATE KhachHang
+SET HoKH = @hoKH , TenKH = @tenKH , NgaySinh = @ngaySinh , GioiTinh = @gioiTinh , DiemTichLuy @diemTichLuy , MaBacTV = @maBacTV , DienThoai @dienThoai , Email @email , DiaChi @diaChi
+WHERE MaKH = @maKH
 
 UPDATE SanPham SET TenSP = N'', MaLoaiSP = N'LSP001', GiaBan = 0, SoLuongTon = 0, HinhAnh = NULL WHERE MaSP = N'SP007'
 
 SELECT * FROM HoaDon
 SELECT * FROM Ve
+SELECT * FROM SuatChieu
 SELECT * FROM HoaDonBapNuoc
 
+SELECT * FROM Ghe WHERE MaPhong = 'PC001'
 
-SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
-MaGhe
+
+SELECT * 
 FROM HoaDon hd JOIN Ve v ON hd.MaHD = v.MaHD
 JOIN SuatChieu sc ON v.MaSC = sc.MaSC
 JOIN Phim p ON sc.MaPhim = p.MaPhim
-JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
-JOIN NhanVien nv ON hd.MaNV = nv.MaNV
-JOIN KhachHang kh ON hd.MaKH = kh.MaKH
-WHERE hd.MaHD = 'HD000001'
+WHERE sc.MaPhim = 'P001'
 
-
-SELECT hd.MaHD, NgayTao, ISNULL(HoNV, '') + ' ' + ISNULL(TenNV, '') AS HoTenNV, HoKH + ' ' + TenKH AS HoTenKH, TenPhim, ThoiGian, TenPhong, 
-(SELECT STRING_AGG(MaGhe, ', ') FROM Ve v JOIN SuatChieu sc ON v.MaSC = sc.MaSC WHERE MaHD = 'HD000001') AS GheDaDat
-FROM HoaDon hd JOIN Ve v ON hd.MaHD = v.MaHD
-JOIN SuatChieu sc ON v.MaSC = sc.MaSC
+SELECT * 
+FROM SuatChieu sc
 JOIN Phim p ON sc.MaPhim = p.MaPhim
-JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
-JOIN NhanVien nv ON hd.MaNV = nv.MaNV
-JOIN KhachHang kh ON hd.MaKH = kh.MaKH
-WHERE hd.MaHD = 'HD000001'
+JOIN Ve v ON sc.MaSC = v.MaSC
+JOIN Ghe g ON v.MaGhe = g.MaGhe
+JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+WHERE sc.MaPhim = 'P005'
+
+-- số ghế theo theo
+SELECT TenPhim, COUNT(MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Trống' THEN MaGhe END) AS SoVeBanRa, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN MaGhe END) AS SeVeTon
+FROM ChiTietSuatChieu ctsc
+JOIN SuatChieu sc ON ctsc.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+WHERE p.MaPhim = 'P005'
+GROUP BY TenPhim
+
+SELECT TenPhim, COUNT(ctsc.MaGhe) AS TongSoVe, SUM(CASE WHEN TinhTrang = N'Trống' THEN Gia END) AS SoVeBanRa, SUM(CASE WHEN TinhTrang = N'Đã đặt' THEN Gia END) AS SeVeTon
+FROM ChiTietSuatChieu ctsc
+JOIN SuatChieu sc ON ctsc.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+JOIN Ve v ON sc.MaSC = v.MaSC
+JOIN Ghe g ON v.MaGhe = g.MaGhe
+JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+WHERE p.MaPhim = 'P005'
+GROUP BY TenPhim
+
+SELECT TenPhim, COUNT(ctsc.MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN ctsc.MaGhe END) AS SoVeBanRa, 
+COUNT(CASE WHEN TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SeVeTon,
+SUM(CASE WHEN TinhTrang = N'Đã đặt' THEN Gia END) AS DoanhThu
+FROM ChiTietSuatChieu ctsc
+JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
+JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+JOIN SuatChieu sc ON ctsc.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+WHERE p.MaPhim = 'P005'
+GROUP BY TenPhim
+
+SELECT ctsc.*, g.MaLoaiGhe, Gia, TenPhim
+FROM ChiTietSuatChieu ctsc
+JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
+JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+JOIN SuatChieu sc ON ctsc.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+WHERE p.MaPhim = 'P005' AND TinhTrang = N'Đã đặt'
+GROUP BY TenPhim
+
+
+SELECT p.MaPhim, TenPhim, COUNT(sc.MaSC) AS SoSuatChieu
+FROM SuatChieu sc
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+GROUP BY p.MaPhim, TenPhim
 
 
 SELECT *
-FROM HoaDon hd JOIN HoaDonBapNuoc hdbn ON hd.MaHD = hdbn.MaHD
+FROM HoaDon hd JOIN Ve v ON hd.MaHD = v.MaHD
+JOIN SuatChieu sc ON v.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+JOIN PhongChieu pc ON sc.MaPhong = pc.MaPhong
+JOIN NhanVien nv ON hd.MaNV = nv.MaNV
+JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+WHERE hd.MaHD = 'HD000001'
 
-SELECT p.MaPhim, p.TenPhim, p.MaPL,	pl.BieuTuongPL, p.DaoDien, p.QuocGia, p.ThoiLuong, p.NgayKhoiChieu, p.MoTa, p.Poster, p.Trailer,
-(SELECT STRING_AGG(tl.TenTheLoai, ', ')
-FROM TheLoai_Phim AS tlp INNER JOIN TheLoai AS tl ON tlp.MaTL = tl.MaTL
-WHERE tlp.MaPhim = p.MaPhim) AS 'TheLoaiPhim'
-FROM Phim AS p LEFT JOIN PhanLoai AS pl ON p.MaPL = pl.MaPL
+SELECT sp.MaSP, TenSP, SoLuongTon, COUNT(SoLuong) AS SoLuongDaBan, GiaBan * COALESCE(SUM(SoLuong),0) AS DoanhThu
+FROM SanPham sp
+LEFT JOIN HoaDonBapNuoc hdbp ON hdbp.MaSP = sp.MaSP
+LEFT JOIN HoaDon hd ON hdbp.MaHD = hd.MaHD
+--WHERE NgayTao BETWEEN '03/01/2024' AND '04/30/2024'
+GROUP BY sp.MaSP, TenSP, SoLuongTon, GiaBan
+ORDER BY sp.MaSP
+
+
+SELECT nv.MaNV, HoNV, TenNV, COUNT(hd.MaHD) AS SoLuongDon, COUNT(DISTINCT MaVe) AS SoVe, COUNT(DISTINCT MaHDBN) AS SoBapNuoc, 
+	COALESCE(SUM(Gia), 0) AS DoanhThuVe, COALESCE(SUM(SoLuong * sp.GiaBan), 0) AS DoanhThuBapNuoc
+FROM NhanVien nv 
+JOIN HoaDon hd ON hd.MaNV = nv.MaNV 
+JOIN Ve v ON hd.MaHD = v.MaHD
+JOIN Ghe g ON v.MaGhe = g.MaGhe
+JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+JOIN HoaDonBapNuoc hdbn ON hd.MaHD = hdbn.MaHD
+JOIN SanPham sp ON hdbn.MaSP = sp.MaSP
+GROUP BY nv.MaNV, HoNV, TenNV
+
+
+SELECT *
+FROM NhanVien nv 
+LEFT JOIN HoaDon hd ON hd.MaNV = nv.MaNV 
+LEFT JOIN Ve v ON hd.MaHD = v.MaHD
+LEFT JOIN Ghe g ON v.MaGhe = g.MaGhe
+LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+LEFT JOIN HoaDonBapNuoc hdbn ON hd.MaHD = hdbn.MaHD
+LEFT JOIN SanPham sp ON hdbn.MaSP = sp.MaSP
+
+SELECT SUM(SoLuong * GiaBan)
+FROM HoaDonBapNuoc hdbn
+JOIN SanPham sp ON hdbn.MaSP = sp.MaSP
+
+SELECT SUM(SoLuong * GiaBan)
+FROM Ve Ve v ON hd.MaHD = v.MaHD
+LEFT JOIN Ghe g ON v.MaGhe = g.MaGhe
+LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+
 --------- end -----------
+
+-- Số suất chiếu theo phim
+SELECT p.MaPhim, TenPhim, COUNT(sc.MaSC) AS SoSuatChieu
+FROM SuatChieu sc
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+GROUP BY p.MaPhim, TenPhim
+
+-- số ghế theo phim
+SELECT TenPhim, COUNT(MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Trống' THEN MaGhe END) AS SoVeBanRa, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN MaGhe END) AS SeVeTon
+FROM ChiTietSuatChieu ctsc
+JOIN SuatChieu sc ON ctsc.MaSC = sc.MaSC
+JOIN Phim p ON sc.MaPhim = p.MaPhim
+--WHERE p.MaPhim = 'P005'
+GROUP BY TenPhim
+
+-- tên phim, tổng vé, đã bán, vé tồn, doanh thu
+SELECT p.MaPhim, TenPhim, COUNT(DISTINCT sc.MaSC) AS SoSuatChieu, COUNT(ctsc.MaGhe) AS TongSoVe, COUNT(CASE WHEN TinhTrang = N'Đã đặt' THEN ctsc.MaGhe END) AS SoVeBanRa, 
+COUNT(CASE WHEN TinhTrang = N'Trống' THEN ctsc.MaGhe END) AS SeVeTon,
+SUM(CASE WHEN TinhTrang = N'Đã đặt' THEN Gia ELSE 0 END) AS DoanhThu
+FROM Phim p
+LEFT JOIN SuatChieu sc ON sc.MaPhim = p.MaPhim
+LEFT JOIN ChiTietSuatChieu ctsc ON ctsc.MaSC = sc.MaSC
+LEFT JOIN Ghe g ON ctsc.MaGhe = g.MaGhe
+LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+--WHERE sc.ThoiGian BETWEEN '03/01/2024' AND '03/15/2024'
+GROUP BY p.MaPhim, TenPhim
+ORDER BY p.MaPhim
+
+-- sản phẩm, số lượng tồn, đã bán, doanh thu
+SELECT sp.MaSP, TenSP, SoLuongTon, COUNT(SoLuong) AS SoLuongDaBan, GiaBan * COALESCE(SUM(SoLuong),0) AS DoanhThu
+FROM SanPham sp
+LEFT JOIN HoaDonBapNuoc hdbp ON hdbp.MaSP = sp.MaSP
+LEFT JOIN HoaDon hd ON hdbp.MaHD = hd.MaHD
+--WHERE NgayTao BETWEEN '03/01/2024' AND '04/30/2024'
+GROUP BY sp.MaSP, TenSP, SoLuongTon, GiaBan
+ORDER BY sp.MaSP
+
+
+SELECT nv.MaNV, HoNV, TenNV, COUNT(hd.MaHD) AS SoLuongDon, COUNT(DISTINCT MaVe) AS SoVe, COUNT(DISTINCT MaHDBN) AS SoBapNuoc, 
+	COALESCE(SUM(Gia), 0) AS DoanhThuVe, COALESCE(SUM(SoLuong * sp.GiaBan), 0) AS DoanhThuBapNuoc
+FROM NhanVien nv 
+LEFT JOIN HoaDon hd ON hd.MaNV = nv.MaNV 
+LEFT JOIN Ve v ON hd.MaHD = v.MaHD
+LEFT JOIN Ghe g ON v.MaGhe = g.MaGhe
+LEFT JOIN LoaiGhe lg ON g.MaLoaiGhe = lg.MaLoaiGhe
+LEFT JOIN HoaDonBapNuoc hdbn ON hd.MaHD = hdbn.MaHD
+LEFT JOIN SanPham sp ON hdbn.MaSP = sp.MaSP
+GROUP BY nv.MaNV, HoNV, TenNV
+
+
+
+
+
+
+
 
 --CREATE TABLE ChiTietHoaDon
 --(

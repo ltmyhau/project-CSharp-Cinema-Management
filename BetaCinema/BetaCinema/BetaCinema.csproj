@@ -46,6 +46,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -120,6 +121,12 @@
     </Compile>
     <Compile Include="GUI\Admin\Product\fProduct.Designer.cs">
       <DependentUpon>fProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\Statistic\fChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\Statistic\fChart.Designer.cs">
+      <DependentUpon>fChart.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\Statistic\fStatistic.cs">
       <SubType>Form</SubType>
@@ -283,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Product\fProduct.resx">
       <DependentUpon>fProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\Statistic\fChart.resx">
+      <DependentUpon>fChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\Statistic\fStatistic.resx">
       <DependentUpon>fStatistic.cs</DependentUpon>
@@ -504,7 +514,9 @@
   <ItemGroup>
     <None Include="Resources\user.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bar-chart.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\question.png" />
   </ItemGroup>
