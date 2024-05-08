@@ -21,6 +21,7 @@ Phần mềm quản lý rạp chiếu phim được phát triển nhằm mục �
 
 ## 1. Giới thiệu
 Ngành công nghiệp điện ảnh ngày càng phát triển, nhu cầu quản lý rạp chiếu phim hiệu quả cũng ngày càng tăng cao. Phần mềm quản lý rạp chiếu phim ra đời nhằm đáp ứng nhu cầu này, giúp các rạp phim tối ưu hóa hoạt động vận hành, nâng cao chất lượng dịch vụ và tăng lợi nhuận.
+
 Phần mềm cung cấp đầy đủ các chức năng cần thiết cho việc quản lý lịch chiếu phim, bán vé, quản lý nhân viên, khách hàng, thống kê doanh thu,... giúp rạp phim tối ưu hóa hoạt động và nâng cao hiệu quả kinh doanh.
 
 
