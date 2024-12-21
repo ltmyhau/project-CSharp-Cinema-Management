@@ -89,5 +89,17 @@ namespace BetaCinema.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public byte[] GetPosterByMovieID(string maPhim)
+        {
+            string query = "SELECT Poster FROM Phim WHERE MaPhim = @MaPhim";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { maPhim });
+            if (result != null && result != DBNull.Value)
+            {
+                return (byte[])result;
+            }
+
+            return null;
+        }
     }
 }

@@ -220,7 +220,7 @@ namespace BetaCinema.GUI.Admin.Movie
             DateTime ngayKhoiChieu = dtpReleaseDate.Value;
             string trailer = !string.IsNullOrEmpty(txtTrailerURL.Text.Trim()) ? txtTrailerURL.Text.Trim() : null;
             string moTa = !string.IsNullOrEmpty(txtSynopsis.Text.Trim()) ? txtSynopsis.Text.Trim() : null;
-            byte[] poster = GetPosterData();
+            byte[] poster = string.IsNullOrEmpty(image) ? GetCurrentPoster(maPhim) : GetPosterData();
 
             return MovieDAO.Instance.UpdateMovie(maPhim, tenPhim, maPL, daoDien, quocGia, thoiLuong, ngayKhoiChieu, poster, trailer, moTa);
         }
@@ -241,6 +241,12 @@ namespace BetaCinema.GUI.Admin.Movie
                 return true;
             }
             return false;
+        }
+
+        private byte[] GetCurrentPoster(string maPhim)
+        {
+            byte[] poster = MovieDAO.Instance.GetPosterByMovieID(maPhim);
+            return poster ?? new byte[0];
         }
         #endregion
 

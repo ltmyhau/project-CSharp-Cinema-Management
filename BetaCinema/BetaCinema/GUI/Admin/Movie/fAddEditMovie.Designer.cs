@@ -169,7 +169,7 @@
             this.txtMovieID.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieID.Location = new System.Drawing.Point(7, 29);
             this.txtMovieID.Name = "txtMovieID";
-            this.txtMovieID.Size = new System.Drawing.Size(160, 31);
+            this.txtMovieID.Size = new System.Drawing.Size(160, 36);
             this.txtMovieID.TabIndex = 2;
             // 
             // label3
@@ -178,7 +178,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 23);
+            this.label3.Size = new System.Drawing.Size(98, 30);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mã phim";
             // 
@@ -213,7 +213,7 @@
             this.cboMovieRatingSystem.FormattingEnabled = true;
             this.cboMovieRatingSystem.Location = new System.Drawing.Point(7, 29);
             this.cboMovieRatingSystem.Name = "cboMovieRatingSystem";
-            this.cboMovieRatingSystem.Size = new System.Drawing.Size(170, 33);
+            this.cboMovieRatingSystem.Size = new System.Drawing.Size(170, 38);
             this.cboMovieRatingSystem.TabIndex = 2;
             // 
             // label2
@@ -222,7 +222,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 23);
+            this.label2.Size = new System.Drawing.Size(100, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phân loại";
             // 
@@ -241,7 +241,7 @@
             this.txtDirector.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDirector.Location = new System.Drawing.Point(7, 29);
             this.txtDirector.Name = "txtDirector";
-            this.txtDirector.Size = new System.Drawing.Size(263, 31);
+            this.txtDirector.Size = new System.Drawing.Size(263, 36);
             this.txtDirector.TabIndex = 6;
             // 
             // label9
@@ -250,7 +250,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 23);
+            this.label9.Size = new System.Drawing.Size(99, 30);
             this.label9.TabIndex = 2;
             this.label9.Text = "Đạo diễn";
             // 
@@ -269,7 +269,7 @@
             this.txtTrailerURL.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrailerURL.Location = new System.Drawing.Point(7, 29);
             this.txtTrailerURL.Name = "txtTrailerURL";
-            this.txtTrailerURL.Size = new System.Drawing.Size(263, 31);
+            this.txtTrailerURL.Size = new System.Drawing.Size(263, 36);
             this.txtTrailerURL.TabIndex = 7;
             // 
             // label11
@@ -278,7 +278,7 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(173, 23);
+            this.label11.Size = new System.Drawing.Size(215, 30);
             this.label11.TabIndex = 2;
             this.label11.Text = "Trailer (Link youtube)";
             // 
@@ -298,7 +298,7 @@
             this.clbGenre.FormattingEnabled = true;
             this.clbGenre.Location = new System.Drawing.Point(7, 29);
             this.clbGenre.Name = "clbGenre";
-            this.clbGenre.Size = new System.Drawing.Size(170, 130);
+            this.clbGenre.Size = new System.Drawing.Size(170, 99);
             this.clbGenre.TabIndex = 9;
             // 
             // label5
@@ -307,7 +307,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 23);
+            this.label5.Size = new System.Drawing.Size(88, 30);
             this.label5.TabIndex = 2;
             this.label5.Text = "Thể loại";
             // 
@@ -326,7 +326,7 @@
             this.txtMovieName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieName.Location = new System.Drawing.Point(7, 29);
             this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.Size = new System.Drawing.Size(356, 31);
+            this.txtMovieName.Size = new System.Drawing.Size(356, 36);
             this.txtMovieName.TabIndex = 1;
             // 
             // label1
@@ -335,7 +335,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 23);
+            this.label1.Size = new System.Drawing.Size(101, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tên phim";
             // 
@@ -364,7 +364,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 23);
+            this.label4.Size = new System.Drawing.Size(70, 30);
             this.label4.TabIndex = 2;
             this.label4.Text = "Mô tả";
             // 
@@ -384,7 +384,7 @@
             this.dtpReleaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpReleaseDate.Location = new System.Drawing.Point(7, 29);
             this.dtpReleaseDate.Name = "dtpReleaseDate";
-            this.dtpReleaseDate.Size = new System.Drawing.Size(170, 31);
+            this.dtpReleaseDate.Size = new System.Drawing.Size(170, 36);
             this.dtpReleaseDate.TabIndex = 5;
             // 
             // label8
@@ -393,7 +393,7 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 23);
+            this.label8.Size = new System.Drawing.Size(167, 30);
             this.label8.TabIndex = 2;
             this.label8.Text = "Ngày khởi chiếu";
             // 
@@ -412,7 +412,7 @@
             this.txtDuration.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuration.Location = new System.Drawing.Point(7, 29);
             this.txtDuration.Name = "txtDuration";
-            this.txtDuration.Size = new System.Drawing.Size(170, 31);
+            this.txtDuration.Size = new System.Drawing.Size(170, 36);
             this.txtDuration.TabIndex = 4;
             // 
             // label7
@@ -421,7 +421,7 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 23);
+            this.label7.Size = new System.Drawing.Size(182, 30);
             this.label7.TabIndex = 2;
             this.label7.Text = "Thời lượng (phút)";
             // 
@@ -440,7 +440,7 @@
             this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(7, 29);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(170, 31);
+            this.txtCountry.Size = new System.Drawing.Size(170, 36);
             this.txtCountry.TabIndex = 3;
             // 
             // label6
@@ -449,7 +449,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 23);
+            this.label6.Size = new System.Drawing.Size(99, 30);
             this.label6.TabIndex = 2;
             this.label6.Text = "Quốc gia";
             // 
@@ -457,7 +457,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(782, 453);
+            this.ClientSize = new System.Drawing.Size(778, 444);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
